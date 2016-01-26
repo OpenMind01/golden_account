@@ -1,0 +1,22 @@
+<table id="wallet-ct-list">
+  <thead>
+    <tr>
+      <th>{{::lang.wallet.contacts.name}}</th>
+      <th>{{::lang.wallet.contacts.address}}</th>
+      <th>{{::lang.wallet.contacts.email}}</th>
+      <th>{{::lang.wallet.contacts.phone}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="contact in wallet.contacts | filter : ct.filter">
+      <td>{{contact.name}}</td>
+      <td>{{contact.address}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone}}</td>
+      <td class="small-col details-link" data-csv="false">
+        <a href="{{'#/wallet/contacts/' + contact.address}}">{{::lang.wallet.contacts.details}} <i class="fa fa-arrow-right"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

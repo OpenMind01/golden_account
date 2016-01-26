@@ -1,0 +1,47 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+
+  	<div class="actions" ng-show="ct.list">
+
+      <div class="input-container">
+        <input type="text" ng-model="ct.filter" placeholder="{{::lang.wallet.contacts.search}}" />
+      </div>
+
+    	<a href="javascript:;" class="link-button" ng-click="addContact()">{{::lang.wallet.contacts.add}}</a>
+
+      <div class="flyout-widget">
+
+        <div class="select-dropdown" ng-click="exportContactMenu=true" outer-click="exportContactMenu=false">
+          <span>{{::lang.wallet.export}}</span>
+        </div>
+
+        <div class="flyout-container icon-menu-flyout select-dropdown-flyout" ng-class="{ active: exportContactMenu }">
+          <div class="inner">
+            <ul class="item-list">
+              <li>
+                <pdf-button element="wallet-ct-list" filename="{{wallet.address + '_contacts.pdf'}}">
+                  <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>{{::lang.wallet.pdf}}</a>
+                </pdf-button>
+              </li>
+              <li>
+                <csv-button element="wallet-ct-list" filename="{{wallet.address + '_contacts.csv'}}">
+                  <a href="javascript:;"><i class="fa fa-file-excel-o"></i>{{::lang.wallet.csv}}</a>
+                </csv-button>
+              </li>
+            </ul>
+          </div>
+        </div><!-- flyout-container -->
+      </div>
+
+    </div>
+
+    <i class="contacts-icon"></i>
+    <h2>{{::lang.wallet.contacts.title}}</h2>
+  </div>
+
+  <div class="wallet-contact-list" ng-show="ct.list" include-template="tpl/views/wallet/wallet_contact_list.html"></div>
+  <div class="wallet-add-contact" scope="parent" include-template="tpl/views/wallet/wallet_add_contact.html"></div>
+  <div class="wallet-contact-view" ng-show="ct.view" include-template="tpl/views/wallet/wallet_contact_view.html"></div>
+
+</div><!-- _wrapper -->

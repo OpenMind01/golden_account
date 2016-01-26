@@ -1,0 +1,33 @@
+<div class="app-menu" ng-click="menu.visible=true" outer-click="menu.visible=false" ng-class="{ active: menu.visible }">
+  <i class="menu-icon"></i>
+  <a href="javascript:;">
+    {{lang.menu[menu.active]}}
+  </a>
+</div>
+
+<div class="app-menu-container" ng-show="menu.visible">
+
+  <ul>
+    <li class="dashboard">
+      <a href="#/summary" active-eval="menu.active='summary'" active-link>
+        <i></i>{{::lang.menu.summary}}
+      </a>
+    </li>
+    <li class="wallet">
+      <a href="#/wallet" active-eval="menu.active='wallet'" active-link>
+        <i></i>{{::lang.menu.wallet}}
+      </a>
+    </li>
+    <li class="vault">
+      <a href="#/vault" active-eval="menu.active='vault'" active-link>
+        <i></i>{{::lang.menu.vault}}
+      </a>
+    </li>
+    <li class="investments">
+      <a href="#/investments" active-eval="menu.active='investments'" active-link>
+        <i></i>{{::lang.menu.investments}}
+      </a>
+    </li>
+  </ul>
+
+</div><!-- menu-drop-down -->

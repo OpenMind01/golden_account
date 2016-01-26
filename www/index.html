@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html ng-app="Bitgold" ng-touch >
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BitGold 0.1.14</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/temp/wallet.css" />
+<script src="js/lib/aes.js"></script>
+<script src="js/lib/angular-1.3.0.js"></script>
+<script src="js/lib/angular-route.js"></script>
+<script src="js/lib/angular-sanitize.js"></script>
+<script src="js/lib/angular-touch.js"></script>
+<script src="js/lib/bitcoin.js"></script>
+<script src="js/lib/pbkdf2.js"></script>
+<script src="js/lib/sha512.js"></script>
+<script src="js/lib/sjcl.js"></script>
+<script src="js/src/app-templates.js"></script>
+<script src="js/src/app.js"></script>
+<script src="js/src/constants/language.js"></script>
+<script src="js/src/controllers/basic-info.js"></script>
+<script src="js/src/controllers/investments.js"></script>
+<script src="js/src/controllers/sign-in.js"></script>
+<script src="js/src/controllers/sign-out.js"></script>
+<script src="js/src/controllers/sign-up.js"></script>
+<script src="js/src/controllers/summary.js"></script>
+<script src="js/src/controllers/vault.js"></script>
+<script src="js/src/controllers/verify-email.js"></script>
+<script src="js/src/controllers/verify-id.js"></script>
+<script src="js/src/controllers/verify-mobile.js"></script>
+<script src="js/src/controllers/wallet.js"></script>
+<script src="js/src/directives/attribute/active-eval.js"></script>
+<script src="js/src/directives/attribute/active-link.js"></script>
+<script src="js/src/directives/attribute/arrow-navigation.js"></script>
+<script src="js/src/directives/attribute/compile.js"></script>
+<script src="js/src/directives/attribute/copy-button.js"></script>
+<script src="js/src/directives/attribute/focus-select.js"></script>
+<script src="js/src/directives/attribute/hit-down.js"></script>
+<script src="js/src/directives/attribute/hit-enter.js"></script>
+<script src="js/src/directives/attribute/hit-up.js"></script>
+<script src="js/src/directives/attribute/include-template.js"></script>
+<script src="js/src/directives/attribute/match-password.js"></script>
+<script src="js/src/directives/attribute/outer-click.js"></script>
+<script src="js/src/directives/attribute/retina.js"></script>
+<script src="js/src/directives/attribute/scroll-parent-if.js"></script>
+<script src="js/src/directives/attribute/set-focus.js"></script>
+<script src="js/src/directives/attribute/strong-password.js"></script>
+<script src="js/src/directives/element/address-input.js"></script>
+<script src="js/src/directives/element/amount-input.js"></script>
+<script src="js/src/directives/element/auto-tab.js"></script>
+<script src="js/src/directives/element/country-input.js"></script>
+<script src="js/src/directives/element/csv-button.js"></script>
+<script src="js/src/directives/element/currency-input.js"></script>
+<script src="js/src/directives/element/currency-selector.js"></script>
+<script src="js/src/directives/element/date-input.js"></script>
+<script src="js/src/directives/element/email-input.js"></script>
+<script src="js/src/directives/element/image-input.js"></script>
+<script src="js/src/directives/element/label-input.js"></script>
+<script src="js/src/directives/element/language-input.js"></script>
+<script src="js/src/directives/element/language-selector.js"></script>
+<script src="js/src/directives/element/location-input.js"></script>
+<script src="js/src/directives/element/method-input.js"></script>
+<script src="js/src/directives/element/modal.js"></script>
+<script src="js/src/directives/element/pdf-button.js"></script>
+<script src="js/src/directives/element/phone-input.js"></script>
+<script src="js/src/directives/element/pie-chart.js"></script>
+<script src="js/src/directives/element/qrcode.js"></script>
+<script src="js/src/directives/element/state-input.js"></script>
+<script src="js/src/directives/element/strength-bar.js"></script>
+<script src="js/src/directives/element/timezone-input.js"></script>
+<script src="js/src/factories/bitgold-api.js"></script>
+<script src="js/src/factories/bitgold-bitcoin.js"></script>
+<script src="js/src/factories/bitgold-classes-event.js"></script>
+<script src="js/src/factories/bitgold-classes-socket.js"></script>
+<script src="js/src/factories/bitgold-classes-wallet.js"></script>
+<script src="js/src/factories/bitgold-crypto.js"></script>
+<script src="js/src/factories/bitgold-exchange.js"></script>
+<script src="js/src/factories/bitgold-investments.js"></script>
+<script src="js/src/factories/bitgold-location.js"></script>
+<script src="js/src/factories/bitgold-session.js"></script>
+<script src="js/src/factories/bitgold-summary.js"></script>
+<script src="js/src/factories/bitgold-vault.js"></script>
+<script src="js/src/factories/bitgold-wallet.js"></script>
+<script src="js/src/factories/bitgold.js"></script>
+<script src="js/src/factories/blockchain-blockcypher-socket.js"></script>
+<script src="js/src/factories/blockchain-blockcypher.js"></script>
+<script src="js/src/factories/blockchain-insight-socket.js"></script>
+<script src="js/src/factories/blockchain-insight.js"></script>
+<script src="js/src/factories/blockchain-toshi.js"></script>
+<script src="js/src/factories/blockchain.js"></script>
+<script src="js/src/factories/blockcypher-api.js"></script>
+<script src="js/src/factories/blockcypher.js"></script>
+<script src="js/src/features.js"></script>
+<script src="js/src/filters/format-currency.js"></script>
+<script src="js/src/filters/format-date.js"></script>
+<script src="js/src/libz.js"></script>
+<script src="js/src/loader.js"></script>
+<script src="js/src/router.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <header class="main-header">
+
+  <div class="_wrapper">
+
+    <a href="/">
+
+      <img ng-if="language !== 'Chinese'" src="img/logos/bitgold-logo-english.svg" class="logo" ng-class="language">
+      <img ng-if="language === 'Chinese'" retina src="img/logos/bitgold-logo-chinese.svg" class="logo" ng-class="language">
+
+    </a>
+
+    <section class="live-values-widget">
+
+      <span class="label">{{::lang.header.currency}}</span>
+      <div class="flyout-widget">
+        <currency-selector search="true" ng-model="currency"></currency-selector>
+      </div>
+
+      <span class="label">{{::lang.header.btcPrice}}</span>
+      <span class="value" id="btc-val">{{lang.currencySymbol[currency]}}{{exchange[currency].BTC | formatCurrency}}</span>
+
+      <span class="label">{{::lang.header.goldPrice}}</span>
+      <span class="value" id="gold-val">{{lang.currencySymbol[currency]}}{{exchange[currency]['XAU.gr'] | formatCurrency}}</span>
+
+    </section><!-- live-values-widget -->
+
+    <nav class="main-nav" ng-if="!profile">
+
+      <a href="#">{{::lang.header.features}}</a>
+      <a href="#">{{::lang.header.security}}</a>
+      <a href="#">{{::lang.header.pricing}}</a>
+      <div class="flyout-widget">
+        <a href="javascript:;" class="flyout-hook">{{::lang.header.more}}</a>
+      </div>
+
+      <a href="#/sign-in" class="button">{{::lang.header.signIn}}</a>
+
+    </nav>
+
+    <nav class="main-nav user-menu" ng-if="profile">
+
+      <div class="flyout-widget">
+
+        <a href="javascript:;" class="flyout-hook" ng-click="userMenu=true" outer-click="userMenu=false">
+          <span ng-if="profile.firstName">{{profile.firstName}}&nbsp;{{profile.lastName}}</span>
+          <span ng-if="!profile.firstName">{{profile.email}}</span>
+        </a>
+
+        <div class="flyout-container icon-menu-flyout user-flyout" ng-class="{ active: userMenu }">
+          <div class="inner">
+            <ul class="item-list">
+              <li><a href="#/summary/settings"><i class="user-menu-settings-icon"></i>{{::lang.menu.settings}}</a></li>
+              <li><a href="#/logout"><i class="user-menu-logout-icon"></i>{{::lang.menu.logout}}</a></li>
+            </ul>
+          </div>
+        </div><!-- flyout-container -->
+
+      </div><!-- flyout-widget -->
+
+
+    </nav>
+
+  </div><!-- _wrapper -->
+
+</header>
+
+
+    <main ng-view>
+    </main>
+
+    <footer class="main-footer">
+
+	<div class="_wrapper">
+
+		<div class="right-container">
+
+			<div class="language-container">
+
+			  <span class="label">{{::lang.footer.language}}</span>
+
+			  <language-selector ng-model="language" />
+
+		  </div><!-- language-container -->
+
+		  <div class="social-container">
+
+		  	<a href="javascript:;" class="linkedin-icon"></a>
+		  	<a href="javascript:;" class="facebook-icon"></a>
+		  	<a href="javascript:;" class="twitter-icon"></a>
+
+		  </div><!-- social-container -->
+
+	  </div><!-- right-container -->
+
+	  <nav>
+			<a href="#/about-us">{{::lang.footer.aboutUs}}</a>
+			<a href="#/what-we-do">{{::lang.footer.whatWeDo}}</a>
+			<a href="#/why-gold">{{::lang.footer.whyGold}}</a>
+			<a href="#/transparency">{{::lang.footer.transparency}}</a>
+			<a href="#/investors">{{::lang.footer.investors}}</a>
+			<a href="#/atm-locations">{{::lang.footer.atmLocations}}</a>
+			<a href="#/contact-us">{{::lang.footer.contactUs}}</a>
+		</nav>
+
+		<nav class="secondary-nav">
+			<a href="#/privacy-and-security">{{::lang.footer.privacy}}</a>
+			<a href="#/terms-of-service">{{::lang.footer.terms}}</a>
+			<a href="#/disclosures">{{::lang.footer.disclosures}}</a>
+			<a href="#/cookies">{{::lang.footer.cookies}}</a>
+			<a href="#/site-map">{{::lang.footer.siteMap}}</a>
+		</nav>
+
+		<p class="copyright">&copy; {{::lang.footer.copyright}}</p>
+
+  </div><!-- _wrapper -->
+
+</footer>
+
+
+    <div id="modal-overlay"></div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54330368-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

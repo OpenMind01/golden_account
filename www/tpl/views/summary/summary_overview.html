@@ -1,0 +1,24 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <i class="dashboard-icon"></i>
+    <h2>{{::lang.summary.title}}</h2>
+  </div>
+
+  <div class="summary-balance" include-template="tpl/views/summary/summary_balance.html"></div>
+
+  <div class="section-heading">
+
+    <div class="actions">
+      <a href="#/summary/transactions" class="link-button">{{::lang.summary.transactions.all}}</a>
+    </div>
+
+    <i class="transactions-icon"></i>
+    <h2 class="section-title">{{::lang.summary.transactions.last}}</h2>
+  </div>
+
+  <div class="summary-transactions">
+    <div include-template="tpl/views/summary/summary_transaction_list.html"></div>
+  </div>
+
+</div><!-- _wrapper -->

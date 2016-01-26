@@ -1,0 +1,192 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Navigation
+//
+// ----------------------------------------------
+//
+// Styles for site navigation
+
+.main-nav {
+
+	float: right;
+  margin-top: 17px;
+  font-size: rem(14);
+
+	> div, > a:not(.button) {
+		color: $white;
+    font-weight: $medium-font;
+    margin: 0 10px;
+
+    // Remove margin on last nav item
+    &:last-child { margin-right: 0; }
+	
+  } // div, a
+
+  .button {
+    margin-left: 10px;
+  }
+
+  // Navigation for user menu
+  &.user-menu {
+    margin-top: 29px;
+    text-align: right;
+
+  }
+
+} // main-nav
+
+
+.app-nav {
+
+  width: 100%;
+  height: $app-nav-height;
+  margin-top: -($header-margin-bottom);
+
+  background: $app-nav-color;
+  border-top: 1px solid $app-nav-top-border-color;
+
+  ._wrapper {
+    @include outer-container();
+  }
+
+  // Left Side Main Menu
+  .menu-container {
+
+    @include span-columns(2);
+    position: relative;
+
+  } // menu-container
+
+  // Right side CTA
+  .cta {
+
+    @include span-columns(2);
+
+    text-align: right;
+    margin-top: -3px;
+    line-height: $app-nav-height;
+
+  } // cta
+
+} // app-nav
+
+
+// App Menu
+.app-menu {
+
+  display: inline-block;
+  line-height: $app-nav-height;
+  height: ($app-nav-height - 1);
+  position: relative;
+  z-index: $z - 100;
+  cursor: pointer;
+
+  .menu-icon {
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 10px;
+
+    @include icon-sprite($menu-icon); 
+  
+  } // menu-icon
+
+  a {
+    color: $white;
+    display: inline-block;
+
+    @include link-chevron();
+  
+  } // a
+
+  // Active Styles
+  &.active {
+
+    background: $app-nav-active-bg-color;
+    padding: 0 35px 0 30px;
+    margin-left: -30px;
+
+    a { color: $bitgold-yellow; }
+
+  } // active
+
+} // app-menu
+
+// App menu dropdown
+.app-menu-container {
+  position: absolute;
+  left: -30px;
+  padding: 30px;
+  z-index: $z - 100;
+
+  width: 225px;
+  background: $app-nav-active-bg-color;
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+
+  li {
+    margin-bottom: 35px;
+
+    &:last-child { margin-bottom: 0; }
+
+  } // li
+
+  a {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+    color: $white;
+    
+    // Active Dot
+    &.active-link:after {
+      content: "";
+      position: absolute;
+      top: 7px; right: -6px;
+
+      @include size(6px);
+      border-radius: 50%;
+      background: $bitgold-yellow;
+
+    } // active-link
+
+  } // a
+
+  // Base Icon Styles
+  i {
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+
+    // Fix vertical alignment issue
+    margin-top: -3px;
+
+  } // i
+
+} // app-menu-container
+
+
+// Subnavigation tabs
+.sub-nav {
+
+  @include span-columns(8);
+
+  line-height: $app-nav-height - 2;
+  text-align: center;
+
+  > a {
+    color: $white;
+    margin: 0 20px;
+    font-size: rem(14);
+    padding-bottom: 24px;
+
+    &.active-link {
+      color: $yellow;
+      border-bottom: 4px solid $bitgold-yellow;
+    }
+  
+  } // a
+
+} // sub-nav

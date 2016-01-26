@@ -1,0 +1,163 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Variables
+//
+// ----------------------------------------------
+//
+// Anything that can be turned into a variable should be
+// and placed in this file
+
+// Base Colors
+$white:                      #fff;
+$black:                      #000;
+$off-white:                  #fafafa;
+$dark-yellow:                #a26800;
+
+
+// Brand Colors
+$bitgold-yellow:             #fecc0e;
+$bitgold-blue:               #23a6de;
+$bitgold-dark:               #252e33;
+$bitgold-medium:             darken(#83949e, 15%);
+$bitgold-light:              darken(#d8e1e6, 15%);
+$bitgold-very-light:         darken(#b5c0c6, 15%);
+
+
+// UI Colours
+$green:                      #1bc67c;
+$red:                        #dc6262;
+$yellow:                     $bitgold-yellow;
+$orange:                     #fba200;
+
+
+// Gradients
+$yellow-gradient-top:        #fecc0e;
+$yellow-gradient-bottom:     #ffa300;
+$blue-gradient-top:          #28b3ee;
+$blue-gradient-bottom:       #0287c0;
+
+$bg-gradient-top:            #2a6ab9;
+$bg-gradient-bottom:         #37b6de;
+$light-gradient-top:         #ffffff;
+$light-gradient-bottom:      #f6f6f6;
+$medium-gradient-top:        #ccdae4;
+$medium-gradient-bottom:     #a4b6c2;
+
+
+// Other colors
+$webcam-bg-color:            #151718;
+$light-grey-bg-color:        darken($off-white, 4%);
+
+
+// Typography
+$dark-blue-text:             #1a467c;
+$font-family:                'Ubuntu', Helvetica, sans-serif;
+$em-base:                    16px;
+$placeholder-color:          #c6d0d5;
+
+$light-font:                 200;
+$medium-font:                400;
+$bold-font:                  500;
+
+$font-size-h1:               rem(36);
+$font-size-h2:               rem(30);
+$font-size-h3:               rem(24);
+$font-size-h4:               rem(18);
+$font-size-h5:               rem(16);
+$font-size-h6:               rem(12);
+
+
+// Input
+$input-inner-shadow:         #f0f0f0;
+$strength-bar-background:    darken($off-white, 10%);
+
+
+// Borders
+$dark-border-color:          #a0a0a0;
+$light-border-color:         #d8e1e6;
+$border-color:               #c4c8ca;
+$border-radius:              4px;
+$minor-border-radius:        3px;
+
+
+// Core
+$z:                          1337;
+$em-base:                    16px;
+$box-shadow:                 0px 1px 2px 1px rgba($black, .05);
+$box-shadow-lg:              0px 1px 6px 1px rgba($black, .2);
+$bg-color:                   $off-white;
+$default-flyout-width:       340px;
+$box-padding:                32px;
+
+
+// Components
+$webcam-width:               640px;
+$webcam-height:              480px;
+
+
+// Header & Nav
+$header-height:              72px;
+$app-nav-height:             72px;
+$header-margin-bottom:       60px;
+$app-nav-color:              #3b4348;
+$app-nav-top-border-color:   darken($bitgold-dark, 10%);
+$app-nav-active-bg-color:    #2f3539;
+
+
+// Layout
+$wrapper-width:              1200px;
+$padding:                    10px;
+$medium-content-box-width:   680px;
+$max-width: 								 em(1200) !default;
+
+
+// Modals
+$regular-modal-width:        $medium-content-box-width;
+$small-modal-width:          460px;
+
+
+// Animation
+$animation-duration:         .2s;
+$timing-function:            ease-in-out;
+$cubic-bezier:               cubic-bezier(0.30,1.40,0.70,1);
+
+
+// Responsive
+$screen-sm:                  320px;
+$screen-md:                  768px;
+$screen-lg:                  1024px;
+
+
+// Image Sprite
+$main-sprite-file:           "../img/icon-sprite.png";
+$main-retina-sprite-file:    "../img/icon-sprite_2x.png";
+$main-sprite-retina-bg-size: 320px;
+
+$sprite-grid-size:           64px;
+
+$sprite-pos-1:               -($sprite-grid-size * 0); // Row / Col 1
+$sprite-pos-2:               -($sprite-grid-size * 1); // Row / Col 2
+$sprite-pos-3:               -($sprite-grid-size * 2); // Row / Col 3
+$sprite-pos-4:               -($sprite-grid-size * 3); // Row / Col 4
+$sprite-pos-5:               -($sprite-grid-size * 4); // Row / Col 5
+$sprite-pos-6:               -($sprite-grid-size * 5); // Row / Col 6
+$sprite-pos-7:               -($sprite-grid-size * 6); // Row / Col 7
+$sprite-pos-8:               -($sprite-grid-size * 7); // Row / Col 8
+$sprite-pos-9:               -($sprite-grid-size * 8); // Row / Col 9
+$sprite-pos-10:              -($sprite-grid-size * 9); // Row / Col 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+{
+  "email": "Email",
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "address": "Address"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "address": "Bitcoin Address",
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "address": "Address"
+  }
+}

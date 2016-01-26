@@ -1,0 +1,66 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS
+//
+// Header
+//
+// ----------------------------------------------
+//
+// Styles for main site header
+
+
+.main-header {
+	width: 100%;
+	height: $header-height;
+	margin-bottom: $header-margin-bottom;
+
+	background-color: $bitgold-dark;
+
+	.logo-container {
+		display: inline-block;
+	}
+
+	.logo {
+		margin-top: 21px;
+		display: inline-block;
+
+		// Default size (english)
+		width: 133px;
+		height: 26px;
+
+		//
+		// Locals
+		//
+		&.Chinese {
+			margin-top: 16px;
+
+			width: 109px;
+			height: 38px;
+		}
+
+	} // logo
+
+} // main-header
+
+
+// styles for the live value widet
+// in the header
+.live-values-widget {
+	margin-top: 27px;
+	display: inline-block;
+	vertical-align: top;
+
+	// Base Styles
+	.label, .value {
+		display: inline-block;
+		font-size: rem(14);
+		font-weight: $medium-font;
+		color: $white;
+	}
+
+	.label {
+		color: $bitgold-medium;
+		margin: 0 5px 0 20px;
+	}
+
+} // live-values-widget

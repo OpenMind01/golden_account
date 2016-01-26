@@ -1,0 +1,43 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+
+    <div class="actions">
+
+  		<div class="flyout-widget">
+
+	  		<div class="select-dropdown" ng-click="exportTransactionMenu=true" outer-click="exportTransactionMenu=false">
+	  			<span>{{::lang.wallet.export}}</span>
+	  		</div>
+
+	  		<div class="flyout-container icon-menu-flyout select-dropdown-flyout" ng-class="{ active: exportTransactionMenu }">
+          <div class="inner">
+            <ul class="item-list">
+              <li>
+                <pdf-button export="loadAllTransactions(callback)" element="wallet-tx-list" filename="{{wallet.address + '_transactions.pdf'}}">
+                  <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>{{::lang.wallet.pdf}}</a>
+                </pdf-button>
+              </li>
+              <li>
+                <csv-button export="loadAllTransactions(callback)" element="wallet-tx-list" filename="{{wallet.address + '_transactions.csv'}}">
+                  <a href="javascript:;"><i class="fa fa-file-excel-o"></i>{{::lang.wallet.csv}}</a>
+                </csv-button>
+              </li>
+            </ul>
+          </div>
+        </div><!-- flyout-container -->
+
+  		</div><!-- flyout-widget -->
+
+  	</div><!-- actions -->
+
+    <i class="transactions-icon"></i>
+    <h2>{{::lang.wallet.transactions.title}}</h2>
+  </div>
+
+  <div class="wallet-transactions">
+    <div ng-if="tx.list" include-template="tpl/views/wallet/wallet_transaction_list.html"></div>
+    <div ng-if="tx.view" include-template="tpl/views/wallet/wallet_transaction_view.html"></div>
+  </div>
+
+</div><!-- _wrapper -->

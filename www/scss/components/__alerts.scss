@@ -1,0 +1,38 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Alerts
+//
+// ----------------------------------------------
+//
+// Styles for Alerts, Errors and Messages
+
+.alert {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 30px;
+
+	border-radius: $border-radius;
+	color: $white;
+
+	> span {
+		font-weight: $bold-font;
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	li {
+		line-height: 20px;
+	}
+
+	// Specific Alerts
+	&.error {
+		background: $red;
+	}
+
+	&.success {
+		background: $green;
+	}
+
+} // alert

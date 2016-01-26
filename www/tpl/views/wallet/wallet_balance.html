@@ -1,0 +1,72 @@
+<table>
+  <thead>
+    <tr>
+      <th>{{::lang.wallet.balance.name}}</th>
+      <th>{{::lang.wallet.balance.type}}</th>
+      <th>{{::lang.wallet.balance.address}}</th>
+      <th>{{::lang.wallet.balance.change}}</th>
+      <th class="balance">{{::lang.wallet.balance.balance}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          <label-input ng-model="wallet.label" />
+      </td>
+      <td>{{::lang.wallet.type.bitcoin}}</td>
+      <td class="address">
+        <a href="javascript:;" ng-click="displayAddress.show = true" class="show"><i></i>{{::lang.wallet.show}}</a>
+        <a href="javascript:;" ng-if="features.flash" copy-button="wallet.address" class="copy"><i></i>{{::lang.wallet.copy}}</a>
+      </td>
+      <td class="change">
+        <span ng-class="{ up: balance.change.daily > 0, down: balance.change.daily < 0 }">
+          {{(balance.change.daily < 0 ? balance.change.daily * -1 : balance.change.daily) | formatCurrency:3}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>{{::lang.currencySymbol.BTC}} {{balance.value | formatCurrency:3}}</span>
+      </td>
+    </tr>
+
+    <tr class="totals">
+      <td colspan="3">
+          <span>{{::lang.wallet.balance.total}}</span>
+      </td>
+      <td class="change">
+        <span ng-class="{ up: balance.change.daily > 0, down: balance.change.daily < 0 }">
+          {{(balance.change.daily < 0 ? balance.change.daily * -1 : balance.change.daily) * $root.exchange[$root.currency].BTC | formatCurrency:2}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>{{$root.currency === 'XAU.gr' ? 'Gold Gram' : lang.currencySymbol[$root.currency]}}</span>
+        <span>{{balance.value * $root.exchange[$root.currency].BTC | formatCurrency:2}}</span>
+      </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<modal ng-model="displayAddress.show" class="show-address-modal">
+
+  <div class="modal-box">
+
+    <header>
+      <a href="javascript:;" ng-click="displayAddress.show = false" class="close-modal"><i class="fa fa-times"></i></a>
+      <h2>{{::lang.wallet.walletAdressTitle}}</h2>
+    </header>
+
+    <div class="label">
+      <span>{{wallet.label}}</span>
+    </div>
+
+    <div class="qrcode">
+      <qrcode text="wallet.address" />
+    </div>
+
+    <div class="address-text">
+      <span>{{wallet.address}}</span>
+    </div>
+
+  </div><!-- modal-box -->
+
+</modal><!-- show-address-modal -->

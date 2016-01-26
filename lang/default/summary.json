@@ -1,0 +1,98 @@
+{
+  "title": "Summary",
+  "loading": "Loading...",
+
+  "overview": {
+    "title": "Overview"
+  },
+
+  "status": {
+    "confirmed": "Confirmed",
+    "pending": "Pending"
+  },
+
+  "balance": {
+    "title": "Balance",
+    "change": "Today's Change",
+    "total": "Total Value"
+  },
+
+  "sources": {
+    "wallet": "Wallet",
+    "investments": "Investments",
+    "vault": "Vault"
+  },
+
+  "colors": {
+    "wallet": "blue",
+    "investments": "violet",
+    "vault": "green"
+  },
+
+  "transactions": {
+    "convert": "Click to display amount in selected currency.",
+    "title": "Transactions",
+    "date": "Date",
+    "from": "From",
+    "to": "To",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "confirmed": "Confirmed",
+    "pending": "Pending",
+    "more": "Load more",
+    "last": "Recent Activity",
+    "details": "Details",
+    "add": "Add Contact",
+    "confirmations": "Confirmations",
+    "csv": "Export as CSV",
+    "pdf": "Export as PDF",
+    "all": "View All Transactions"
+  },
+
+  "payments": {
+    "title": "Payments"
+  },
+
+  "statements": {
+    "title": "Statements"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "wallet": "Wallet",
+    "vault": "Vault",
+    "investments": "Investments",
+    "verifyEmail": "Verify your email",
+    "verifyMobile": "Verify your mobile",
+    "personalInfo": "Personal Information",
+    "verifyID": "Verify your ID/Passport",
+    "investmentForms": "Investment Forms",
+    "complete": "COMPLETE",
+    "incomplete": "Not Complete",
+    "edit": "View/Edit",
+    "preferences": "Preferences",
+    "currency": "Default Currency",
+    "language": "Default Language",
+    "timezone": "Default Timezone",
+    "save": "Save"
+  },
+
+  "funds": {
+    "title": "Add Funds",
+    "wallet": "Add Funds to Wallet",
+    "vault": "Add Funds to Vault",
+    "currency": "Currency",
+    "method": "Payment Method",
+    "location": "Vault Location",
+    "submit": "Add Funds"
+  },
+
+  "error": {
+    "title": "Error",
+    "locationValid": "Select a valid Vault Location.",
+    "methodValid": "Select a valid Payment Method.",
+    "currencyValid": "Select a valid Currency."
+  }
+
+}

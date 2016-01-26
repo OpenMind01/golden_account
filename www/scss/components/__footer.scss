@@ -1,0 +1,76 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Footer
+//
+// ----------------------------------------------
+//
+// Styles for main footer
+
+// App side footer
+.main-footer {
+
+	font-size: rem(14);
+	
+	> ._wrapper { 
+		border-top: 2px solid $light-border-color; 
+		padding: 20px 0 40px;
+		color: $bitgold-medium; 
+
+	} // wrapper
+
+	.right-container {
+		float: right;
+
+	} // right-container
+
+	.language-container {
+		margin-bottom: 20px;
+
+		.flyout-hook { color: $bitgold-medium; }
+	}
+
+	.social-container a {
+		display: inline-block;
+		margin: 0 10px;
+		float: right;
+
+		opacity: .3;
+
+		@include transition(opacity .2s);
+
+		&:hover { opacity: 1; }
+
+		&:first-child { margin-right: 0; }
+
+	} // social-container
+
+	// Navigation
+	nav a { 
+		color: $bitgold-medium; 
+	
+		margin: 0 10px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+	} // nav
+
+	.secondary-nav {
+		margin: 20px 0;
+
+		a {
+			font-size: rem(12);
+			color: $bitgold-very-light;
+		}
+	
+	} // secondary-nav
+
+	.copyright {
+		color: $bitgold-very-light;
+		font-size: rem(12);
+	}
+
+} // main-footer

@@ -1,0 +1,28 @@
+<div
+  class="flyout-widget label-input"
+  ng-init="lang = $root.lang; list = { visible: false, stick: false };"
+  outer-click="list.visible=false"
+>
+
+  <a ng-click="list.visible = true;">{{label.value}}</a>
+
+  <div
+    class="flyout-container label-widget"
+    ng-class="{ active: list.visible }"
+    ng-show="list.visible"
+    ng-click="$event.stopPropagation()"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <div class="input-container">
+        <label>{{::lang.labelInput.label}}</label>
+        <input type="text" ng-model="label.new" set-focus="list.visible" placeholder="{{::lang.labelInput.placeholder}}" maxlength="60" />
+      </div>
+      <div class="cta-container">
+        <button ng-click="label.value = label.new; list.visible = false;" type="button" class="medium-button">{{::lang.labelInput.submit}}</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,64 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <div class="center-heading">
+      <i class="transactions-icon"></i>
+      <h2>{{::lang.vault.redeem.title}}</h2>
+    </div>
+  </div>
+
+  <section class="box">
+
+    <form name="formRedeem" novalidate>
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formRedeem.$valid && redeem.clicked">
+          <span>{{::lang.vault.error.title}}</span>
+          <ul>
+            <li ng-show="!redeem.type">{{::lang.vault.error.typeRequired}}</li>
+            <li ng-show="formRedeem.amount.$error.required">{{::lang.vault.error.amountRequired}}</li>
+            <li ng-show="formRedeem.amount.$error.min">{{::lang.vault.error.amountMinimum}}</li>
+            <li ng-show="formRedeem.location.$error.required">{{::lang.vault.error.locationRequired}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container">
+          <label>{{::lang.vault.redeem.type}}</label>
+        </div>
+
+        <div class="input-container">
+          <input type="radio" value="physical" name="type" ng-model="redeem.type" />
+          <label>{{::lang.vault.type.physical}}</label>
+        </div>
+        <div class="input-container">
+          <input type="radio" value="bitcoin" name="type" ng-model="redeem.type" />
+          <label>{{::lang.vault.type.bitcoin}}</label>
+        </div>
+
+        <div class="input-container" ng-class="{valid:formRedeem.amount.$valid}">
+          <label>{{::lang.vault.redeem.amount}}</label>
+          <amount-input name="amount" ng-model="redeem.amount" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formRedeem.location.$valid}">
+          <label>{{::lang.vault.redeem.location}}</label>
+          <location-input name="location" ng-model="redeem.location" required />
+        </div>
+
+        <div class="cta-container">
+          <button ng-click="redeem.clicked = true; redeem.confirm = formRedeem.$valid;" type="button" class="medium-button">{{::lang.vault.redeem.submit}}</button>
+        </div>
+
+        <div class="dialog" ng-show="redeem.confirm">
+          <button ng-click="redeem.confirm = false; redeem.clicked = false;" type="submit">{{::lang.vault.redeem.confirm}}</button>
+          <button ng-click="redeem.confirm = false" type="button">{{::lang.vault.redeem.cancel}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section><!-- box -->
+
+</div><!-- _wrapper -->

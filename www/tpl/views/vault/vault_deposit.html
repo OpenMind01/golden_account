@@ -1,0 +1,55 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <div class="center-heading">
+      <i class="sendpayment-icon"></i>
+      <h2>{{::lang.vault.deposit.title}}</h2>
+    </div>
+  </div>
+
+  <section class="box">
+
+    <form name="formDeposit" novalidate>
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formDeposit.$valid && deposit.clicked">
+          <span>{{::lang.vault.error.title}}</span>
+          <ul>
+            <li ng-show="formDeposit.method.$invalid">{{::lang.vault.error.methodValid}}</li>
+            <li ng-show="formDeposit.currency.$invalid">{{::lang.vault.error.currencyValid}}</li>
+            <li ng-show="formDeposit.location.$invalid">{{::lang.vault.error.locationRequired}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.method.$valid}">
+          <label>{{::lang.vault.deposit.method}}</label>
+          <method-input name="method" ng-model="deposit.method" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.currency.$valid}">
+          <label>{{::lang.vault.deposit.currency}}</label>
+          <currency-input name="amount" ng-model="deposit.currency" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.location.$valid}">
+          <label>{{::lang.vault.deposit.location}}</label>
+          <location-input name="location" ng-model="deposit.location" required />
+        </div>
+
+        <div class="cta-container">
+          <button ng-click="deposit.clicked = true; deposit.confirm = formDeposit.$valid;" type="button" class="medium-button">{{::lang.vault.deposit.submit}}</button>
+        </div>
+
+        <div class="dialog" ng-show="deposit.confirm">
+          <button ng-click="deposit.confirm = false; deposit.clicked = false;" type="submit">{{::lang.vault.deposit.confirm}}</button>
+          <button ng-click="deposit.confirm = false" type="button">{{::lang.vault.deposit.cancel}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section><!-- box -->
+
+</div><!-- _wrapper -->

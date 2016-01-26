@@ -1,0 +1,24 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <i class="vault-icon"></i>
+    <h2>{{::lang.vault.title}}</h2>
+  </div>
+
+  <div class="vault-balance" include-template="tpl/views/vault/vault_balance.html"></div>
+
+  <div class="section-heading">
+
+    <div class="actions">
+      <a href="#/vault/transactions" class="link-button">{{::lang.vault.transactions.all}}</a>
+    </div>
+
+    <i class="transactions-icon"></i>
+    <h2 class="section-title">{{::lang.vault.transactions.last}}</h2>
+  </div>
+
+  <div class="vault-transactions">
+    <div include-template="tpl/views/vault/vault_transaction_list.html"></div>
+  </div>
+
+</div><!-- _wrapper -->

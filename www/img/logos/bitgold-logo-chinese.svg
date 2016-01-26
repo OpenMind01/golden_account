@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Top_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="470.333px" height="176px" viewBox="0 0 470.333 176" enable-background="new 0 0 470.333 176" xml:space="preserve">
+<g id="Type_1_">
+	<g id="BitGold">
+		<text transform="matrix(0.9977 0 0 1 195.8203 162.9844)" fill="#FFFFFF" font-family="'Ubuntu'" font-size="70.174">BitGold</text>
+	</g>
+	<g id="比特金">
+		<text transform="matrix(0.9977 0 0 1 196.8203 90.9844)" fill="#FFFFFF" font-family="'Meiryo'" font-size="92.2287">比特金</text>
+	</g>
+</g>
+<g id="Icon_1_">
+	<g id="Rounded_Rectangle_8">
+		<g>
+			<path fill="#FFFFFF" d="M152.333,14h-72c0,0,0,0,0,0h-10c-5.523,0-10,4.478-10,10s4.477,10,10,10h67c2.762,0,5,2.238,5,5v100
+				c0,2.762-2.238,5-5,5h-100c-2.761,0-5-2.238-5-5V68c0-5.522-4.477-10-10-10s-10,4.478-10,10v14c0,0,0,0,0,0.001V154
+				c0,5.522,4.477,10,10,10h130c5.523,0,10-4.478,10-10V24C162.333,18.478,157.856,14,152.333,14z"/>
+		</g>
+	</g>
+	<g id="Rounded_Rectangle_9">
+		<g>
+			<path fill="#FECE13" d="M38.333,0h-26c-5.523,0-10,4.478-10,10v26c0,5.522,4.477,10,10,10h26c5.523,0,10-4.478,10-10V10
+				C48.333,4.478,43.856,0,38.333,0z M40.333,33c0,2.762-2.238,5-5,5h-20c-2.761,0-5-2.238-5-5V13c0-2.762,2.239-5,5-5h20
+				c2.762,0,5,2.238,5,5V33z"/>
+		</g>
+	</g>
+</g>
+</svg>

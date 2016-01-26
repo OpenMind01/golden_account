@@ -1,0 +1,39 @@
+{
+
+  "location": "Vault Location",
+  "placeholder": "Select Vault Location...",
+
+  "locationList": [
+    {
+      "location": "Toronto",
+      "flag": "ca",
+      "country": "Canada"
+    },
+    {
+      "location": "New York",
+      "flag": "us",
+      "country": "USA"
+    },
+    {
+      "location": "London",
+      "flag": "gb",
+      "country": "United Kingdom"
+    },
+    {
+      "location": "Zurich",
+      "flag": "ch",
+      "country": "Switzerland"
+    },
+    {
+      "location": "Singapore",
+      "flag": "sg",
+      "country": ""
+    },
+    {
+      "location": "Hong Kong",
+      "flag": "hk",
+      "country": ""
+    }
+  ]
+
+}

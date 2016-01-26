@@ -1,0 +1,49 @@
+<div
+  class="flyout-widget address-input"
+  ng-init="lang = $root.lang; address = {value:null}; list = {visible:null,filter:null,index:-1,stick:null};"
+>
+
+  <input
+    type="text"
+    placeholder="{{::lang.addressInput.address}}"
+    ng-model="address.value"
+    ng-focus="list.filter = null; list.index = -1;"
+    ng-keypress="list.visible = address.value != '';"
+    ng-blur="list.visible = list.stick;"
+    ng-keyup="list.filter = address.value;"
+    hit-enter="address.value = contacts[list.index].text; list.visible = false;"
+    hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+    hit-down="list.index = list.index + 1; list.index = list.index >= contacts.length ? contacts.length - 1 : list.index;"
+    focus-select
+  />
+
+  <span
+    class="address-drop-down"
+    ng-if="contacts"
+    ng-click="list.visible = true"
+  ></span>
+
+  <div
+    class="flyout-container contact-widget"
+    ng-if="contacts"
+    ng-class="{ active: list.visible }"
+    ng-show="list.visible"
+    ng-click="$event.stopPropagation()"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <ul class="item-list">
+        <li
+          ng-repeat="item in contacts | filter:list.filter"
+          ng-click="address.value = item.text; list.visible = false;"
+          ng-class="{ selected: $index === list.index }"
+          ng-init="item.text = item.name + ' <' + item.address + '>'"
+        >
+          <span class="name">{{item.text}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

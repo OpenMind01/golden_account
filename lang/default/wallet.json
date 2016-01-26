@@ -1,0 +1,123 @@
+{
+
+  "title": "Wallet",
+  "loading": "Loading Wallet...",
+  "addAccount": "Add Account",
+  "addContact": "Add to Contacts",
+  "walletAdressTitle": "Wallet Address",
+  "show": "Show",
+  "copy": "Copy",
+  "export": "Export",
+  "pdf": "PDF",
+  "csv": "CSV",
+  "type": { "bitcoin": "Bitcoin" },
+
+  "error": {
+    "title": "Something is wrong...",
+    "toRequired": "Destination address is required.",
+    "toValid": "Destination address must be a valid bitcoin address.",
+    "toSelf": "Destination address must be different than yours.",
+    "amountMinimum": "Amount must be higher than 0.00001 bitcoins.",
+    "amountRequired": "Amount is required.",
+    "addressRequired": "Address is required.",
+    "addressValid": "Address must be a valid bitcoin address.",
+    "phoneValid": "Enter a valid phone number."
+  },
+
+  "balance": {
+    "title": "Overview",
+    "name": "Name",
+    "type": "Type",
+    "address": "Address",
+    "balance": "Balance",
+    "change": "Today's Change",
+    "total": "Total Wallet Value"
+  },
+
+  "send": {
+    "title": "Send Payment",
+    "to": "To",
+    "amount": "Amount",
+    "submit": "Send Payment",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "available": "Available Balance:",
+    "confirmation": "Do you want to send <b>{{send.amount | formatCurrency:5 }} BTC</b> to <b>{{send.to}}</b>?"
+  },
+
+  "receive": {
+    "title": "Receive Payment",
+    "copy": "Copy URI",
+    "mail": "Send email",
+    "qrcode": "Create QRCode",
+    "close": "Close",
+    "email": "Email",
+    "amount": "Amount",
+    "submit": "Receive Payment",
+    "message": "Message"
+  },
+
+  "contacts": {
+    "details": "Details",
+    "add": "Add Contact",
+    "title": "Contacts",
+    "list": "Contact List",
+    "save": "Save Contact",
+    "edit": "Edit",
+    "address": "Address",
+    "email": "Email",
+    "emailPlaceholder": "Email Address...",
+    "name": "Name",
+    "namePlaceholder": "Name...",
+    "phone": "Phone",
+    "delete": "Delete",
+    "addTitle": "Add Contact",
+    "editTitle": "Edit Contact",
+    "search": "Search contacts...",
+    "send": "Send Payment",
+    "receive": "Receive Payment"
+  },
+
+  "transactions": {
+    "convert": "Switch to Selected Currency",
+    "title": "Transactions",
+    "date": "Date",
+    "from": "From",
+    "to": "To",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "confirmed": "Confirmed",
+    "pending": "Pending",
+    "more": "Load more",
+    "last": "Recent Activity",
+    "details": "Details",
+    "add": "Add to Contacts",
+    "confirmations": "Confirmations",
+    "all": "View All Transactions"
+  },
+
+  "convert": {
+    "title": "Convert to Gold",
+    "amount": "Amount",
+    "convert": "Convert to Gold",
+    "locationHeading": "Select Vault Location",
+    "location": "Vault Location Details",
+    "next": "Next",
+    "close": "Close",
+    "toronto": "Toronto",
+    "newYork": "New York",
+    "london": "London",
+    "zurich": "Zurich",
+    "hongKong": "Hong Kong",
+    "singapore": "Singapore",
+    "availableBalance": "Available Balance",
+    "summary": "Transaction Summary",
+    "gold": "Gold"
+  },
+
+  "tooltip": {
+    "pending": "This transaction is being confirmed by the blockchain. Confirmations typically take 30-45 minutes."
+  }
+
+}

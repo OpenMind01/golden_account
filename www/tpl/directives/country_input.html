@@ -1,0 +1,57 @@
+
+<div class="country-container">
+
+  <div
+    class="flyout-widget country-input"
+    ng-init="lang = $root.lang; country = {value:null,flag:null}; list = {visible:null,filter:null,index:-1,stick:null};"
+  >
+
+    <input
+      type="text"
+      placeholder="{{::lang.phoneInput.country}}"
+      ng-model="country.value"
+      ng-class="country.flag ? 'flag ' + country.flag : ''"
+      ng-focus="list.visible = true; list.filter = null; list.index = -1;"
+      ng-blur="list.visible = list.stick;"
+      ng-keyup="list.filter = country.value; list.visible = true;"
+      ng-change="country.flag = null;"
+      hit-enter="country.value = list.data[list.index].country; list.visible = false;"
+      hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+      hit-down="list.index = list.index + 1; list.index = list.index >= list.data.length ? list.data.length - 1 : list.index;"
+      focus-select
+      class="input-dropdown before-icon"
+      ng-readonly="readonly"
+    />
+
+    <span
+      ng-if="!readonly"
+      class="input-dropdown-chevron"
+      ng-click="list.visible = true"
+    ></span>
+
+    <div
+      ng-if="!readonly"
+      class="flyout-container country-widget"
+      ng-show="list.visible"
+      ng-class="{ active: list.visible }"
+      ng-mouseenter="list.stick = true"
+      ng-mouseleave="list.stick = false"
+    >
+      <div class="inner">
+        <ul class="item-list">
+          <li
+            ng-repeat="item in list.data = (lang.phoneInput.countryList | filter:list.filter)"
+            ng-click="country.value = item.country; list.visible = false;"
+            ng-class="{ selected: $index === list.index }"
+            scroll-parent-if="$index === list.index"
+          >
+            <i class="flag" ng-class="item.key"></i>
+            <span class="name">{{item.country}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>

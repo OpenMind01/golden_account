@@ -1,0 +1,5603 @@
+@charset "UTF-8";
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300,400,500);
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@-moz-keyframes mapPinEntrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes mapPinEntrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes mapPinEntrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+a {
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s;
+}
+a:not(.button):hover {
+  color: #fecc0e !important;
+}
+
+input, button {
+  border: 0;
+  border-radius: 4px;
+}
+
+input::-webkit-input-placeholder {
+  color: #fff;
+}
+input::-moz-placeholder {
+  color: #fff;
+}
+input:-moz-placeholder {
+  color: #fff;
+}
+input:-ms-input-placeholder {
+  color: #fff;
+}
+input:focus {
+  outline: none;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+._wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.icon {
+  display: inline-block;
+}
+
+.app-menu-container .dashboard i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: 0px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .app-menu-container .dashboard i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: 0px -32px;
+  }
+}
+
+.app-menu-container .wallet i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -64px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .app-menu-container .wallet i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -32px -32px;
+  }
+}
+
+.app-menu-container .vault i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -128px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .app-menu-container .vault i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -64px -32px;
+  }
+}
+
+.app-menu-container .investments i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -192px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .app-menu-container .investments i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -96px -32px;
+  }
+}
+
+.user-menu-settings-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -384px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .user-menu-settings-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -192px -64px;
+  }
+}
+
+.user-menu-logout-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -448px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .user-menu-logout-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -224px -64px;
+  }
+}
+
+.wallet-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .wallet-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: 0px 0px;
+  }
+}
+
+.transactions-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -64px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .transactions-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -32px 0px;
+  }
+}
+
+.sendpayment-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -128px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sendpayment-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -64px 0px;
+  }
+}
+
+.receivepayment-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -192px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .receivepayment-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -96px 0px;
+  }
+}
+
+.contacts-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -256px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .contacts-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -128px 0px;
+  }
+}
+
+.add-contact-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -128px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .add-contact-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -64px -64px;
+  }
+}
+
+.switch-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -192px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .switch-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -96px -64px;
+  }
+}
+
+.large-upload-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -384px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .large-upload-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -192px 0px;
+  }
+}
+
+.large-right-arrow-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -448px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .large-right-arrow-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -224px 0px;
+  }
+}
+
+.camera-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -512px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .camera-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -256px -64px;
+  }
+}
+
+.email-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -576px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .email-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -288px -64px;
+  }
+}
+
+.twitter-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -384px -64px;
+  width: 30px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .twitter-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -192px -32px;
+  }
+}
+
+.facebook-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -448px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .facebook-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -224px -32px;
+  }
+}
+
+.linkedin-icon {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -512px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .linkedin-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -256px -32px;
+  }
+}
+
+.flyout-widget {
+  display: inline-block;
+  position: relative;
+}
+.flyout-widget .flyout-hook {
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.flyout-widget .flyout-hook:after {
+  content: "\f078";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  left: 3px;
+  font-size: 10px;
+}
+.flyout-widget .flyout-container {
+  position: absolute;
+  padding: 15px 0;
+  z-index: 1332;
+  font-size: 1rem;
+  background: #fff;
+  box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: #5d6e77;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -o-transform: scale(0.3);
+  transform: scale(0.3);
+  -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
+  -ms-transform-origin: center top;
+  -o-transform-origin: center top;
+  transform-origin: center top;
+  -webkit-transition: opacity 0.1s ease-out, visibility 0.25s ease-out, -webkit-transform 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  -moz-transition: opacity 0.1s ease-out, visibility 0.25s ease-out, -moz-transform 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  transition: opacity 0.1s ease-out, visibility 0.25s ease-out, transform 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+}
+.flyout-widget .flyout-container.active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.flyout-widget .inner {
+  padding: 0 20px;
+  overflow: auto;
+  height: 100%;
+}
+.flyout-widget .list-heading {
+  margin: 20px 0 10px;
+  padding-bottom: 5px;
+  width: 100%;
+  border-bottom: 1px solid #d8e1e6;
+  color: #252e33;
+}
+.flyout-widget .list-heading.toggle {
+  cursor: pointer;
+}
+.flyout-widget .list-heading.toggle:after {
+  content: "\f078";
+  font-family: FontAwesome;
+  float: right;
+  font-size: 12px;
+  color: #5d6e77;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -moz-transition: -moz-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.flyout-widget .list-heading.toggle.active ~ .item-list {
+  display: block;
+}
+.flyout-widget .list-heading.toggle.active:after {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.flyout-widget .list-heading.toggle ~ .item-list {
+  display: none;
+}
+.flyout-widget .item-list li {
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 0.875em;
+}
+.flyout-widget .item-list li:hover .name {
+  color: #252e33;
+}
+.flyout-widget .item-list li.selected:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -10px;
+  width: 100%;
+  height: 24px;
+  padding-right: 20px;
+  z-index: -1;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+.flyout-widget .item-list li > i.flag {
+  position: relative;
+  top: -5px;
+  display: block;
+  float: left;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.flyout-widget .item-list .meta, .flyout-widget .item-list .name {
+  z-index: 1337;
+}
+.flyout-widget .item-list .meta {
+  float: right;
+  margin-top: 1px;
+  color: #252e33;
+  text-transform: uppercase;
+}
+.flyout-widget .item-list .name {
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.currency-widget {
+  right: 0;
+  margin-right: -167px;
+  top: 25px;
+  width: 340px;
+  height: 340px;
+}
+.currency-widget:after {
+  top: -7px;
+  left: 50%;
+  margin-left: -6px;
+  height: 0;
+  width: 0;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+  border-bottom: 7.5px solid #fff;
+}
+.currency-widget:after {
+  content: "";
+  position: absolute;
+}
+.currency-widget .search-container {
+  border-bottom: 1px solid #d8e1e6;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.currency-widget .search-container i:after {
+  display: inline-block;
+  content: "\f002";
+  font-family: FontAwesome;
+}
+.currency-widget .search-container input {
+  padding: 5px;
+  margin-left: 5px;
+  width: 90%;
+  font-weight: 400;
+}
+.currency-widget .search-container input::-webkit-input-placeholder {
+  color: #5d6e77;
+}
+.currency-widget .search-container input::-moz-placeholder {
+  color: #5d6e77;
+}
+.currency-widget .search-container input:-moz-placeholder {
+  color: #5d6e77;
+}
+.currency-widget .search-container input:-ms-input-placeholder {
+  color: #5d6e77;
+}
+
+.language-widget, .small-widget {
+  right: 0;
+  bottom: 25px;
+  width: 250px;
+  height: 300px;
+}
+
+.phone-widget, .input-flyout-widget {
+  right: 0;
+  top: 25px;
+  width: 300px;
+  height: 300px;
+  top: 50px;
+}
+
+.label-widget {
+  top: 25px;
+  width: 400px;
+  height: auto;
+  top: 40px;
+}
+.label-widget:after {
+  top: -7px;
+  left: 10px;
+  height: 0;
+  width: 0;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+  border-bottom: 7.5px solid #fff;
+}
+.label-widget:after {
+  content: "";
+  position: absolute;
+}
+.label-widget .input-container {
+  margin-bottom: 15px;
+}
+.label-widget .input-container label {
+  margin-bottom: 0px;
+}
+
+.icon-menu-flyout {
+  right: 0;
+  top: 25px;
+  width: 150px;
+  height: auto;
+}
+.icon-menu-flyout:after {
+  top: -7px;
+  right: 10px;
+  height: 0;
+  width: 0;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+  border-bottom: 7.5px solid #fff;
+}
+.icon-menu-flyout:after {
+  content: "";
+  position: absolute;
+}
+.icon-menu-flyout .inner {
+  padding: 10px 20px;
+  text-align: left;
+}
+.icon-menu-flyout .inner li {
+  margin-bottom: 20px;
+}
+.icon-menu-flyout .inner li:last-child {
+  margin-bottom: 0;
+}
+.icon-menu-flyout .inner a {
+  color: #5d6e77;
+}
+.icon-menu-flyout .inner i {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.user-flyout {
+  right: -15px;
+}
+
+.select-dropdown-flyout {
+  top: 34px;
+  right: -2px;
+}
+
+.flag.btc {
+  background-image: url("../img/flags/btc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.btc {
+    background-image: url("../img/flags/btc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gold {
+  background-image: url("../img/flags/gold.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gold {
+    background-image: url("../img/flags/gold_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._abkhazia {
+  background-image: url("../img/flags/_abkhazia.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._abkhazia {
+    background-image: url("../img/flags/_abkhazia_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._basque-country {
+  background-image: url("../img/flags/_basque-country.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._basque-country {
+    background-image: url("../img/flags/_basque-country_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._british-antarctic-territory {
+  background-image: url("../img/flags/_british-antarctic-territory.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._british-antarctic-territory {
+    background-image: url("../img/flags/_british-antarctic-territory_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._commonwealth {
+  background-image: url("../img/flags/_commonwealth.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._commonwealth {
+    background-image: url("../img/flags/_commonwealth_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._england {
+  background-image: url("../img/flags/_england.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._england {
+    background-image: url("../img/flags/_england_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._gosquared {
+  background-image: url("../img/flags/_gosquared.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._gosquared {
+    background-image: url("../img/flags/_gosquared_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._kosovo {
+  background-image: url("../img/flags/_kosovo.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._kosovo {
+    background-image: url("../img/flags/_kosovo_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._mars {
+  background-image: url("../img/flags/_mars.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._mars {
+    background-image: url("../img/flags/_mars_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._nagorno-karabakh {
+  background-image: url("../img/flags/_nagorno-karabakh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._nagorno-karabakh {
+    background-image: url("../img/flags/_nagorno-karabakh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._nato {
+  background-image: url("../img/flags/_nato.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._nato {
+    background-image: url("../img/flags/_nato_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._northern-cyprus {
+  background-image: url("../img/flags/_northern-cyprus.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._northern-cyprus {
+    background-image: url("../img/flags/_northern-cyprus_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._olympics {
+  background-image: url("../img/flags/_olympics.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._olympics {
+    background-image: url("../img/flags/_olympics_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._red-cross {
+  background-image: url("../img/flags/_red-cross.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._red-cross {
+    background-image: url("../img/flags/_red-cross_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._scotland {
+  background-image: url("../img/flags/_scotland.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._scotland {
+    background-image: url("../img/flags/_scotland_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._somaliland {
+  background-image: url("../img/flags/_somaliland.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._somaliland {
+    background-image: url("../img/flags/_somaliland_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._south-ossetia {
+  background-image: url("../img/flags/_south-ossetia.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._south-ossetia {
+    background-image: url("../img/flags/_south-ossetia_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._united-nations {
+  background-image: url("../img/flags/_united-nations.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._united-nations {
+    background-image: url("../img/flags/_united-nations_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._unknown {
+  background-image: url("../img/flags/_unknown.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._unknown {
+    background-image: url("../img/flags/_unknown_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag._wales {
+  background-image: url("../img/flags/_wales.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag._wales {
+    background-image: url("../img/flags/_wales_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ad {
+  background-image: url("../img/flags/ad.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ad {
+    background-image: url("../img/flags/ad_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ae {
+  background-image: url("../img/flags/ae.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ae {
+    background-image: url("../img/flags/ae_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.af {
+  background-image: url("../img/flags/af.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.af {
+    background-image: url("../img/flags/af_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ag {
+  background-image: url("../img/flags/ag.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ag {
+    background-image: url("../img/flags/ag_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ai {
+  background-image: url("../img/flags/ai.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ai {
+    background-image: url("../img/flags/ai_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.al {
+  background-image: url("../img/flags/al.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.al {
+    background-image: url("../img/flags/al_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.am {
+  background-image: url("../img/flags/am.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.am {
+    background-image: url("../img/flags/am_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.an {
+  background-image: url("../img/flags/an.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.an {
+    background-image: url("../img/flags/an_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ao {
+  background-image: url("../img/flags/ao.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ao {
+    background-image: url("../img/flags/ao_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.aq {
+  background-image: url("../img/flags/aq.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.aq {
+    background-image: url("../img/flags/aq_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ar {
+  background-image: url("../img/flags/ar.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ar {
+    background-image: url("../img/flags/ar_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.as {
+  background-image: url("../img/flags/as.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.as {
+    background-image: url("../img/flags/as_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.at {
+  background-image: url("../img/flags/at.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.at {
+    background-image: url("../img/flags/at_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.au {
+  background-image: url("../img/flags/au.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.au {
+    background-image: url("../img/flags/au_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.aw {
+  background-image: url("../img/flags/aw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.aw {
+    background-image: url("../img/flags/aw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ax {
+  background-image: url("../img/flags/ax.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ax {
+    background-image: url("../img/flags/ax_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.az {
+  background-image: url("../img/flags/az.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.az {
+    background-image: url("../img/flags/az_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ba {
+  background-image: url("../img/flags/ba.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ba {
+    background-image: url("../img/flags/ba_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bb {
+  background-image: url("../img/flags/bb.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bb {
+    background-image: url("../img/flags/bb_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bd {
+  background-image: url("../img/flags/bd.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bd {
+    background-image: url("../img/flags/bd_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.be {
+  background-image: url("../img/flags/be.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.be {
+    background-image: url("../img/flags/be_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bf {
+  background-image: url("../img/flags/bf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bf {
+    background-image: url("../img/flags/bf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bg {
+  background-image: url("../img/flags/bg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bg {
+    background-image: url("../img/flags/bg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bh {
+  background-image: url("../img/flags/bh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bh {
+    background-image: url("../img/flags/bh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bi {
+  background-image: url("../img/flags/bi.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bi {
+    background-image: url("../img/flags/bi_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bj {
+  background-image: url("../img/flags/bj.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bj {
+    background-image: url("../img/flags/bj_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bl {
+  background-image: url("../img/flags/bl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bl {
+    background-image: url("../img/flags/bl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bm {
+  background-image: url("../img/flags/bm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bm {
+    background-image: url("../img/flags/bm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bn {
+  background-image: url("../img/flags/bn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bn {
+    background-image: url("../img/flags/bn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bo {
+  background-image: url("../img/flags/bo.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bo {
+    background-image: url("../img/flags/bo_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.br {
+  background-image: url("../img/flags/br.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.br {
+    background-image: url("../img/flags/br_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bs {
+  background-image: url("../img/flags/bs.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bs {
+    background-image: url("../img/flags/bs_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bt {
+  background-image: url("../img/flags/bt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bt {
+    background-image: url("../img/flags/bt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bw {
+  background-image: url("../img/flags/bw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bw {
+    background-image: url("../img/flags/bw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.by {
+  background-image: url("../img/flags/by.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.by {
+    background-image: url("../img/flags/by_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.bz {
+  background-image: url("../img/flags/bz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.bz {
+    background-image: url("../img/flags/bz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ca {
+  background-image: url("../img/flags/ca.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ca {
+    background-image: url("../img/flags/ca_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cc {
+  background-image: url("../img/flags/cc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cc {
+    background-image: url("../img/flags/cc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cd {
+  background-image: url("../img/flags/cd.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cd {
+    background-image: url("../img/flags/cd_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cf {
+  background-image: url("../img/flags/cf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cf {
+    background-image: url("../img/flags/cf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cg {
+  background-image: url("../img/flags/cg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cg {
+    background-image: url("../img/flags/cg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ch {
+  background-image: url("../img/flags/ch.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ch {
+    background-image: url("../img/flags/ch_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ci {
+  background-image: url("../img/flags/ci.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ci {
+    background-image: url("../img/flags/ci_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ck {
+  background-image: url("../img/flags/ck.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ck {
+    background-image: url("../img/flags/ck_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cl {
+  background-image: url("../img/flags/cl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cl {
+    background-image: url("../img/flags/cl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cm {
+  background-image: url("../img/flags/cm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cm {
+    background-image: url("../img/flags/cm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cn {
+  background-image: url("../img/flags/cn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cn {
+    background-image: url("../img/flags/cn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.co {
+  background-image: url("../img/flags/co.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.co {
+    background-image: url("../img/flags/co_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cr {
+  background-image: url("../img/flags/cr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cr {
+    background-image: url("../img/flags/cr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cu {
+  background-image: url("../img/flags/cu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cu {
+    background-image: url("../img/flags/cu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cv {
+  background-image: url("../img/flags/cv.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cv {
+    background-image: url("../img/flags/cv_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cw {
+  background-image: url("../img/flags/cw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cw {
+    background-image: url("../img/flags/cw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cx {
+  background-image: url("../img/flags/cx.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cx {
+    background-image: url("../img/flags/cx_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cy {
+  background-image: url("../img/flags/cy.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cy {
+    background-image: url("../img/flags/cy_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.cz {
+  background-image: url("../img/flags/cz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.cz {
+    background-image: url("../img/flags/cz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.de {
+  background-image: url("../img/flags/de.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.de {
+    background-image: url("../img/flags/de_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.dj {
+  background-image: url("../img/flags/dj.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.dj {
+    background-image: url("../img/flags/dj_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.dk {
+  background-image: url("../img/flags/dk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.dk {
+    background-image: url("../img/flags/dk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.dm {
+  background-image: url("../img/flags/dm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.dm {
+    background-image: url("../img/flags/dm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.do {
+  background-image: url("../img/flags/do.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.do {
+    background-image: url("../img/flags/do_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.dz {
+  background-image: url("../img/flags/dz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.dz {
+    background-image: url("../img/flags/dz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ec {
+  background-image: url("../img/flags/ec.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ec {
+    background-image: url("../img/flags/ec_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ee {
+  background-image: url("../img/flags/ee.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ee {
+    background-image: url("../img/flags/ee_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.eg {
+  background-image: url("../img/flags/eg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.eg {
+    background-image: url("../img/flags/eg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.eh {
+  background-image: url("../img/flags/eh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.eh {
+    background-image: url("../img/flags/eh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.er {
+  background-image: url("../img/flags/er.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.er {
+    background-image: url("../img/flags/er_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.es {
+  background-image: url("../img/flags/es.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.es {
+    background-image: url("../img/flags/es_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.et {
+  background-image: url("../img/flags/et.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.et {
+    background-image: url("../img/flags/et_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.eu {
+  background-image: url("../img/flags/eu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.eu {
+    background-image: url("../img/flags/eu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fi {
+  background-image: url("../img/flags/fi.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fi {
+    background-image: url("../img/flags/fi_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fj {
+  background-image: url("../img/flags/fj.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fj {
+    background-image: url("../img/flags/fj_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fk {
+  background-image: url("../img/flags/fk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fk {
+    background-image: url("../img/flags/fk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fm {
+  background-image: url("../img/flags/fm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fm {
+    background-image: url("../img/flags/fm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fo {
+  background-image: url("../img/flags/fo.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fo {
+    background-image: url("../img/flags/fo_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.fr {
+  background-image: url("../img/flags/fr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.fr {
+    background-image: url("../img/flags/fr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ga {
+  background-image: url("../img/flags/ga.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ga {
+    background-image: url("../img/flags/ga_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gb {
+  background-image: url("../img/flags/gb.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gb {
+    background-image: url("../img/flags/gb_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gd {
+  background-image: url("../img/flags/gd.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gd {
+    background-image: url("../img/flags/gd_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ge {
+  background-image: url("../img/flags/ge.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ge {
+    background-image: url("../img/flags/ge_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gg {
+  background-image: url("../img/flags/gg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gg {
+    background-image: url("../img/flags/gg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gh {
+  background-image: url("../img/flags/gh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gh {
+    background-image: url("../img/flags/gh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gi {
+  background-image: url("../img/flags/gi.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gi {
+    background-image: url("../img/flags/gi_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gl {
+  background-image: url("../img/flags/gl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gl {
+    background-image: url("../img/flags/gl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gm {
+  background-image: url("../img/flags/gm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gm {
+    background-image: url("../img/flags/gm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gn {
+  background-image: url("../img/flags/gn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gn {
+    background-image: url("../img/flags/gn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gq {
+  background-image: url("../img/flags/gq.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gq {
+    background-image: url("../img/flags/gq_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gr {
+  background-image: url("../img/flags/gr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gr {
+    background-image: url("../img/flags/gr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gs {
+  background-image: url("../img/flags/gs.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gs {
+    background-image: url("../img/flags/gs_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gt {
+  background-image: url("../img/flags/gt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gt {
+    background-image: url("../img/flags/gt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gu {
+  background-image: url("../img/flags/gu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gu {
+    background-image: url("../img/flags/gu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gw {
+  background-image: url("../img/flags/gw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gw {
+    background-image: url("../img/flags/gw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.gy {
+  background-image: url("../img/flags/gy.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.gy {
+    background-image: url("../img/flags/gy_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.hk {
+  background-image: url("../img/flags/hk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.hk {
+    background-image: url("../img/flags/hk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.hn {
+  background-image: url("../img/flags/hn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.hn {
+    background-image: url("../img/flags/hn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.hr {
+  background-image: url("../img/flags/hr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.hr {
+    background-image: url("../img/flags/hr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ht {
+  background-image: url("../img/flags/ht.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ht {
+    background-image: url("../img/flags/ht_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.hu {
+  background-image: url("../img/flags/hu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.hu {
+    background-image: url("../img/flags/hu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ic {
+  background-image: url("../img/flags/ic.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ic {
+    background-image: url("../img/flags/ic_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.id {
+  background-image: url("../img/flags/id.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.id {
+    background-image: url("../img/flags/id_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ie {
+  background-image: url("../img/flags/ie.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ie {
+    background-image: url("../img/flags/ie_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.il {
+  background-image: url("../img/flags/il.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.il {
+    background-image: url("../img/flags/il_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.im {
+  background-image: url("../img/flags/im.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.im {
+    background-image: url("../img/flags/im_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.in {
+  background-image: url("../img/flags/in.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.in {
+    background-image: url("../img/flags/in_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.iq {
+  background-image: url("../img/flags/iq.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.iq {
+    background-image: url("../img/flags/iq_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ir {
+  background-image: url("../img/flags/ir.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ir {
+    background-image: url("../img/flags/ir_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.is {
+  background-image: url("../img/flags/is.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.is {
+    background-image: url("../img/flags/is_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.it {
+  background-image: url("../img/flags/it.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.it {
+    background-image: url("../img/flags/it_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.je {
+  background-image: url("../img/flags/je.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.je {
+    background-image: url("../img/flags/je_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.jm {
+  background-image: url("../img/flags/jm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.jm {
+    background-image: url("../img/flags/jm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.jo {
+  background-image: url("../img/flags/jo.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.jo {
+    background-image: url("../img/flags/jo_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.jp {
+  background-image: url("../img/flags/jp.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.jp {
+    background-image: url("../img/flags/jp_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ke {
+  background-image: url("../img/flags/ke.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ke {
+    background-image: url("../img/flags/ke_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kg {
+  background-image: url("../img/flags/kg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kg {
+    background-image: url("../img/flags/kg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kh {
+  background-image: url("../img/flags/kh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kh {
+    background-image: url("../img/flags/kh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ki {
+  background-image: url("../img/flags/ki.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ki {
+    background-image: url("../img/flags/ki_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.km {
+  background-image: url("../img/flags/km.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.km {
+    background-image: url("../img/flags/km_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kn {
+  background-image: url("../img/flags/kn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kn {
+    background-image: url("../img/flags/kn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kp {
+  background-image: url("../img/flags/kp.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kp {
+    background-image: url("../img/flags/kp_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kr {
+  background-image: url("../img/flags/kr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kr {
+    background-image: url("../img/flags/kr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kw {
+  background-image: url("../img/flags/kw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kw {
+    background-image: url("../img/flags/kw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ky {
+  background-image: url("../img/flags/ky.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ky {
+    background-image: url("../img/flags/ky_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.kz {
+  background-image: url("../img/flags/kz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.kz {
+    background-image: url("../img/flags/kz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.la {
+  background-image: url("../img/flags/la.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.la {
+    background-image: url("../img/flags/la_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lb {
+  background-image: url("../img/flags/lb.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lb {
+    background-image: url("../img/flags/lb_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lc {
+  background-image: url("../img/flags/lc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lc {
+    background-image: url("../img/flags/lc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.li {
+  background-image: url("../img/flags/li.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.li {
+    background-image: url("../img/flags/li_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lk {
+  background-image: url("../img/flags/lk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lk {
+    background-image: url("../img/flags/lk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lr {
+  background-image: url("../img/flags/lr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lr {
+    background-image: url("../img/flags/lr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ls {
+  background-image: url("../img/flags/ls.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ls {
+    background-image: url("../img/flags/ls_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lt {
+  background-image: url("../img/flags/lt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lt {
+    background-image: url("../img/flags/lt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lu {
+  background-image: url("../img/flags/lu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lu {
+    background-image: url("../img/flags/lu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.lv {
+  background-image: url("../img/flags/lv.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.lv {
+    background-image: url("../img/flags/lv_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ly {
+  background-image: url("../img/flags/ly.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ly {
+    background-image: url("../img/flags/ly_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ma {
+  background-image: url("../img/flags/ma.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ma {
+    background-image: url("../img/flags/ma_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mc {
+  background-image: url("../img/flags/mc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mc {
+    background-image: url("../img/flags/mc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.md {
+  background-image: url("../img/flags/md.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.md {
+    background-image: url("../img/flags/md_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.me {
+  background-image: url("../img/flags/me.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.me {
+    background-image: url("../img/flags/me_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mf {
+  background-image: url("../img/flags/mf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mf {
+    background-image: url("../img/flags/mf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mg {
+  background-image: url("../img/flags/mg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mg {
+    background-image: url("../img/flags/mg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mh {
+  background-image: url("../img/flags/mh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mh {
+    background-image: url("../img/flags/mh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mk {
+  background-image: url("../img/flags/mk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mk {
+    background-image: url("../img/flags/mk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ml {
+  background-image: url("../img/flags/ml.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ml {
+    background-image: url("../img/flags/ml_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mm {
+  background-image: url("../img/flags/mm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mm {
+    background-image: url("../img/flags/mm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mn {
+  background-image: url("../img/flags/mn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mn {
+    background-image: url("../img/flags/mn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mo {
+  background-image: url("../img/flags/mo.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mo {
+    background-image: url("../img/flags/mo_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mp {
+  background-image: url("../img/flags/mp.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mp {
+    background-image: url("../img/flags/mp_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mq {
+  background-image: url("../img/flags/mq.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mq {
+    background-image: url("../img/flags/mq_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mr {
+  background-image: url("../img/flags/mr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mr {
+    background-image: url("../img/flags/mr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ms {
+  background-image: url("../img/flags/ms.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ms {
+    background-image: url("../img/flags/ms_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mt {
+  background-image: url("../img/flags/mt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mt {
+    background-image: url("../img/flags/mt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mu {
+  background-image: url("../img/flags/mu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mu {
+    background-image: url("../img/flags/mu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mv {
+  background-image: url("../img/flags/mv.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mv {
+    background-image: url("../img/flags/mv_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mw {
+  background-image: url("../img/flags/mw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mw {
+    background-image: url("../img/flags/mw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mx {
+  background-image: url("../img/flags/mx.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mx {
+    background-image: url("../img/flags/mx_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.my {
+  background-image: url("../img/flags/my.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.my {
+    background-image: url("../img/flags/my_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.mz {
+  background-image: url("../img/flags/mz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.mz {
+    background-image: url("../img/flags/mz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.na {
+  background-image: url("../img/flags/na.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.na {
+    background-image: url("../img/flags/na_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nc {
+  background-image: url("../img/flags/nc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nc {
+    background-image: url("../img/flags/nc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ne {
+  background-image: url("../img/flags/ne.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ne {
+    background-image: url("../img/flags/ne_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nf {
+  background-image: url("../img/flags/nf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nf {
+    background-image: url("../img/flags/nf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ng {
+  background-image: url("../img/flags/ng.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ng {
+    background-image: url("../img/flags/ng_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ni {
+  background-image: url("../img/flags/ni.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ni {
+    background-image: url("../img/flags/ni_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nl {
+  background-image: url("../img/flags/nl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nl {
+    background-image: url("../img/flags/nl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.no {
+  background-image: url("../img/flags/no.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.no {
+    background-image: url("../img/flags/no_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.np {
+  background-image: url("../img/flags/np.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.np {
+    background-image: url("../img/flags/np_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nr {
+  background-image: url("../img/flags/nr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nr {
+    background-image: url("../img/flags/nr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nu {
+  background-image: url("../img/flags/nu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nu {
+    background-image: url("../img/flags/nu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.nz {
+  background-image: url("../img/flags/nz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.nz {
+    background-image: url("../img/flags/nz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.om {
+  background-image: url("../img/flags/om.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.om {
+    background-image: url("../img/flags/om_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pa {
+  background-image: url("../img/flags/pa.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pa {
+    background-image: url("../img/flags/pa_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pe {
+  background-image: url("../img/flags/pe.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pe {
+    background-image: url("../img/flags/pe_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pf {
+  background-image: url("../img/flags/pf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pf {
+    background-image: url("../img/flags/pf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pg {
+  background-image: url("../img/flags/pg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pg {
+    background-image: url("../img/flags/pg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ph {
+  background-image: url("../img/flags/ph.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ph {
+    background-image: url("../img/flags/ph_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pk {
+  background-image: url("../img/flags/pk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pk {
+    background-image: url("../img/flags/pk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pl {
+  background-image: url("../img/flags/pl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pl {
+    background-image: url("../img/flags/pl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pn {
+  background-image: url("../img/flags/pn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pn {
+    background-image: url("../img/flags/pn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pr {
+  background-image: url("../img/flags/pr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pr {
+    background-image: url("../img/flags/pr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ps {
+  background-image: url("../img/flags/ps.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ps {
+    background-image: url("../img/flags/ps_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pt {
+  background-image: url("../img/flags/pt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pt {
+    background-image: url("../img/flags/pt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.pw {
+  background-image: url("../img/flags/pw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.pw {
+    background-image: url("../img/flags/pw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.py {
+  background-image: url("../img/flags/py.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.py {
+    background-image: url("../img/flags/py_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.qa {
+  background-image: url("../img/flags/qa.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.qa {
+    background-image: url("../img/flags/qa_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ro {
+  background-image: url("../img/flags/ro.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ro {
+    background-image: url("../img/flags/ro_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.rs {
+  background-image: url("../img/flags/rs.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.rs {
+    background-image: url("../img/flags/rs_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ru {
+  background-image: url("../img/flags/ru.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ru {
+    background-image: url("../img/flags/ru_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.rw {
+  background-image: url("../img/flags/rw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.rw {
+    background-image: url("../img/flags/rw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sa {
+  background-image: url("../img/flags/sa.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sa {
+    background-image: url("../img/flags/sa_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sb {
+  background-image: url("../img/flags/sb.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sb {
+    background-image: url("../img/flags/sb_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sc {
+  background-image: url("../img/flags/sc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sc {
+    background-image: url("../img/flags/sc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sd {
+  background-image: url("../img/flags/sd.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sd {
+    background-image: url("../img/flags/sd_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.se {
+  background-image: url("../img/flags/se.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.se {
+    background-image: url("../img/flags/se_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sg {
+  background-image: url("../img/flags/sg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sg {
+    background-image: url("../img/flags/sg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sh {
+  background-image: url("../img/flags/sh.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sh {
+    background-image: url("../img/flags/sh_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.si {
+  background-image: url("../img/flags/si.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.si {
+    background-image: url("../img/flags/si_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sk {
+  background-image: url("../img/flags/sk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sk {
+    background-image: url("../img/flags/sk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sl {
+  background-image: url("../img/flags/sl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sl {
+    background-image: url("../img/flags/sl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sm {
+  background-image: url("../img/flags/sm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sm {
+    background-image: url("../img/flags/sm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sn {
+  background-image: url("../img/flags/sn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sn {
+    background-image: url("../img/flags/sn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.so {
+  background-image: url("../img/flags/so.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.so {
+    background-image: url("../img/flags/so_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sr {
+  background-image: url("../img/flags/sr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sr {
+    background-image: url("../img/flags/sr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ss {
+  background-image: url("../img/flags/ss.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ss {
+    background-image: url("../img/flags/ss_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.st {
+  background-image: url("../img/flags/st.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.st {
+    background-image: url("../img/flags/st_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sv {
+  background-image: url("../img/flags/sv.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sv {
+    background-image: url("../img/flags/sv_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sy {
+  background-image: url("../img/flags/sy.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sy {
+    background-image: url("../img/flags/sy_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.sz {
+  background-image: url("../img/flags/sz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.sz {
+    background-image: url("../img/flags/sz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tc {
+  background-image: url("../img/flags/tc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tc {
+    background-image: url("../img/flags/tc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.td {
+  background-image: url("../img/flags/td.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.td {
+    background-image: url("../img/flags/td_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tf {
+  background-image: url("../img/flags/tf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tf {
+    background-image: url("../img/flags/tf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tg {
+  background-image: url("../img/flags/tg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tg {
+    background-image: url("../img/flags/tg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.th {
+  background-image: url("../img/flags/th.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.th {
+    background-image: url("../img/flags/th_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tj {
+  background-image: url("../img/flags/tj.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tj {
+    background-image: url("../img/flags/tj_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tk {
+  background-image: url("../img/flags/tk.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tk {
+    background-image: url("../img/flags/tk_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tl {
+  background-image: url("../img/flags/tl.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tl {
+    background-image: url("../img/flags/tl_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tm {
+  background-image: url("../img/flags/tm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tm {
+    background-image: url("../img/flags/tm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tn {
+  background-image: url("../img/flags/tn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tn {
+    background-image: url("../img/flags/tn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.to {
+  background-image: url("../img/flags/to.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.to {
+    background-image: url("../img/flags/to_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tr {
+  background-image: url("../img/flags/tr.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tr {
+    background-image: url("../img/flags/tr_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tt {
+  background-image: url("../img/flags/tt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tt {
+    background-image: url("../img/flags/tt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tv {
+  background-image: url("../img/flags/tv.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tv {
+    background-image: url("../img/flags/tv_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tw {
+  background-image: url("../img/flags/tw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tw {
+    background-image: url("../img/flags/tw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.tz {
+  background-image: url("../img/flags/tz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.tz {
+    background-image: url("../img/flags/tz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ua {
+  background-image: url("../img/flags/ua.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ua {
+    background-image: url("../img/flags/ua_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ug {
+  background-image: url("../img/flags/ug.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ug {
+    background-image: url("../img/flags/ug_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.us {
+  background-image: url("../img/flags/us.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.us {
+    background-image: url("../img/flags/us_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.uy {
+  background-image: url("../img/flags/uy.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.uy {
+    background-image: url("../img/flags/uy_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.uz {
+  background-image: url("../img/flags/uz.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.uz {
+    background-image: url("../img/flags/uz_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.va {
+  background-image: url("../img/flags/va.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.va {
+    background-image: url("../img/flags/va_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.vc {
+  background-image: url("../img/flags/vc.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.vc {
+    background-image: url("../img/flags/vc_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ve {
+  background-image: url("../img/flags/ve.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ve {
+    background-image: url("../img/flags/ve_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.vg {
+  background-image: url("../img/flags/vg.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.vg {
+    background-image: url("../img/flags/vg_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.vi {
+  background-image: url("../img/flags/vi.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.vi {
+    background-image: url("../img/flags/vi_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.vn {
+  background-image: url("../img/flags/vn.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.vn {
+    background-image: url("../img/flags/vn_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.vu {
+  background-image: url("../img/flags/vu.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.vu {
+    background-image: url("../img/flags/vu_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.wf {
+  background-image: url("../img/flags/wf.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.wf {
+    background-image: url("../img/flags/wf_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ws {
+  background-image: url("../img/flags/ws.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ws {
+    background-image: url("../img/flags/ws_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.ye {
+  background-image: url("../img/flags/ye.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.ye {
+    background-image: url("../img/flags/ye_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.yt {
+  background-image: url("../img/flags/yt.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.yt {
+    background-image: url("../img/flags/yt_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.za {
+  background-image: url("../img/flags/za.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.za {
+    background-image: url("../img/flags/za_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.zm {
+  background-image: url("../img/flags/zm.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.zm {
+    background-image: url("../img/flags/zm_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.flag.zw {
+  background-image: url("../img/flags/zw.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .flag.zw {
+    background-image: url("../img/flags/zw_2x.png");
+    background-size: 24px 24px;
+  }
+}
+
+.main-header {
+  width: 100%;
+  height: 72px;
+  margin-bottom: 60px;
+  background-color: #252e33;
+}
+.main-header .logo-container {
+  display: inline-block;
+}
+.main-header .logo {
+  margin-top: 21px;
+  display: inline-block;
+  width: 133px;
+  height: 26px;
+}
+.main-header .logo.Chinese {
+  margin-top: 16px;
+  width: 109px;
+  height: 38px;
+}
+
+.live-values-widget {
+  margin-top: 27px;
+  display: inline-block;
+  vertical-align: top;
+}
+.live-values-widget .label, .live-values-widget .value {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #fff;
+}
+.live-values-widget .label {
+  color: #5d6e77;
+  margin: 0 5px 0 20px;
+}
+
+.main-footer {
+  font-size: 0.875rem;
+}
+.main-footer > ._wrapper {
+  border-top: 2px solid #d8e1e6;
+  padding: 20px 0 40px;
+  color: #5d6e77;
+}
+.main-footer .right-container {
+  float: right;
+}
+.main-footer .language-container {
+  margin-bottom: 20px;
+}
+.main-footer .language-container .flyout-hook {
+  color: #5d6e77;
+}
+.main-footer .social-container a {
+  display: inline-block;
+  margin: 0 10px;
+  float: right;
+  opacity: .3;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.main-footer .social-container a:hover {
+  opacity: 1;
+}
+.main-footer .social-container a:first-child {
+  margin-right: 0;
+}
+.main-footer nav a {
+  color: #5d6e77;
+  margin: 0 10px;
+}
+.main-footer nav a:first-child {
+  margin-left: 0;
+}
+.main-footer .secondary-nav {
+  margin: 20px 0;
+}
+.main-footer .secondary-nav a {
+  font-size: 0.75rem;
+  color: #8a9ba5;
+}
+.main-footer .copyright {
+  color: #8a9ba5;
+  font-size: 0.75rem;
+}
+
+.main-nav {
+  float: right;
+  margin-top: 17px;
+  font-size: 0.875rem;
+}
+.main-nav > div, .main-nav > a:not(.button) {
+  color: #fff;
+  font-weight: 400;
+  margin: 0 10px;
+}
+.main-nav > div:last-child, .main-nav > a:not(.button):last-child {
+  margin-right: 0;
+}
+.main-nav .button {
+  margin-left: 10px;
+}
+.main-nav.user-menu {
+  margin-top: 29px;
+  text-align: right;
+}
+
+.app-nav {
+  width: 100%;
+  height: 72px;
+  margin-top: -60px;
+  background: #3b4348;
+  border-top: 1px solid #101315;
+}
+.app-nav ._wrapper {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.app-nav ._wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.app-nav .menu-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  position: relative;
+}
+.app-nav .menu-container:last-child {
+  margin-right: 0;
+}
+.app-nav .cta {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  text-align: right;
+  margin-top: -3px;
+  line-height: 72px;
+}
+.app-nav .cta:last-child {
+  margin-right: 0;
+}
+
+.app-menu {
+  display: inline-block;
+  line-height: 72px;
+  height: 71px;
+  position: relative;
+  z-index: 1237;
+  cursor: pointer;
+}
+.app-menu .menu-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 10px;
+  background-image: url("../img/icon-sprite.png");
+  background-position: -320px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .app-menu .menu-icon {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -160px 0px;
+  }
+}
+.app-menu a {
+  color: #fff;
+  display: inline-block;
+}
+.app-menu a:after {
+  content: "\f078";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  left: 3px;
+  font-size: 10px;
+}
+.app-menu.active {
+  background: #2f3539;
+  padding: 0 35px 0 30px;
+  margin-left: -30px;
+}
+.app-menu.active a {
+  color: #fecc0e;
+}
+
+.app-menu-container {
+  position: absolute;
+  left: -30px;
+  padding: 30px;
+  z-index: 1237;
+  width: 225px;
+  background: #2f3539;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.app-menu-container li {
+  margin-bottom: 35px;
+}
+.app-menu-container li:last-child {
+  margin-bottom: 0;
+}
+.app-menu-container a {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  color: #fff;
+}
+.app-menu-container a.active-link:after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: -6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fecc0e;
+}
+.app-menu-container i {
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.sub-nav {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  line-height: 70px;
+  text-align: center;
+}
+.sub-nav:last-child {
+  margin-right: 0;
+}
+.sub-nav > a {
+  color: #fff;
+  margin: 0 20px;
+  font-size: 0.875rem;
+  padding-bottom: 24px;
+}
+.sub-nav > a.active-link {
+  color: #fecc0e;
+  border-bottom: 4px solid #fecc0e;
+}
+
+.button {
+  padding: 11px 20px 13px 20px;
+  background-image: -webkit-linear-gradient( #fecc0e, #ffa300);
+  background-image: linear-gradient( #fecc0e, #ffa300);
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  background-image: -webkit-linear-gradient( #fedc5a, #ffa300);
+  background-image: linear-gradient( #fedc5a, #ffa300);
+  color: #fff !important;
+}
+
+.blue-button {
+  padding: 11px 20px 13px 20px;
+  background-image: -webkit-linear-gradient( #28b3ee, #0287c0);
+  background-image: linear-gradient( #28b3ee, #0287c0);
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.blue-button:hover {
+  background-image: -webkit-linear-gradient( #6fccf4, #0287c0);
+  background-image: linear-gradient( #6fccf4, #0287c0);
+}
+
+.grey-button {
+  padding: 11px 20px 13px 20px;
+  background-image: -webkit-linear-gradient( #ccdae4, #a4b6c2);
+  background-image: linear-gradient( #ccdae4, #a4b6c2);
+  color: #252e33 !important;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.grey-button:hover {
+  background-image: -webkit-linear-gradient( #edf2f6, #a4b6c2);
+  background-image: linear-gradient( #edf2f6, #a4b6c2);
+}
+
+.medium-button {
+  padding: 15px 30px 15px 30px;
+  background-image: -webkit-linear-gradient( #fecc0e, #ffa300);
+  background-image: linear-gradient( #fecc0e, #ffa300);
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.medium-button:hover {
+  background-image: -webkit-linear-gradient( #fedc5a, #ffa300);
+  background-image: linear-gradient( #fedc5a, #ffa300);
+  color: #fff !important;
+}
+
+.link-button {
+  color: #23a6de;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #23a6de;
+  -webkit-transition-property: border-color, color;
+  -moz-transition-property: border-color, color;
+  transition-property: border-color, color;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.link-button:hover {
+  border-color: #fecc0e;
+}
+
+.cancel-link-button {
+  color: #5d6e77;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #5d6e77;
+  -webkit-transition-property: border-color, color;
+  -moz-transition-property: border-color, color;
+  transition-property: border-color, color;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.cancel-link-button:hover {
+  border-color: #fecc0e;
+}
+
+.light-link-button {
+  color: #a9bdc8;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #a9bdc8;
+  -webkit-transition-property: border-color, color;
+  -moz-transition-property: border-color, color;
+  transition-property: border-color, color;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.light-link-button:hover {
+  border-color: #fecc0e;
+}
+
+.convert-to-gold:before {
+  content: "\f021";
+  font-family: FontAwesome;
+  position: relative;
+  top: 0;
+  left: -5px;
+  font-size: 0.6875rem;
+}
+
+.icon-button {
+  padding-top: 14px;
+}
+.icon-button > i {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+input:not(.default) {
+  width: 100%;
+  height: 52px;
+  padding: 20px;
+  border: 1px solid #c4c8ca;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-shadow: inset 0px 1px 3px 1px #f0f0f0;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+input:not(.default)::-webkit-input-placeholder {
+  color: #c6d0d5;
+}
+input:not(.default)::-moz-placeholder {
+  color: #c6d0d5;
+}
+input:not(.default):-moz-placeholder {
+  color: #c6d0d5;
+}
+input:not(.default):-ms-input-placeholder {
+  color: #c6d0d5;
+}
+input:not(.default).before-icon {
+  padding-left: 50px;
+  background-repeat: no-repeat;
+  background-position: 15px 50%;
+}
+input:not(.default):hover {
+  border: 1px solid #5d6e77;
+}
+input:not(.default):focus {
+  border: 1px solid #23a6de;
+}
+
+.input-dropdown {
+  position: relative;
+}
+.input-dropdown ~ .input-dropdown-chevron:after {
+  font-family: FontAwesome;
+  font-size: 12px;
+  color: #5d6e77;
+  content: "\f078";
+  position: absolute;
+  top: 21px;
+  right: 10px;
+}
+
+.input-container {
+  margin-bottom: 32px;
+  position: relative;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.input-container label {
+  display: block;
+  color: #5d6e77;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.input-container:before {
+  font-family: FontAwesome;
+  position: absolute;
+  top: 48px;
+  right: 10px;
+}
+.input-container.valid:before {
+  content: "\f00c";
+  color: #1bc67c;
+}
+.input-container.error > input {
+  border: 1px solid #dc6262;
+}
+.input-container.error:before {
+  content: "\f00d";
+  color: #dc6262;
+}
+.input-container .meta {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #5d6e77;
+}
+.input-container .flyout-widget {
+  display: block;
+}
+
+.split-input-container {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.split-input-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.split-input-container > .input-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+.split-input-container > .input-container:last-child {
+  margin-right: 0;
+}
+
+.off-center-split-input-container {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.off-center-split-input-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.off-center-split-input-container > .input-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+}
+.off-center-split-input-container > .input-container:last-child {
+  margin-right: 0;
+}
+.off-center-split-input-container > .input-container:last-of-type {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+.off-center-split-input-container > .input-container:last-of-type:last-child {
+  margin-right: 0;
+}
+
+.dob-container {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dob-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.dob-container .day, .dob-container .month {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+.dob-container .day:last-child, .dob-container .month:last-child {
+  margin-right: 0;
+}
+.dob-container .year {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+.dob-container .year:last-child {
+  margin-right: 0;
+}
+.dob-container input[type="text"] {
+  text-align: center;
+}
+
+.local-select-container {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.local-select-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.local-select-container .col:first-child {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+}
+.local-select-container .col:first-child:last-child {
+  margin-right: 0;
+}
+.local-select-container .col:last-child {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+}
+.local-select-container .col:last-child:last-child {
+  margin-right: 0;
+}
+
+.select-dropdown {
+  padding: 12px 10px;
+  min-width: 100px;
+  background: #fff;
+  border: 1px solid #c4c8ca;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #5d6e77;
+  cursor: pointer;
+}
+.select-dropdown:after {
+  content: "\f078";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  left: 3px;
+  font-size: 10px;
+}
+.select-dropdown:after {
+  position: absolute;
+  left: auto;
+  right: 10px;
+  top: 15px;
+}
+
+.checkbox-toggle {
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+}
+.checkbox-toggle + label {
+  display: inline-block;
+  position: relative;
+  box-shadow: inset 0 0 0px 1px #c4c8ca;
+  text-indent: -5000px;
+  height: 28px;
+  width: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.checkbox-toggle + label:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  -webkit-transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  -moz-transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  background: #1bc67c;
+}
+.checkbox-toggle + label:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  -webkit-transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  -moz-transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  transition: 0.2s cubic-bezier(0.3, 1.4, 0.7, 1);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.checkbox-toggle:checked + label:before {
+  width: 50px;
+  background: #1bc67c;
+}
+.checkbox-toggle:checked + label:after {
+  left: 22px;
+  box-shadow: inset 0 0 0 1px #13bf11, 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox-container {
+  margin-left: -10px;
+}
+.checkbox-container > span {
+  display: inline-block;
+  vertical-align: top;
+  margin: 7px 0 0 10px;
+  color: #5d6e77;
+}
+
+.box, .modal-box {
+  background: #fff;
+  border: 1px solid #c4c8ca;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  margin: 0 auto 60px;
+  width: 680px;
+}
+.box header h2, .modal-box header h2 {
+  text-align: center;
+  color: #5d6e77;
+  border-bottom: 2px solid #d8e1e6;
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+}
+.box h3, .modal-box h3 {
+  text-align: center;
+  color: #5d6e77;
+  margin-bottom: 40px;
+}
+.box h3.dark, .modal-box h3.dark {
+  color: #252e33;
+}
+.box h4, .modal-box h4 {
+  color: #252e33;
+  margin-bottom: 30px;
+}
+.box footer, .modal-box footer {
+  margin-top: 32px;
+  padding-top: 32px;
+  padding-bottom: 2px;
+  border-top: 2px solid #d8e1e6;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #5d6e77;
+}
+.box footer p, .modal-box footer p {
+  display: inline-block;
+}
+.box footer p:first-child:not(:only-child), .modal-box footer p:first-child:not(:only-child) {
+  margin-right: 20px;
+}
+.box footer p:first-child:not(:only-child):after, .modal-box footer p:first-child:not(:only-child):after {
+  content: "";
+  position: relative;
+  top: -2px;
+  right: -10px;
+  display: inline-block;
+  border-radius: 100px;
+  width: 6px;
+  height: 6px;
+  background: #d8e1e6;
+}
+.box footer .forgot-password, .modal-box footer .forgot-password {
+  color: #5d6e77;
+}
+.box footer.dual-actions, .modal-box footer.dual-actions {
+  text-align: left;
+  padding-bottom: 22px;
+}
+.box footer.dual-actions a:first-child, .modal-box footer.dual-actions a:first-child {
+  float: right;
+}
+.box footer.dual-actions a:last-child, .modal-box footer.dual-actions a:last-child {
+  float: left;
+}
+.box .text-block, .modal-box .text-block {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 20px;
+  color: #5d6e77;
+  margin-bottom: 30px;
+}
+.box .text-block > strong, .modal-box .text-block > strong {
+  color: #252e33;
+  display: block;
+  margin-bottom: 4px;
+}
+.box .cta-container, .modal-box .cta-container {
+  text-align: center;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box .cta-container:after, .modal-box .cta-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.box .cta-container > .medium-button, .modal-box .cta-container > .medium-button {
+  text-align: center;
+}
+.box .cta-container .col, .modal-box .cta-container .col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  text-align: left;
+}
+.box .cta-container .col:last-child, .modal-box .cta-container .col:last-child {
+  margin-right: 0;
+}
+.box .cta-container .col .checkbox-container, .modal-box .cta-container .col .checkbox-container {
+  margin-top: 10px;
+}
+.box .cta-container .col:last-child, .modal-box .cta-container .col:last-child {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+.box .cta-container .col:last-child:last-child, .modal-box .cta-container .col:last-child:last-child {
+  margin-right: 0;
+}
+.box .cta-container .col:last-child button, .modal-box .cta-container .col:last-child button {
+  float: right;
+}
+
+.completion .text-block {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.completion .completion-illustration {
+  height: 250px;
+  margin: -40px auto 0;
+  text-align: center;
+  background-image: url("../img/box-icon-bg.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .completion .completion-illustration {
+    background-image: url("../img/box-icon-bg_2x.png");
+    background-size: 600px 251px;
+  }
+}
+.completion .completion-illustration > i {
+  position: relative;
+  top: 20px;
+  display: block;
+  margin: 0 auto;
+  width: 194px;
+  height: 194px;
+  background-image: url("../img/large-checkmark.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .completion .completion-illustration > i {
+    background-image: url("../img/large-checkmark_2x.png");
+    background-size: 194px 194px;
+  }
+}
+
+.alert {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  color: #fff;
+}
+.alert > span {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+.alert li {
+  line-height: 20px;
+}
+.alert.error {
+  background: #dc6262;
+}
+.alert.success {
+  background: #1bc67c;
+}
+
+.strength-bar {
+  width: 100%;
+  margin-top: 15px;
+}
+.strength-bar .strength-bar-outer {
+  height: 8px;
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+.strength-bar .strength-bar-outer > div {
+  border-radius: 4px;
+  height: 8px;
+}
+.strength-bar .very-weak {
+  background: #dc6262;
+  width: 25%;
+}
+.strength-bar .weak {
+  background: #fba200;
+  width: 50%;
+}
+.strength-bar .strong {
+  background: #fecc0e;
+  width: 75%;
+}
+.strength-bar .very-strong {
+  background: #1bc67c;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #c4c8ca;
+}
+table th:first-child {
+  border-radius: 4px 0 0 0;
+}
+table th:last-child {
+  border-radius: 0 4px 0 0;
+}
+table th:only-child {
+  border-radius: 4px 4px 0 0;
+}
+table th:first-child, table td:first-child {
+  padding-left: 20px;
+}
+table th:last-child, table td:last-child {
+  padding-right: 20px;
+}
+table th, table td {
+  color: #5d6e77;
+}
+table th.balance, table td.balance {
+  color: #252e33;
+}
+table thead {
+  line-height: 52px;
+  background-image: -webkit-linear-gradient( #ffffff, #f6f6f6);
+  background-image: linear-gradient( #ffffff, #f6f6f6);
+}
+table thead th {
+  text-align: left;
+  border-bottom: 1px solid #c4c8ca;
+}
+table tbody tr {
+  line-height: 48px;
+}
+table tbody tr:nth-child(odd) {
+  background: #fafafa;
+}
+table tbody tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 4px;
+}
+table tbody tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 4px;
+}
+table tbody td.small-col {
+  width: 75px;
+}
+table .totals {
+  line-height: 58px;
+}
+table .totals td {
+  border-top: 1px solid #c4c8ca;
+}
+table .totals td:first-child {
+  color: #252e33;
+}
+
+table .address > a {
+  display: inline-block;
+  color: #23a6de;
+}
+table .address > a:hover {
+  color: #23a6de !important;
+}
+table .address > a:last-child {
+  margin-left: 10px;
+}
+table .address i {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 2px;
+}
+table .address .show i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: 0px -128px;
+  width: 18px;
+  height: 15px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  table .address .show i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: 0px -64px;
+  }
+}
+table .address .copy i {
+  background-image: url("../img/icon-sprite.png");
+  background-position: -64px -128px;
+  width: 16px;
+  height: 16px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  table .address .copy i {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -32px -64px;
+  }
+}
+
+table .change .up {
+  color: #1bc67c;
+}
+table .change .up:before {
+  content: "";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  right: 3px;
+  font-size: 10px;
+}
+table .change .down {
+  color: #dc6262;
+}
+table .change .down:before {
+  content: "";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  right: 3px;
+  font-size: 10px;
+}
+
+table .confirmed > span {
+  color: #1bc67c;
+}
+table .confirmed > span:before {
+  content: "";
+  font-family: FontAwesome;
+  position: relative;
+  top: -2px;
+  right: 3px;
+  font-size: 10px;
+}
+
+table .balance > a {
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}
+
+table .details-link {
+  font-size: 12px;
+}
+table .details-link > a {
+  color: #23a6de;
+}
+
+.image-input .original-image {
+  display: none;
+}
+.image-input .uploaded-image {
+  margin: 0 auto;
+  text-align: center;
+}
+.image-input .uploaded-image .button-container {
+  margin-top: 20px;
+}
+.image-input .uploaded-image .button-container > button {
+  margin: 0 15px;
+}
+
+.drag-and-drop-container {
+  width: 100%;
+  height: 120px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px dashed #c4c8ca;
+  border-radius: 4px;
+  box-shadow: inset 0px 3px 5px 1px #f7f7f7;
+}
+.drag-and-drop-container:hover {
+  border-color: #a9afb2;
+}
+.drag-and-drop-container .content {
+  margin: 35px auto;
+  width: 280px;
+}
+.drag-and-drop-container .content p {
+  color: #5d6e77;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+.drag-and-drop-container .content a {
+  color: #252e33;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #5d6e77;
+  -webkit-transition: color 0.2s, border-color 0.2s;
+  -moz-transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
+}
+.drag-and-drop-container .content a:hover {
+  border-bottom-color: #fecc0e;
+}
+.drag-and-drop-container .content > i {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1335;
+  background: rgba(255, 255, 255, 0.95);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s, visibility 0.4s;
+  -moz-transition: opacity 0.4s, visibility 0.4s;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+#modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-container {
+  z-index: 1336;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s, visibility 0.2s, top 0.3s;
+  -moz-transition: opacity 0.2s, visibility 0.2s, top 0.3s;
+  transition: opacity 0.2s, visibility 0.2s, top 0.3s;
+}
+.modal-container.active {
+  visibility: visible;
+  opacity: 1;
+  top: 60px;
+}
+
+.modal-box {
+  z-index: 1337;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
+}
+.modal-box > header .close-modal {
+  float: right;
+  margin-top: 8px;
+  font-size: 20px;
+  color: #5d6e77;
+}
+
+.webcam-modal {
+  z-index: 1337;
+  text-align: center;
+}
+.webcam-modal .webcam-top {
+  width: 640px;
+  margin: 23px auto 0;
+}
+.webcam-modal .webcam-top h3 {
+  float: left;
+}
+.webcam-modal .webcam-top i {
+  color: #5d6e77;
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
+.webcam-modal .webcam-top i:hover {
+  color: #252e33;
+}
+.webcam-modal .webcam-container, .webcam-modal .webcam-error {
+  position: relative;
+  top: -20px;
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  text-align: center;
+  background: #151718;
+  border: 1px solid #000;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.webcam-modal .webcam-container > span, .webcam-modal .webcam-error > span {
+  display: inline-block;
+  line-height: 450px;
+  color: #5d6e77;
+  font-size: 1.875rem;
+  font-weight: 200;
+}
+.webcam-modal .capture-button-container {
+  position: relative;
+  top: -20px;
+  width: 640px;
+  height: 64px;
+  margin: 0 auto;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #000;
+  border-top: 1px solid #2a3134;
+  background-image: -webkit-linear-gradient( #202528, #1b1f22);
+  background-image: linear-gradient( #202528, #1b1f22);
+}
+.webcam-modal .capture-button-container .capture-button {
+  display: inline-block;
+  margin-top: 7px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-image: -webkit-linear-gradient( #f9c201, #ffa505);
+  background-image: linear-gradient( #f9c201, #ffa505);
+}
+.webcam-modal .capture-button-container .capture-button > i {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.send-via-email-modal .illustration {
+  margin: 0 auto 30px;
+  text-align: center;
+}
+.send-via-email-modal .illustration img {
+  width: 351px;
+  height: 55px;
+}
+.send-via-email-modal .secondary-text, .send-via-email-modal .email {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.send-via-email-modal .secondary-text {
+  color: #5d6e77;
+}
+.send-via-email-modal .email {
+  font-size: 1.875rem;
+  font-weight: 200;
+  color: #252e33;
+}
+
+.show-address-modal {
+  text-align: center;
+}
+.show-address-modal .modal-box {
+  width: 460px;
+}
+.show-address-modal .label {
+  color: #5d6e77;
+}
+.show-address-modal .qrcode, .show-address-modal canvas, .show-address-modal img {
+  margin: 20px auto;
+  text-align: center;
+}
+.show-address-modal .address-text {
+  padding: 15px;
+  border-radius: 4px;
+  background: #f0f0f0;
+}
+
+.convert-to-gold-modal .vault-location-map {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("../img/world-map.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .convert-to-gold-modal .vault-location-map {
+    background-image: url("../img/world-map_2x.png");
+    background-size: 614px 299px;
+  }
+}
+.convert-to-gold-modal .map-pin {
+  position: absolute;
+  display: inline-block;
+  padding: 5px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #a0a0a0;
+  border-radius: 3px;
+  opacity: 0;
+}
+.convert-to-gold-modal .map-pin.active {
+  border-color: #23a6de;
+  box-shadow: 0px 0px 5px 1px rgba(35, 166, 222, 0.2);
+}
+.convert-to-gold-modal .map-pin:hover {
+  border-color: #23a6de;
+}
+.convert-to-gold-modal .map-pin > span {
+  position: relative;
+  top: 2px;
+}
+.convert-to-gold-modal .map-pin > i {
+  display: inline-block;
+  margin-right: 1px;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+.convert-to-gold-modal .map-pin.toronto {
+  top: 26px;
+  left: 65px;
+}
+.convert-to-gold-modal .map-pin.toronto:before, .convert-to-gold-modal .map-pin.toronto:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.toronto:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.toronto:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.toronto:before, .convert-to-gold-modal .map-pin.toronto:after {
+  left: 80%;
+}
+.convert-to-gold-modal .map-pin.toronto.active:before, .convert-to-gold-modal .map-pin.toronto.active:after, .convert-to-gold-modal .map-pin.toronto:hover:before, .convert-to-gold-modal .map-pin.toronto:hover:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.toronto.active:before, .convert-to-gold-modal .map-pin.toronto:hover:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.toronto.active:after, .convert-to-gold-modal .map-pin.toronto:hover:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.toronto.active:before, .convert-to-gold-modal .map-pin.toronto.active:after, .convert-to-gold-modal .map-pin.toronto:hover:before, .convert-to-gold-modal .map-pin.toronto:hover:after {
+  left: 80%;
+}
+.convert-to-gold-modal .map-pin.new-york {
+  top: 80px;
+  left: 123px;
+}
+.convert-to-gold-modal .map-pin.new-york:before, .convert-to-gold-modal .map-pin.new-york:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.new-york:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.new-york:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.new-york:before, .convert-to-gold-modal .map-pin.new-york:after {
+  left: 20%;
+}
+.convert-to-gold-modal .map-pin.new-york.active:before, .convert-to-gold-modal .map-pin.new-york.active:after, .convert-to-gold-modal .map-pin.new-york:hover:before, .convert-to-gold-modal .map-pin.new-york:hover:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.new-york.active:before, .convert-to-gold-modal .map-pin.new-york:hover:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.new-york.active:after, .convert-to-gold-modal .map-pin.new-york:hover:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.new-york.active:before, .convert-to-gold-modal .map-pin.new-york.active:after, .convert-to-gold-modal .map-pin.new-york:hover:before, .convert-to-gold-modal .map-pin.new-york:hover:after {
+  left: 20%;
+}
+.convert-to-gold-modal .map-pin.london {
+  top: 9px;
+  left: 227px;
+}
+.convert-to-gold-modal .map-pin.london:before, .convert-to-gold-modal .map-pin.london:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.london:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.london:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.london.active:before, .convert-to-gold-modal .map-pin.london.active:after, .convert-to-gold-modal .map-pin.london:hover:before, .convert-to-gold-modal .map-pin.london:hover:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.london.active:before, .convert-to-gold-modal .map-pin.london:hover:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.london.active:after, .convert-to-gold-modal .map-pin.london:hover:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.zurich {
+  top: 71px;
+  left: 262px;
+}
+.convert-to-gold-modal .map-pin.zurich:before, .convert-to-gold-modal .map-pin.zurich:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.zurich:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.zurich:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.zurich:before, .convert-to-gold-modal .map-pin.zurich:after {
+  left: 20%;
+}
+.convert-to-gold-modal .map-pin.zurich.active:before, .convert-to-gold-modal .map-pin.zurich.active:after, .convert-to-gold-modal .map-pin.zurich:hover:before, .convert-to-gold-modal .map-pin.zurich:hover:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.zurich.active:before, .convert-to-gold-modal .map-pin.zurich:hover:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.zurich.active:after, .convert-to-gold-modal .map-pin.zurich:hover:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.zurich.active:before, .convert-to-gold-modal .map-pin.zurich.active:after, .convert-to-gold-modal .map-pin.zurich:hover:before, .convert-to-gold-modal .map-pin.zurich:hover:after {
+  left: 20%;
+}
+.convert-to-gold-modal .map-pin.hong-kong {
+  top: 77px;
+  left: 466px;
+}
+.convert-to-gold-modal .map-pin.hong-kong:before, .convert-to-gold-modal .map-pin.hong-kong:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.hong-kong:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.hong-kong:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.hong-kong.active:before, .convert-to-gold-modal .map-pin.hong-kong.active:after, .convert-to-gold-modal .map-pin.hong-kong:hover:before, .convert-to-gold-modal .map-pin.hong-kong:hover:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.hong-kong.active:before, .convert-to-gold-modal .map-pin.hong-kong:hover:before {
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.hong-kong.active:after, .convert-to-gold-modal .map-pin.hong-kong:hover:after {
+  margin-top: -1px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.singapore {
+  top: 171px;
+  left: 453px;
+}
+.convert-to-gold-modal .map-pin.singapore:before, .convert-to-gold-modal .map-pin.singapore:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.singapore:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #7a7a7a;
+}
+.convert-to-gold-modal .map-pin.singapore:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .map-pin.singapore.active:before, .convert-to-gold-modal .map-pin.singapore.active:after, .convert-to-gold-modal .map-pin.singapore:hover:before, .convert-to-gold-modal .map-pin.singapore:hover:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.convert-to-gold-modal .map-pin.singapore.active:before, .convert-to-gold-modal .map-pin.singapore:hover:before {
+  top: -8px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #23a6de;
+}
+.convert-to-gold-modal .map-pin.singapore.active:after, .convert-to-gold-modal .map-pin.singapore:hover:after {
+  top: -7px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.convert-to-gold-modal .available-balance {
+  width: 100%;
+  height: 253px;
+  position: relative;
+  top: -40px;
+  right: -32px;
+  background-image: url("../img/brick-bg.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .convert-to-gold-modal .available-balance {
+    background-image: url("../img/brick-bg_2x.png");
+    background-size: 438px 253px;
+  }
+}
+.convert-to-gold-modal .available-balance > i {
+  display: inline-block;
+  float: right;
+  width: 231px;
+  height: 218px;
+  position: relative;
+  top: 30px;
+  right: 40px;
+  background-image: url("../img/vault-illustration.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .convert-to-gold-modal .available-balance > i {
+    background-image: url("../img/vault-illustration_2x.png");
+    background-size: 231px 218px;
+  }
+}
+.convert-to-gold-modal .available-balance .balance-container {
+  position: relative;
+  top: 80px;
+  left: -10px;
+}
+.convert-to-gold-modal .available-balance .balance-container > span {
+  display: block;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  color: #5d6e77;
+}
+.convert-to-gold-modal .available-balance .balance-container > h2 {
+  font-weight: 200;
+  color: #252e33;
+  font-size: 2.25rem;
+  display: inline-block;
+}
+.convert-to-gold-modal .available-balance .balance-container .switch-button {
+  display: inline-block;
+  position: relative;
+  top: -4px;
+  left: 10px;
+  padding: 9px 7px 5px 7px;
+  background: #fff;
+  border: 1px solid #c4c8ca;
+  border-radius: 3px;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.convert-to-gold-modal .available-balance .balance-container .switch-button > i {
+  display: inline-block;
+}
+.convert-to-gold-modal .available-balance .balance-container .switch-button:hover {
+  border-color: #a0a0a0;
+}
+.convert-to-gold-modal .transaction-details {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 20px auto 30px;
+}
+.convert-to-gold-modal .transaction-details:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.convert-to-gold-modal .transaction-details .col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  text-align: center;
+  position: relative;
+}
+.convert-to-gold-modal .transaction-details .col:last-child {
+  margin-right: 0;
+}
+.convert-to-gold-modal .transaction-details .col > span {
+  font-size: 1.875rem;
+  font-weight: 200;
+  color: #252e33;
+}
+.convert-to-gold-modal .transaction-details .col:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -24px;
+  background-image: url("../img/icon-sprite.png");
+  background-position: -448px 0px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .convert-to-gold-modal .transaction-details .col:after {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -224px 0px;
+  }
+}
+.convert-to-gold-modal .transaction-details .col:last-child:after {
+  display: none;
+}
+.convert-to-gold-modal .location-details {
+  text-align: center;
+  margin-top: 15px;
+}
+.convert-to-gold-modal .location-details i {
+  width: 24px;
+  height: 24px;
+}
+.convert-to-gold-modal .location-details i, .convert-to-gold-modal .location-details img, .convert-to-gold-modal .location-details span {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.modal-container.active .map-pin {
+  -webkit-animation-name: mapPinEntrance;
+  -moz-animation-name: mapPinEntrance;
+  animation-name: mapPinEntrance;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: once;
+  -moz-animation-iteration-count: once;
+  animation-iteration-count: once;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+.modal-container.active .map-pin.toronto {
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.modal-container.active .map-pin.new-york {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.modal-container.active .map-pin.london {
+  -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+.modal-container.active .map-pin.zurich {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+.modal-container.active .map-pin.hong-kong {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.modal-container.active .map-pin.singapore {
+  -webkit-animation-delay: 1.8s;
+  -moz-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+
+[data-tooltip] {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+[data-tooltip]:after, [data-tooltip]:before {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  margin-bottom: 0;
+  -webkit-transition: opacity 0.2s, margin-bottom 0.2s;
+  -moz-transition: opacity 0.2s, margin-bottom 0.2s;
+  transition: opacity 0.2s, margin-bottom 0.2s;
+}
+[data-tooltip]:after {
+  content: attr(data-tooltip);
+  padding: 15px;
+  bottom: 40px;
+  margin-bottom: 0;
+  left: 50%;
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 12px;
+}
+[data-tooltip]:before {
+  left: 50%;
+  margin-left: -5px;
+  bottom: 33px;
+  height: 0;
+  width: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid rgba(0, 0, 0, 0.7);
+}
+[data-tooltip]:hover:after, [data-tooltip]:hover:before {
+  opacity: 1;
+  margin-bottom: 10px;
+}
+
+.tooltip-multiline:after {
+  width: 220px;
+  line-height: 16px;
+  white-space: normal;
+}
+
+.outter-container {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/background-icons.png");
+  background-position: center center;
+  background-size: cover;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .outter-container {
+    background-image: url("../img/background-icons_2x.png");
+    background-size: 1849px 1000px;
+  }
+}
+
+.signup-container {
+  margin-top: 40px;
+  text-align: center;
+  color: #fff;
+}
+.signup-container h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.signup-container p {
+  margin: 0 auto 30px;
+  width: 55%;
+  line-height: 24px;
+}
+.signup-container .thankyou {
+  background: #fff;
+  border-radius: 4px;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 auto;
+}
+.signup-container .thankyou i {
+  display: inline-block;
+  margin-right: 10px;
+  color: #2fd88b;
+  font-size: 30px;
+  vertical-align: middle;
+}
+.signup-container .thankyou i:after {
+  content: "\f05d";
+  font-family: FontAwesome;
+}
+.signup-container .thankyou h3 {
+  color: #5d6e77;
+  display: inline-block;
+}
+.signup-container input[type="email"], .signup-container button {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 600;
+  padding: 18px 14px;
+}
+.signup-container input[type="email"] {
+  background: #28689b;
+  margin-bottom: 10px;
+}
+.signup-container input[type="email"]:focus {
+  box-shadow: 0px 0px 5px 2px rgba(102, 193, 232, 0.5);
+}
+.signup-container button {
+  background-image: -webkit-linear-gradient( #fecc0e, #ffa300);
+  background-image: linear-gradient( #fecc0e, #ffa300);
+  font-size: 15px;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+.signup-features-container {
+  width: 100%;
+  height: 82px;
+  line-height: 81px;
+  margin-bottom: 30px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #c4c8ca;
+  background-image: -webkit-linear-gradient( #ffffff, #f6f6f6);
+  background-image: linear-gradient( #ffffff, #f6f6f6);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.05);
+}
+.signup-features-container .feature {
+  width: 49.6%;
+  display: inline-block;
+  color: #5d6e77;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+.signup-features-container .feature:first-child {
+  border-right: 1px solid #c4c8ca;
+}
+.signup-features-container .feature:before {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #1bc67c;
+  margin-right: 10px;
+}
+
+.check-email {
+  padding: 0;
+}
+.check-email .content-container {
+  padding: 32px;
+  padding-bottom: 20px;
+}
+.check-email .outter-icon-container {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 60px;
+  background-image: -webkit-linear-gradient( #ffffff, #f6f6f6);
+  background-image: linear-gradient( #ffffff, #f6f6f6);
+  border-bottom: 1px solid #c4c8ca;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.check-email .inner-icon-container {
+  position: relative;
+  margin: 30px auto 0;
+  text-align: center;
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  border: 1px solid #c4c8ca;
+  background-image: -webkit-linear-gradient( #ffffff, #f6f6f6);
+  background-image: linear-gradient( #ffffff, #f6f6f6);
+}
+.check-email .inner-icon-container > i {
+  display: block;
+  width: 59px;
+  height: 56px;
+  position: absolute;
+  top: 31px;
+  left: 34px;
+  background-image: url("../img/activation-email-icon.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .check-email .inner-icon-container > i {
+    background-image: url("../img/activation-email-icon_2x.png");
+    background-size: 59px 56px;
+  }
+}
+.check-email .content-container {
+  text-align: center;
+}
+.check-email .content-container .text-container {
+  margin-bottom: 60px;
+}
+.check-email .content-container p {
+  color: #5d6e77;
+  margin-bottom: 15px;
+}
+.check-email .content-container p.data {
+  color: #252e33;
+  font-weight: 400;
+}
+
+.step-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.step-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.step-container .step {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  position: relative;
+}
+.step-container .step:last-child {
+  margin-right: 0;
+}
+.step-container .step .icon-container {
+  height: 70px;
+  margin-right: -9px;
+}
+.step-container .step .icon-container > i {
+  display: block;
+  margin: 0 auto 20px;
+}
+.step-container .step > span {
+  color: #5d6e77;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.step-container .step:after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -26px;
+  background-image: url("../img/icon-sprite.png");
+  background-position: -320px -64px;
+  width: 25px;
+  height: 25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .step-container .step:after {
+    background-image: url("../img/icon-sprite_2x.png");
+    background-size: 320px;
+    background-position: -160px -32px;
+  }
+}
+.step-container .step:last-child:after {
+  display: none;
+}
+.step-container .step.email i {
+  width: 59px;
+  height: 56px;
+  background-image: url("../img/activation-email-icon.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.email i {
+    background-image: url("../img/activation-email-icon_2x.png");
+    background-size: 59px 56px;
+  }
+}
+.step-container .step.mobile i {
+  width: 43px;
+  height: 55px;
+  background-image: url("../img/verify-mobile-not-complete.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.mobile i {
+    background-image: url("../img/verify-mobile-not-complete_2x.png");
+    background-size: 43px 55px;
+  }
+}
+.step-container .step.complete.mobile i {
+  width: 45px;
+  height: 59px;
+  background-image: url("../img/verify-mobile-complete.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.complete.mobile i {
+    background-image: url("../img/verify-mobile-complete_2x.png");
+    background-size: 45px 59px;
+  }
+}
+.step-container .step.basic-info i {
+  width: 54px;
+  height: 48px;
+  background-image: url("../img/basic-info.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.basic-info i {
+    background-image: url("../img/basic-info_2x.png");
+    background-size: 54px 48px;
+  }
+}
+.step-container .step.complete.basic-info i {
+  width: 54px;
+  height: 53px;
+  background-image: url("../img/basic-info-complete.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.complete.basic-info i {
+    background-image: url("../img/basic-info-complete_2x.png");
+    background-size: 54px 53px;
+  }
+}
+.step-container .step.verify-id i {
+  width: 38px;
+  height: 50px;
+  background-image: url("../img/verify-id.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+  .step-container .step.verify-id i {
+    background-image: url("../img/verify-id_2x.png");
+    background-size: 38px 50px;
+  }
+}
+.step-container .step.not-complete {
+  opacity: .3;
+}
+.step-container .step.current > span {
+  color: #252e33;
+}
+
+.center-small-input {
+  text-align: center;
+}
+.center-small-input > input {
+  width: 250px;
+  text-align: center;
+}
+
+.other-upload-options {
+  margin: 20px auto 30px;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.other-upload-options:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.other-upload-options .option {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: center;
+}
+.other-upload-options .option:last-child {
+  margin-right: 0;
+}
+.other-upload-options ~ .cta-container a {
+  font-size: 0.75rem;
+}
+
+.app-view-loading {
+  text-align: center;
+  padding: 100px;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #a9bdc8;
+}
+
+.app-view {
+  margin-top: 30px;
+}
+
+.section-heading {
+  vertical-align: middle;
+}
+.section-heading .center-heading {
+  text-align: center;
+}
+.section-heading i {
+  display: inline-block;
+  margin-right: 10px;
+}
+.section-heading h2 {
+  display: inline-block;
+  margin-bottom: 30px;
+  vertical-align: middle;
+  color: #252e33;
+  font-weight: 200;
+}
+.section-heading .actions {
+  float: right;
+}
+.section-heading .actions .link-button {
+  display: block;
+  margin-top: 6px;
+}

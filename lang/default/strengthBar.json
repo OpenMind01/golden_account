@@ -1,0 +1,10 @@
+{
+  "weak": "Weak",
+  "veryWeak": "Very weak",
+  "strong": "Strong",
+  "veryStrong": "Very strong",
+  "number": ", add number",
+  "mixed": ", add mixed case",
+  "length": ", too short",
+  "symbol": ", add symbol"
+}

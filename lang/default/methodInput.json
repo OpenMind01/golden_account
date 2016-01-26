@@ -1,0 +1,34 @@
+{
+  "placeholder": "Select Payment Method...",
+
+  "methodList": [
+    {
+      "label": "Bank Wire",
+      "method": "Bank Wire"
+    },
+    {
+      "label": "ACH",
+      "method": "ACH"
+    },
+    {
+      "label": "SEPA",
+      "method": "SEPA"
+    },
+    {
+      "label": "E-Check",
+      "method": "E-Check"
+    },
+    {
+      "label": "Credit Card",
+      "method": "Credit Card"
+    },
+    {
+      "label": "Paypal",
+      "method": "Paypal"
+    },
+    {
+      "label": "Dwolla",
+      "method": "Dwolla"
+    }
+  ]
+}

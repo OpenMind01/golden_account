@@ -1,0 +1,63 @@
+<table id="wallet-tx-list">
+  <thead>
+    <tr>
+      <th>{{::lang.wallet.transactions.date}}</th>
+      <th>{{::lang.wallet.transactions.description}}</th>
+      <th>{{::lang.wallet.transactions.status}}</th>
+      <th class="balance">
+        <a href="javascript:;" data-tooltip="{{::lang.wallet.transactions.convert}}" ng-click="applyCurrencySwitch()">
+          <i class="icon switch-icon"></i>
+        </a>
+        {{::lang.wallet.transactions.amount}}
+      </th>
+      <th data-csv="false">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      ng-repeat="item in transactions | limitTo : tx.size"
+      ng-init="item.contact = getTxContact(item); item.address = item.amount > 0 ? item.from[0] : item.to[0];"
+    >
+      <td>
+        <span>{{item.date ? (item.date | formatDate) : '&nbsp;'}}</span>
+      </td>
+      <td>
+        <span ng-if="item.contact">
+          <a href="{{'#/wallet/contacts/' + item.contact.address}}">
+            {{item.contact.name}}
+          </a>
+        </span>
+        <span ng-if="!item.contact">
+          {{item.address}}
+          <a href="{{'#/wallet/contacts/' + item.address}}">
+            <i class="icon add-contact-icon"></i>
+          </a>
+        </span>
+      </td>
+      <td ng-class="{ confirmed: item.confirmations > 0 }">
+        <span ng-if="item.confirmations > 0">
+          {{::lang.wallet.transactions.confirmed}}
+        </span>
+        <span ng-if="item.confirmations === 0" data-tooltip="{{::lang.wallet.tooltip.pending}}">
+          {{::lang.wallet.transactions.pending}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>
+          {{ currencySwitch ? lang.currencySymbol[$root.currency] : lang.currencySymbol.BTC }}
+        </span>
+        <span ng-class="{ left: item.amount > 0, right: item.amount < 0 }" title="{{item.amount | formatCurrency:5}}">
+          {{ currencySwitch ? (item.amount * $root.exchange[$root.currency].BTC | formatCurrency) : (item.amount | formatCurrency:3) }}
+        </span>
+      </td>
+      <td class="small-col details-link" data-csv="false">
+        <a href="{{'#/wallet/transactions/' + item.hash}}">{{::lang.wallet.transactions.details}} <i class="fa fa-arrow-right"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="transactions-more" ng-show="tx.more">
+  <button ng-click="loadTransactions()" type="button">{{::lang.wallet.transactions.more}}</button>
+</div>

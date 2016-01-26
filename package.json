@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "productName": "BitGold",
+  "name": "bitgold-frontend",
+  "version": "0.1.14",
+  "description": "BitGold FrontEnd.",
+  "keywords": [],
+  "homepage": "https://github.com/bitgold1/bitgold-frontend",
+  "author": {
+    "name": "Yuri Neves Silveira",
+    "email": "yuri@toptal.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitgold1/bitgold-frontend.git"
+  },
+  "devDependencies": {
+    "bitcoinjs-lib": "^1.1.2",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.0.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-rename": "0.0.3",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-file-creator": "^0.1.2",
+    "grunt-ng-annotate": "^0.3.2",
+    "grunt-sass": "^0.14.1",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-mocha": "^0.1.9",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "mocha": "^1.21.5"
+  },
+  "dependencies": {
+    "basic-auth": "^1.0.0",
+    "body-parser": "^1.8.2",
+    "bourbon": "0.0.2",
+    "compression": "^1.1.0",
+    "express": "^4.9.0",
+    "grunt-html2js": "^0.2.9",
+    "node-neat": "^1.3.0"
+  }
+}

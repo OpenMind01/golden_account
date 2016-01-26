@@ -1,0 +1,25 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Main File
+//
+// ----------------------------------------------
+//
+// This file is used to import all other files
+
+// Import Bourbon
+@import "bourbon";
+
+// Variables & Bourbon Defaults
+@import "base/__variables";
+
+// Import Neat
+@import "neat";
+
+// Import Main Code Base
+@import "vendor/_vendor";
+@import "utils/_utils";
+@import "base/_base";
+@import "components/_components";
+@import "views/_views";

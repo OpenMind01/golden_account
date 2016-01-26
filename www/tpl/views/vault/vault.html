@@ -1,0 +1,44 @@
+<nav class="app-nav">
+
+  <div class="_wrapper">
+
+    <div class="menu-container" include-template="tpl/views/menu.html">
+    </div><!-- menu-container -->
+
+    <div class="sub-nav">
+      <a active-link href="#/vault/overview">{{::lang.vault.overview.title}}</a>
+      <a active-link href="#/vault/transactions">{{::lang.vault.transactions.title}}</a>
+      <a active-link href="#/vault/deposit">{{::lang.vault.deposit.title}}</a>
+      <a active-link href="#/vault/withdraw">{{::lang.vault.withdraw.title}}</a>
+      <a active-link href="#/vault/goldcard">{{::lang.vault.goldcard.title}}</a>
+    </div><!-- sub-nav -->
+
+    <div class="cta">
+      <a href="#/vault/redeem" class="button convert-to-gold">{{::lang.vault.redeem.title}}</a>
+    </div>
+
+  </div><!-- _wrapper -->
+
+</nav><!-- app-nav -->
+
+<div class="app-view-loading" ng-show="loading">
+  <p>{{::lang.vault.loading}}</p>
+</div>
+
+<section class="app-view vault" ng-if="view.overview" ng-show="!loading" include-template="tpl/views/vault/vault_overview.html">
+</section>
+
+<section class="app-view transactions" ng-if="view.transactions" ng-show="!loading" include-template="tpl/views/vault/vault_transactions.html">
+</section>
+
+<section class="app-view deposit" ng-if="view.deposit" ng-show="!loading" include-template="tpl/views/vault/vault_deposit.html">
+</section>
+
+<section class="app-view withdraw" ng-if="view.withdraw" ng-show="!loading" include-template="tpl/views/vault/vault_withdraw.html">
+</section>
+
+<section class="app-view goldcard" ng-if="view.goldcard" ng-show="!loading" include-template="tpl/views/vault/vault_goldcard.html">
+</section>
+
+<section class="app-view redeem" ng-if="view.redeem" ng-show="!loading" include-template="tpl/views/vault/vault_redeem.html">
+</section>

@@ -1,0 +1,40 @@
+<table id="vault-tx-list">
+  <thead>
+    <tr>
+      <th>{{::lang.vault.transactions.date}}</th>
+      <th>{{::lang.vault.transactions.description}}</th>
+      <th>{{::lang.vault.transactions.status}}</th>
+      <th class="balance">
+        {{::lang.vault.transactions.amount}}
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in transactions | limitTo : tx.size">
+      <td>
+        <span>{{item.date ? (item.date | formatDate) : '&nbsp;'}}</span>
+      </td>
+      <td>
+
+      </td>
+      <td ng-class="{ confirmed: item.status === 'confirmed' }">
+        <span ng-if="item.status === 'confirmed'">
+            {{::lang.vault.status.confirmed}}
+        </span>
+        <span ng-if="item.status === 'pending'" class="tooltip-multiline" data-tooltip="{{::lang.vault.tooltip.pending}}">
+            {{::lang.vault.status.pending}}
+        </span>
+      </td>
+      <td class="balance">
+        <span ng-class="{ left: item.amount > 0, right: item.amount < 0 }" title="{{item.amount | formatCurrency : 5}}">
+          {{ item.amount | formatCurrency : 5 }}
+        </span>
+      </td>
+      <td>
+        <a href="{{'#/vault/transactions/' + item.id}}">{{::lang.vault.transactions.details}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

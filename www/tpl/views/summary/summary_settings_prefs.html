@@ -1,0 +1,46 @@
+<modal ng-model="displayPrefs">
+
+  <div class="modal-box">
+
+    <header>
+      <a href="javascript:;" ng-click="cancelPrefs()" class="close-modal"><i class="fa fa-times"></i></a>
+      <h2>{{::lang.summary.settings.preferences}}</h2>
+    </header>
+
+    <form name="formPrefs" ng-submit="savePrefs()">
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formPrefs.$valid && formPrefs.$submitted">
+          <span>{{::lang.summary.error.title}}</span>
+          <ul>
+            <li ng-show="formPrefs.currency.$error.valid">{{::lang.settings.error.currencyRequired}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid: formPrefs.currency.$valid}">
+          <label>{{::lang.summary.settings.currency}}</label>
+          <currency-input name="currency" ng-model="prefs.currency" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid: formPrefs.language.$valid}">
+          <label>{{::lang.summary.settings.language}}</label>
+          <language-input name="language" ng-model="prefs.language" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid: formPrefs.timezone.$valid}">
+          <label>{{::lang.summary.settings.timezone}}</label>
+          <timezone-input name="timezone" ng-model="prefs.timezone" required />
+        </div>
+
+        <div class="cta-container">
+          <button type="submit" class="medium-button">{{::lang.summary.settings.save}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </div><!-- modal-box -->
+
+</modal><!-- modal-overlay -->

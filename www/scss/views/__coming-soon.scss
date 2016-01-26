@@ -1,0 +1,100 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Coming Soon Page Styles
+//
+// ----------------------------------------------
+//
+// Styles for the coming soon page.
+
+
+// Background icons
+.outter-container {
+	@include size(100%);
+
+	@include retina-image("../img/background-icons", 1849px 1000px);
+	background-position: center center;
+	background-size: cover;
+
+} // outter-container
+
+
+.signup-container {
+	$w: 400px;
+
+	margin-top: 40px;
+	text-align: center;
+	color: $white;
+
+	h1 {
+		font-size: 32px;
+		margin-bottom: 20px;
+	}
+
+	p {
+		margin: 0 auto 30px;
+		width: 55%;
+		line-height: 24px;
+	}
+
+	.thankyou {
+		background: $white;
+		border-radius: $border-radius;
+
+		width: $w; height: 100px;
+		line-height: 100px;
+		margin: 0 auto;
+
+		i {
+			display: inline-block;
+			margin-right: 10px;
+			color: #2fd88b;
+			font-size: 30px;
+			vertical-align: middle;
+
+			&:after {
+				content: "\f05d";
+				font-family: FontAwesome;
+			}
+		
+		} // i
+
+		h3 {
+			color: $bitgold-medium;
+			display: inline-block;
+		}
+
+	} // thankyou
+
+	// Base styles
+	input[type="email"], button {
+		width: $w;
+		display: block;
+		margin: 0 auto;
+		color: $white;
+		font-weight: 600;
+		padding: 18px 14px;
+	}
+
+	input[type="email"] {
+		background: #28689b;
+		margin-bottom: 10px;
+
+		&:focus { 
+				box-shadow: 0px 0px 5px 2px rgba(lighten($bitgold-blue, 15%), .5); 
+		}
+	}
+
+	button {
+
+		@include background-image(linear-gradient($yellow-gradient-top, $yellow-gradient-bottom));
+		font-size: 15px;
+		text-shadow: 0px 1px 3px rgba($black, .2);
+		cursor: pointer;
+
+		box-shadow: 0px 2px 6px 2px rgba($black, .1);
+	
+	}
+
+} // signup-container

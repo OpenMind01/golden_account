@@ -1,0 +1,44 @@
+{
+
+  "id": {
+    "title": "Verify your Identification",
+    "skip": "Skip For Now",
+    "why": {
+      "heading": "Why do we need to verify your identity?",
+      "text": "This block of text here is to explain to the user why we need them to verify their ID. Users don’t usually like doing this sort of thing so we have to make it as clear as possible and as easy as possible. This block will be replaced."
+    }
+  },
+
+  "email": {
+    "title": "Email verification",
+    "submit": "Verify email",
+    "token": "Email verification code"
+  },
+
+  "mobile": {
+    "phone": "Your Mobile Number",
+    "send": "Send Code",
+    "title": "Verify Your Mobile Phone",
+    "submit": "Verify Mobile",
+    "token": "4 Digit Verification Code...",
+
+    "why": {
+      "heading": "Why do we need your number?",
+      "text": "The reason we required you to enter your mobile number is because we need a sure way to verify your identity. This is also used for security reasons. Don't worry we will not spam you or give out your number to anyone."
+    },
+    "verifyHeading": "Sent, Check Your Mobile Phone",
+
+    "resend": {
+      "text": "Didn't Receive a code?",
+      "link": "Re-Send"
+    }
+  },
+
+  "error": {
+    "title": "Error",
+    "token": "Enter your verification code.",
+    "expired": "Token invalid or expired.",
+    "phone": "Enter a valid mobile phone number."
+  }
+
+}

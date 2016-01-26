@@ -1,0 +1,38 @@
+<div
+  class="flyout-widget language-select-widget"
+  ng-init="lang = $root.lang; list = { visible: false, stick: false, filter: null, index: -1, counter: -1 };"
+  outer-click="list.visible = false"
+>
+
+  <input
+    type="text"
+    ng-model="language.selected"
+    ng-focus="list.visible = true; list.filter = null; list.index = 0; list.counter = -1;"
+    ng-blur="list.visible = list.stick; language.selected = language.selected || language.default;"
+    ng-keyup="list.filter = language.selected; list.counter = -1;"
+    placeholder="{{::lang.languageSelector.placeholder}}"
+  />
+
+  <div
+    class="flyout-container language-widget"
+    ng-class="{ active: list.visible }"
+    ng-show="list.visible"
+    ng-click="$event.stopPropagation()"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <ul class="item-list">
+        <li
+          ng-repeat="item in lang.languageSelector.languages"
+          ng-click="language.selected = item.name; list.visible = false;"
+          ng-class="{ selected: item.selected }"
+        >
+          <span class="name">{{item.name}}</span>
+          <span class="meta">{{item.code}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

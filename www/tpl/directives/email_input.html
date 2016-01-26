@@ -1,0 +1,47 @@
+<div
+  class="email-input"
+  ng-init="lang = $root.lang; email = {value:null}; list = {visible:null,filter:null,index:-1,stick:null};"
+>
+
+  <input
+    type="email"
+    placeholder="{{::lang.emailInput.email}}"
+    ng-model="email.value"
+    ng-focus="list.visible = true; list.filter = null; list.index = -1;"
+    ng-blur="list.visible = list.stick;"
+    ng-keyup="list.filter = email.value; list.visible = true;"
+    hit-enter="email.value = contacts[list.index].email; list.visible = false;"
+    hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+    hit-down="list.index = list.index + 1; list.index = list.index >= contacts.length ? contacts.length - 1 : list.index;"
+  />
+
+  <span
+    class="email-drop-down"
+    ng-if="contacts"
+    ng-click="list.visible = true"
+  ></span>
+
+  <div
+    class="email-contact-list"
+    ng-if="contacts"
+    ng-show="list.visible"
+    ng-mouseenter="list.stick = true;"
+    ng-mouseleave="list.stick = false;"
+  >
+    <ul>
+      <li
+        ng-repeat="contact in contacts | filter:list.filter"
+        ng-click="email.value = contact.email; list.visible = false;"
+        ng-class="{ selected: $index === list.index }"
+        scroll-parent-if="$index === $parent.list.index"
+      >
+        <span>{{::lang.emailInput.contact.name}} {{contact.name}}</span>
+        <br/>
+        <span>{{::lang.emailInput.contact.email}} {{contact.email}}</span>
+        <br/>
+        <span>{{::lang.emailInput.contact.address}} {{contact.address}}</span>
+      </li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,77 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Tool Tip styles
+//
+// ----------------------------------------------
+//
+
+[data-tooltip] {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+
+  // Base styles
+  &:after, &:before {
+  	content: "";
+  	position: absolute;
+  	opacity: 0;
+  	margin-bottom: 0;
+
+  	@include transition(
+    	opacity .2s,
+    	margin-bottom .2s
+    );
+  
+  } // base
+
+  &:after {
+    content: attr(data-tooltip);
+    padding: 15px;
+    bottom: 40px;
+    margin-bottom: 0;
+    left: 50%;
+    white-space: nowrap;
+    pointer-events: none;
+
+    @include transform(translateX(-50%));
+
+    background: rgba($black, .7);
+    opacity: 0;
+    color: $white;
+    border-radius: $border-radius;
+    text-align: center;
+    font-size: rem(12);
+    line-height: 12px;
+
+  } // after
+
+  // Bottom triangle
+  &:before {
+  	left: 50%; margin-left: -5px;
+  	bottom: 33px;
+
+  	@include triangle(14px, rgba($black, .7), down);
+  
+  } // before
+
+  // Active
+  &:hover:after, &:hover:before {
+    opacity: 1;
+    margin-bottom: 10px;
+  }
+
+} // [data-tooltip]
+
+// tooltips with more than one line need
+// a width to work
+.tooltip-multiline {
+  
+  &:after {
+    width: 220px;
+    line-height: 16px;
+    white-space: normal;
+  }
+
+} // multiline

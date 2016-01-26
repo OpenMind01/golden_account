@@ -1,0 +1,44 @@
+<nav class="app-nav">
+
+  <div class="_wrapper">
+
+    <div class="menu-container" include-template="tpl/views/menu.html">
+    </div><!-- menu-container -->
+
+    <div class="sub-nav">
+      <a active-link href="#/summary/overview">{{::lang.summary.overview.title}}</a>
+      <a active-link href="#/summary/transactions">{{::lang.summary.transactions.title}}</a>
+      <a active-link href="#/summary/payments">{{::lang.summary.payments.title}}</a>
+      <a active-link href="#/summary/statements">{{::lang.summary.statements.title}}</a>
+      <a active-link href="#/summary/settings">{{::lang.summary.settings.title}}</a>
+    </div><!-- sub-nav -->
+
+    <div class="cta">
+      <a href="#/summary/funds" class="button add-funds">{{::lang.summary.funds.title}}</a>
+    </div>
+
+  </div><!-- _wrapper -->
+
+</nav><!-- app-nav -->
+
+<div class="app-view-loading" ng-show="loading">
+  <p>{{::lang.summary.loading}}</p>
+</div>
+
+<section class="app-view overview" ng-if="view.overview" ng-show="!loading" include-template="tpl/views/summary/summary_overview.html">
+</section>
+
+<section class="app-view transactions" ng-if="view.transactions" ng-show="!loading" include-template="tpl/views/summary/summary_transactions.html">
+</section>
+
+<section class="app-view payments" ng-if="view.payments" ng-show="!loading" include-template="tpl/views/summary/summary_payments.html">
+</section>
+
+<section class="app-view statements" ng-if="view.statements" ng-show="!loading" include-template="tpl/views/summary/summary_statements.html">
+</section>
+
+<section class="app-view settings" ng-if="view.settings" ng-show="!loading" include-template="tpl/views/summary/summary_settings.html">
+</section>
+
+<section class="app-view funds" ng-if="view.funds"  ng-show="!loading" include-template="tpl/views/summary/summary_funds.html">
+</section>

@@ -1,0 +1,204 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Tables
+//
+// ----------------------------------------------
+//
+// Styles for tables 
+
+//
+// Base Table Styles
+//
+table {
+
+	$tbl-padding: 20px;
+
+	width: 100%;
+	border-collapse: separate;
+	margin-bottom: 30px;
+
+	background: $white;
+	border-radius: $border-radius;
+	border: 1px solid $border-color;
+
+	// Border Radius
+	th:first-child { border-radius: $border-radius 0 0 0; }
+	th:last-child  { border-radius: 0 $border-radius 0 0; }
+	th:only-child  { border-radius: $border-radius $border-radius 0 0; }
+
+	// Table Padding
+	th, td {
+		&:first-child { padding-left: $tbl-padding;  }
+		&:last-child  { padding-right: $tbl-padding; }
+	}
+
+	// Base styles
+	th, td {
+		color: $bitgold-medium;
+		&.balance { color: $bitgold-dark; }
+	}
+
+	// Table Heading
+	thead {
+
+		line-height: 52px;
+
+		@include background-image(linear-gradient(
+			$light-gradient-top, 
+			$light-gradient-bottom
+		));
+
+		th { 
+			text-align: left;
+			border-bottom: 1px solid $border-color; 
+		
+		} // th
+
+	} // thead
+
+	// Table Body
+	tbody {
+
+		tr {
+			line-height: 48px;
+
+			&:nth-child(odd) {
+				background: $off-white;
+			}
+
+			// Round coners on last row columns edges. 
+			&:last-of-type {
+
+				td:first-of-type { border-bottom-left-radius: $border-radius; }
+				td:last-of-type  { border-bottom-right-radius: $border-radius; }
+
+			} // last-of-type
+		
+		} // tr
+
+		// Sepcial TD's
+		td.small-col {
+			width: 75px;
+		}
+
+	} // tbody
+
+	// Totals
+	.totals {
+		line-height: 58px;
+
+		td {
+			border-top: 1px solid $border-color;
+
+			&:first-child {
+				color: $bitgold-dark;
+			}
+		
+		} // td
+
+	} // totals
+
+} // table
+
+
+
+//
+// Components inside tables
+//
+table .address {
+
+	// Base styles
+	> a { 
+		display: inline-block;
+		color: $bitgold-blue;
+
+		&:hover { color: $bitgold-blue !important; }
+
+		&:last-child {
+			margin-left: 10px;
+		}
+	
+	} // a
+
+	i {
+		display: inline-block;
+		vertical-align: text-bottom;
+		margin-right: 2px;
+	}
+
+	.show i {
+		@include icon-sprite($show-icon);
+	}
+
+	.copy i {
+		@include icon-sprite($copy-icon);
+	}
+
+} // address
+
+// Change
+table .change {
+
+	.up {
+		color: $green;
+
+		@include inline-fa-icon("\f067", "before");
+
+	} // up
+
+	.down {
+		color: $red;
+
+		@include inline-fa-icon("\f068", "before");
+	
+	} // down
+
+} // change
+
+// Conformation
+table .confirmed {
+
+	> span {
+		color: $green;
+
+		@include inline-fa-icon("\f00c", "before");
+
+	}
+
+} // confirmed
+
+// Heading Balanace
+table .balance {
+
+	> a { 
+		position: relative;
+		top: 3px;
+		margin-right: 5px;
+	}
+
+} // balance
+
+// Details Link
+table .details-link {
+
+	font-size: 12px;
+
+	> a { color: $bitgold-blue; }
+
+} // details-link
+
+
+
+
+
+
+
+
+
+
+
+
+
+

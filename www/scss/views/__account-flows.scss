@@ -1,0 +1,316 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS
+//
+// Account Flow Page Styles
+//
+// ----------------------------------------------
+//
+// Styles specific to the acount flow pages.
+// As time goes on things should get refactored
+// out of here
+
+//
+// Features on sign up page.
+//
+.signup-features-container {
+	width: 100%;
+	height: 82px;
+	line-height: 81px;
+	margin-bottom: 30px;
+
+	text-align: center;
+	border-radius: $border-radius;
+	border: 1px solid $border-color;
+
+	@include background-image(linear-gradient(
+		$light-gradient-top,
+		$light-gradient-bottom
+	));
+
+	box-shadow: $box-shadow;
+
+	.feature {
+		width: 49.6%;
+		display: inline-block;
+
+		color: $bitgold-medium;
+		font-size: rem(18);
+		font-weight: $medium-font;
+
+		&:first-child {
+			border-right: 1px solid $border-color;
+		}
+
+		&:before {
+			font-family: FontAwesome;
+			content: "\f00c";
+			color: $green;
+			margin-right: 10px;
+
+		}
+
+	} // feature
+
+} // signup-features-container
+
+
+//
+// Check Email Box
+//
+.check-email {
+
+	padding: 0;
+
+  .content-container {
+
+    padding: $box-padding;
+    padding-bottom: 20px;
+
+  } // content-container
+
+	//
+	// Top Icon
+	//
+	.outter-icon-container {
+
+		width: 100%;
+		height: 70px;
+		margin-bottom: 60px;
+
+		@include background-image(linear-gradient(
+			$light-gradient-top,
+			$light-gradient-bottom
+		));
+
+		border-bottom: 1px solid $border-color;
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
+
+	} // outter-icon-container
+
+	.inner-icon-container {
+
+		position: relative;
+		margin: 30px auto 0;
+		text-align: center;
+
+		@include size(122px);
+		border-radius: 50%;
+		border: 1px solid $border-color;
+
+		@include background-image(linear-gradient(
+			$light-gradient-top,
+			$light-gradient-bottom
+		));
+
+		> i {
+			$w: 59px; $h: 56px;
+
+			display: block;
+			width: $w; height: $h;
+
+			position: absolute;
+			top: 31px; left: 34px;
+
+			@include retina-image("../img/activation-email-icon", $w $h);
+
+		} // i
+
+	} // inner-icon-container
+
+
+	//
+	// Specific content styles
+	//
+	// ## TODO refactor this section.
+	.content-container {
+		text-align: center;
+
+		.text-container {
+			margin-bottom: 60px;
+		}
+
+		p {
+			color: $bitgold-medium;
+			margin-bottom: 15px;
+
+			&.data {
+				color: $bitgold-dark;
+				font-weight: $medium-font;
+			}
+
+		}
+
+	} // content-container
+
+} // check-email
+
+
+
+//
+// Onboarding Steps
+//
+.step-container {
+
+	position: relative;
+	text-align: center;
+	margin-bottom: 40px;
+
+	@include outer-container();
+
+	.step {
+		@include span-columns(3);
+		position: relative;
+
+		// Base Icon Styles
+		.icon-container {
+
+			height: 70px;
+			margin-right: -9px;
+
+			> i {
+				display: block;
+				margin: 0 auto 20px;
+			}
+
+		} // icon-container
+
+		// Label Styles
+		> span {
+			color: $bitgold-medium;
+			font-size: rem(14);
+			font-weight: 500;
+		}
+
+		// Chevron
+		&:after {
+			content: "";
+			position: absolute; 
+			top: 16px; right: -26px;
+
+			@include icon-sprite($large-chevron-icon);
+		}
+
+		// Remove last chveron
+		&:last-child:after { display: none; }
+
+		//
+		// Icons
+		//
+		&.email i {
+			$w: 59px; $h: 56px;
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/activation-email-icon", $w $h);
+
+		} // email
+
+		&.mobile i {
+			$w: 43px; $h: 55px;
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/verify-mobile-not-complete", $w $h);
+
+		} // mobile
+
+		&.complete { &.mobile i {
+			$w: 45px; $h: 59px;
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/verify-mobile-complete", $w $h);
+
+		}} // mobile complete
+
+		&.basic-info i {
+			$w: 54px; $h: 48px;
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/basic-info", $w $h);
+
+		} // basic-info
+
+		&.complete { &.basic-info i {
+			$w: 54px; $h: 53px;
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/basic-info-complete", $w $h);
+
+		}} // basic-info complete
+
+		&.verify-id i {
+			$w: 38px; $h: 50px; 
+
+			width: $w; height: $h;
+
+			@include retina-image("../img/verify-id", $w $h);
+
+		} // verify-id
+
+
+		// Not complete step
+		&.not-complete {
+			opacity: .3;
+		}
+
+		&.current > span {
+			color: $bitgold-dark;
+		}
+
+	} // step
+
+} // step-container
+
+
+
+//
+// Mobile Verification
+//
+.center-small-input {
+
+	text-align: center;
+
+	> input {
+		width: 250px;
+		text-align: center;
+	}
+
+} // center-small-input
+
+
+
+//
+// Verify ID
+//
+.other-upload-options {
+
+	margin: 20px auto 30px;
+	@include outer-container();
+
+	.option {
+		@include span-columns(6);
+		text-align: center;
+	}
+
+	& ~ .cta-container a {
+		font-size: rem(12);
+	}
+
+} // other-upload-options
+
+
+
+
+
+
+
+
+
+
+
+

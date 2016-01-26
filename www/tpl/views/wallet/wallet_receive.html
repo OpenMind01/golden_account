@@ -1,0 +1,37 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <div class="center-heading">
+      <i class="receivepayment-icon"></i>
+      <h2>{{::lang.wallet.receive.title}}</h2>
+    </div>
+  </div>
+
+  <section class="box">
+
+    <form name="formReceive" ng-submit="requestPayment()">
+      <fieldset>
+        <div class="input-container">
+          <label>{{::lang.wallet.receive.email}}:</label>
+          <email-input contacts="wallet.contacts" name="email" ng-model="receive.email" />
+        </div>
+        <div class="input-container">
+          <label>{{::lang.wallet.receive.amount}}:</label>
+          <amount-input ng-model="receive.amount" />
+        </div>
+        <div class="cta-container">
+          <button type="button" class="medium-button" ng-click="showQRCode()">{{::lang.wallet.receive.qrcode}}</button>
+        </div>
+        <div class="field" ng-show="receive.qrcode">
+          <qrcode text="receive.uri"></qrcode>
+          <div class="buttons">
+            <button ng-if="features.flash" copy-button="receive.uri" class="button-copy" type="button">{{::lang.wallet.receive.copy}}</button>
+            <button class="button-mail"type="submit">{{::lang.wallet.receive.mail}}</button>
+            <button class="button-close"type="button" ng-click="hideQRCode()">{{::lang.wallet.receive.close}}</button>
+        </div>
+      </fieldset>
+    </form>
+
+  </section><!-- box -->
+
+</div><!-- _wrapper -->

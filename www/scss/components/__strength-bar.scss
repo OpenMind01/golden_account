@@ -1,0 +1,48 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Input Strength Bar
+//
+// ----------------------------------------------
+//
+// Styles for the strength bar
+
+.strength-bar {
+	width: 100%;
+	margin-top: 15px;
+
+	.strength-bar-outer {
+
+		height: 8px;
+		background: $strength-bar-background;
+		border-radius: $border-radius;
+
+		> div {
+			border-radius: $border-radius;
+			height: 8px;
+		}
+
+	} // outer
+
+	.very-weak {
+		background: $red;
+		width: 25%;
+	}
+
+	.weak {
+		background: $orange;
+		width: 50%;
+	}
+
+	.strong {
+		background: $yellow;
+		width: 75%;
+	}
+
+	.very-strong {
+		background: $green;
+		width: 100%;
+	}
+
+} // strength-bar

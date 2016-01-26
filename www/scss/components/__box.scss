@@ -1,0 +1,205 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Box
+//
+// ----------------------------------------------
+//
+// Styles for the box that holds content.
+
+.box {
+
+  @include basic-box();
+
+  margin: 0 auto 60px;
+  width: $medium-content-box-width;
+
+  //
+  // Elements
+  //
+  header h2 {
+
+    text-align: center;
+    color: $bitgold-medium;
+    border-bottom: 2px solid $light-border-color;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+
+  } // header h2
+
+  h3 {
+    text-align: center;
+    color: $bitgold-medium;
+    margin-bottom: 40px;
+
+    &.dark { color: $bitgold-dark; }
+
+  }
+
+  h4 {
+    color: $bitgold-dark;
+    margin-bottom: 30px;
+  }
+
+  footer {
+
+    margin-top: 32px;
+    padding-top: 32px;
+    padding-bottom: 2px;
+
+    border-top: 2px solid $light-border-color;
+    text-align: center;
+    font-size: rem(14);
+    font-weight: $medium-font;
+    color: $bitgold-medium;
+
+    p {
+      display: inline-block;
+
+      // Separator dot
+      &:first-child:not(:only-child) {
+
+        margin-right: 20px;
+
+        &:after {
+          content: "";
+          position: relative;
+          top: -2px; right: -10px; 
+          display: inline-block;
+
+          border-radius: 100px; 
+          width: 6px; height: 6px;
+          background: $light-border-color;
+
+        } 
+      
+      } // first-child
+    
+    } // p
+
+    .forgot-password { color: $bitgold-medium; }
+
+    //
+    // Special footers
+    //
+    &.dual-actions {
+
+      text-align: left;
+      padding-bottom: 22px; // ## TODO figure out why this is needed
+
+      a:first-child {
+        float: right;
+      }
+
+      a:last-child {
+        float: left;
+      }
+    
+    } // dual-actions
+  
+  } // footer
+
+  //
+  // Components
+  //
+
+  // Text Block
+  .text-block {
+
+    font-size: rem(14);
+    font-weight: $medium-font;
+    line-height: 20px;
+    color: $bitgold-medium;
+    margin-bottom: 30px;
+
+    > strong { 
+      color: $bitgold-dark; 
+      display: block;
+      margin-bottom: 4px;
+    }
+
+  } // text-block
+
+  // Bottom CTA container
+  .cta-container {
+    //margin-bottom: 10px;
+    text-align: center;
+
+    @include outer-container();
+
+    // Center button if thats the
+    // only element
+    > .medium-button {
+      text-align: center;
+    }
+
+    .col {
+      @include span-columns(8);
+      text-align: left;
+
+      // Push down a checkbox to align 
+      // better with a CTA button
+      .checkbox-container {
+        margin-top: 10px;
+      }
+
+      &:last-child {
+        @include span-columns(4);
+
+        button {
+          float: right;
+        }
+
+      } // last-child
+
+    } // col
+
+  } // cta-container
+
+} // box
+
+
+
+//
+// Special box items
+//
+
+// Completion View 
+.completion {
+
+  .text-block {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  
+  .completion-illustration {
+    height: 250px;
+    margin: -40px auto 0;
+    text-align: center;
+
+    @include retina-image("../img/box-icon-bg", 600px 251px);
+
+    background-repeat: no-repeat;
+
+    // Large checkmark
+    > i {
+      $size: 194px;
+      position: relative;
+      top: 20px;
+
+      display: block;
+      margin: 0 auto;
+
+      @include size($size);
+
+      @include retina-image("../img/large-checkmark", $size $size);
+
+    }
+
+  } // completion-illustration
+
+
+} // completion

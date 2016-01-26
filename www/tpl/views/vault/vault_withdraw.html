@@ -1,0 +1,64 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <div class="center-heading">
+      <i class="transactions-icon"></i>
+      <h2>{{::lang.vault.withdraw.title}}</h2>
+    </div>
+  </div>
+
+  <section class="box">
+
+    <form name="formWithdraw" novalidate>
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formWithdraw.$valid && withdraw.clicked">
+          <span>{{::lang.vault.error.title}}</span>
+          <ul>
+            <li ng-show="formWithdraw.amount.$error.required">{{::lang.vault.error.amountRequired}}</li>
+            <li ng-show="formWithdraw.amount.$error.min">{{::lang.vault.error.amountMinimum}}</li>
+            <li ng-show="formWithdraw.location.$error.required">{{::lang.vault.error.locationRequired}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid:formWithdraw.method.$valid}">
+          <label>{{::lang.vault.withdraw.method}}</label>
+          <select name="method" ng-model="withdraw.method" required>
+            <option ng-repeat="item in lang.vault.methods" value="{{item}}">
+              {{item}}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-container">
+          <label>{{::lang.vault.withdraw.details}}</label>
+          <input type="text" name="details" ng-model="redeem.type" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formWithdraw.amount.$valid}">
+          <label>{{::lang.vault.withdraw.amount}}</label>
+          <amount-input name="amount" ng-model="withdraw.amount" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formWithdraw.location.$valid}">
+          <label>{{::lang.vault.withdraw.location}}</label>
+          <location-input name="location" ng-model="withdraw.location" required />
+        </div>
+
+        <div class="cta-container">
+          <button ng-click="withdraw.clicked = true; withdraw.confirm = formWithdraw.$valid;" type="button" class="medium-button">{{::lang.vault.withdraw.submit}}</button>
+        </div>
+
+        <div class="dialog" ng-show="withdraw.confirm">
+          <button ng-click="withdraw.confirm = false; withdraw.clicked = false;" type="submit">{{::lang.vault.withdraw.confirm}}</button>
+          <button ng-click="withdraw.confirm = false" type="button">{{::lang.vault.withdraw.cancel}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section><!-- box -->
+
+</div><!-- _wrapper -->

@@ -1,0 +1,43 @@
+<nav class="app-nav">
+
+  <div class="_wrapper">
+
+    <div class="menu-container" include-template="tpl/views/menu.html">
+    </div><!-- menu-container -->
+
+    <div class="sub-nav">
+      <a active-link href="#/wallet/overview">{{::lang.wallet.balance.title}}</a>
+      <a active-link href="#/wallet/transactions">{{::lang.wallet.transactions.title}}</a>
+      <a active-link href="#/wallet/send">{{::lang.wallet.send.title}}</a>
+      <a active-link href="#/wallet/receive">{{::lang.wallet.receive.title}}</a>
+      <a active-link href="#/wallet/contacts">{{::lang.wallet.contacts.title}}</a>
+    </div><!-- sub-nav -->
+
+    <div class="cta">
+      <a href="javascript:;" ng-click="cg.show = true; cg.step = 1; cg.balance = balance;" class="button convert-to-gold">{{::lang.wallet.convert.title}}</a>
+    </div>
+
+  </div><!-- _wrapper -->
+
+</nav><!-- app-nav -->
+
+<div class="app-view-loading" ng-show="loading">
+  <p>{{::lang.wallet.loading}}</p>
+</div>
+
+<section class="app-view wallet" ng-if="view.overview" ng-show="!loading" include-template="tpl/views/wallet/wallet_overview.html">
+</section>
+
+<section class="app-view send" ng-if="view.send" ng-show="!loading" scope="parent" include-template="tpl/views/wallet/wallet_send.html">
+</section>
+
+<section class="app-view receive" ng-if="view.receive" ng-show="!loading" scope="parent" include-template="tpl/views/wallet/wallet_receive.html">
+</section>
+
+<section class="app-view contacts" ng-if="view.contacts" ng-show="!loading" include-template="tpl/views/wallet/wallet_contacts.html">
+</section>
+
+<section class="app-view transcations" ng-if="view.transactions"  ng-show="!loading" include-template="tpl/views/wallet/wallet_transactions.html">
+</section>
+
+<div scope="parent" include-template="tpl/views/wallet/wallet_convert.html"></div>

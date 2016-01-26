@@ -1,0 +1,43 @@
+/* - ----------------------------------------------------- - */
+.summary-balance td.first {
+  padding-left: 20px;
+}
+.summary-balance td i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.summary-balance td.chart {
+  width: 180px;
+  padding-left: 0px;
+}
+.summary-balance td.chart .pie-chart {
+  position: absolute;
+}
+.summary-balance td.chart .pie-chart canvas {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 180px;
+}
+
+.available-amount {
+  float: right;
+}
+
+/* - ----------------------------------------------------- - */
+.section-heading .actions .link-button {
+  display: inline-block;
+}
+.section-heading .actions .flyout-widget {
+  margin-left: 20px;
+}
+.section-heading .actions .input-container {
+  display: inline-block;
+  margin: 0px 20px 0px 0px;
+}
+.section-heading .actions .input-container input {
+  height: 30px;
+}
+
+/* - ----------------------------------------------------- - */

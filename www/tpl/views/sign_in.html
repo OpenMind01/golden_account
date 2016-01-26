@@ -1,0 +1,64 @@
+ <section class="account-flow">
+
+  <div class="_wrapper">
+
+    <section class="box">
+
+      <header>
+        <h2>{{::lang.signIn.title}}</h2>
+      </header>
+
+      <form name="form" ng-submit="signIn()" novalidate>
+
+        <div class="alert success" ng-if="emailVerified">
+          <span>{{::lang.signIn.emailVerified.title}}</span>
+          <p>{{::lang.signIn.emailVerified.message}}</p>
+        </div>
+
+        <div class="alert error" ng-show="form.$invalid && form.$submitted">
+          <span>{{::lang.signIn.error.title}}</span>
+          <ul>
+            <li ng-show="form.email.$invalid">{{::lang.signIn.error.email}}</li>
+            <li ng-show="form.password.$invalid">{{::lang.signIn.error.password}}</li>
+            <li ng-show="form.$error.wrong">{{::lang.signIn.error.wrong}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container">
+          <label>{{::lang.signIn.email}}</label>
+          <input type="email" name="email" ng-change="resetError()" ng-model="email" placeholder="{{::lang.signIn.emailPlaceholder}}" required />
+        </div>
+
+        <div class="input-container">
+          <label>{{::lang.signIn.password}}</label>
+          <input type="password" name="password" ng-change="resetError()" ng-model="password" placeholder="{{::lang.signIn.passwordPlaceholder}}" required />
+        </div>
+
+        <div class="cta-container">
+
+          <div class="col">
+            <div class="checkbox-container">
+              <input type="checkbox" id="remember-me" class="checkbox-toggle">
+              <label for="remember-me"></label>
+              <span>{{::lang.signIn.remember}}</span>
+            </div>
+          </div><!-- col -->
+
+          <div class="col">
+            <button type="submit" class="action-button medium-button">{{::lang.signIn.submit}}</button>
+          </div>
+
+        </div><!-- input-container -->
+
+      </form>
+
+      <footer>
+        <p><a href="javascript:;" class="forgot-password">{{::lang.signIn.forgot}}</a></p>
+        <p>{{::lang.signIn.signUp.text}} <a href="#/sign-up" class="link-button">{{::lang.signIn.signUp.link}}</a></p>
+      </footer>
+
+    </section><!-- box -->
+
+  </div><!-- wrapper -->
+
+</section>

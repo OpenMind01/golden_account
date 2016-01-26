@@ -1,0 +1,73 @@
+
+<div class="local-select-container">
+
+  <div class="col">
+
+    <div
+      class="flyout-widget phone-input"
+      ng-init="lang = $root.lang; code = {value:null,flag:null}; list = {visible:null,filter:null,index:-1,stick:null};"
+    >
+
+      <input
+        type="text"
+        ng-readonly="readonly"
+        placeholder="{{::lang.phoneInput.countryCode}}"
+        ng-model="code.value"
+        ng-class="code.flag ? 'flag ' + code.flag : ''"
+        ng-focus="list.visible = true; list.filter = null; list.index = -1;"
+        ng-blur="list.visible = list.stick;"
+        ng-keyup="list.filter = code.value; list.visible = true;"
+        ng-change="code.flag = null;"
+        hit-enter="code.flag = list.data[list.index].key; code.value = list.data[list.index].text; list.visible = false;"
+        hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+        hit-down="list.index = list.index + 1; list.index = list.index >= list.data.length ? list.data.length - 1 : list.index;"
+        focus-select
+        class="input-dropdown before-icon"
+      />
+
+      <span
+        class="input-dropdown-chevron"
+        ng-click="list.visible = true"
+        ng-show="!readonly"
+      ></span>
+
+      <div
+        class="flyout-container phone-widget"
+        ng-show="list.visible && !readonly"
+        ng-class="{ active: list.visible }"
+        ng-mouseenter="list.stick = true"
+        ng-mouseleave="list.stick = false"
+      >
+        <div class="inner">
+          <ul class="item-list">
+            <li
+              ng-repeat="item in list.data = (lang.phoneInput.countryList | filter:list.filter)"
+              ng-click="code.flag = item.key; code.value = item.text; list.visible = false;"
+              ng-class="{ selected: $index === list.index }"
+              ng-init="item.text = item.country + ' (+' + item.code + ')'"
+              scroll-parent-if="$index === list.index"
+            >
+              <i class="flag" ng-class="item.key"></i>
+              <span class="name">{{item.country}}</span>
+              <span class="meta">+{{item.code}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- flyout-widget -->
+
+  </div><!-- col -->
+
+  <div class="col">
+
+    <input
+      type="tel"
+      placeholder="{{::lang.phoneInput.phoneNumber}}"
+      ng-model="number"
+      ng-readonly="readonly"
+    />
+
+  </div><!-- col -->
+
+</div><!-- phone-contianer -->

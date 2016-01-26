@@ -1,0 +1,55 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">{{::lang.summary.balance.title}}</th>
+      <th>{{::lang.summary.balance.total}}</th>
+      <th>{{::lang.summary.balance.percentage}}</th>
+      <th>{{::lang.summary.balance.change}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in balance.sources">
+      <td ng-if="$index === 0" rowspan="3" class="chart">
+        <pie-chart data="balance.piechart" />
+      </td>
+      <td class="first">
+        <a href="{{ '#/' + item.source }}">
+          <i ng-style="{ backgroundColor: lang.summary.colors[item.source] }"></i>
+          <span>{{::lang.summary.sources[item.source]}}</span>
+        </a>
+      </td>
+      <td class="balance">
+        <span>
+          {{lang.currencySymbol[$root.currency]}}
+          {{item.value * $root.exchange[$root.currency][item.currency] | formatCurrency:2}}
+        </span>
+      </td>
+      <td class="percentage">
+        <span>{{item.share | formatCurrency:2}}%</span>
+      </div>
+      <td class="change">
+        <span ng-class="{ up: item.change.daily > 0, down: item.change.daily < 0 }">
+          {{item.change.daily | formatCurrency:2}}
+        </span>
+      </td>
+    </tr>
+    <tr class="totals">
+      <td colspan="2">
+      </td>
+      <td class="balance">
+        <span>
+          {{::lang.currencySymbol[$root.currency]}}
+          {{balance.value | formatCurrency:2}}
+        </span>
+      </td>
+      <td class="percentage">
+        <span>100%</span>
+      </td>
+      <td class="change">
+        <span ng-class="{ up: balance.change.daily > 0, down: balance.change.daily < 0 }">
+          {{balance.change.daily | formatCurrency:2}}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

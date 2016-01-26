@@ -1,0 +1,24 @@
+{
+  "optOneHeading": "Option 1 - Upload Document Directly",
+  "optTwoHeading": "Option 2 - Use webcam",
+  "optThreeHeading": "Option 3 - Send by Email",
+  "uploadLineOne": "Upload Document",
+  "uploadLineTwo": "Drag & Drop Into this box or",
+  "browseLink": "Browse",
+  "webcam": "Use Webcam",
+  "email": "Send By Email",
+  "closeWebcam": "Close Webcam",
+  "webcamTitle": "Webcam Photo",
+  "takePicture": "Take Picture",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "tip": {
+    "drop": "Drag and drop image here.",
+    "email": "Take a photo on your phone and Email it to",
+    "progress": "Uploading..."
+  },
+  "imageEmail": "Send ID via Email",
+  "sendDocEmail": "{{pin}}@doc.bitgold.com",
+  "confirmEmail": "Click Here Once You’ve Sent the Email",
+  "skip": "Skip For Now"
+}

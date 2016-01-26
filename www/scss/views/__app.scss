@@ -1,0 +1,65 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// App Side Views
+//
+// ----------------------------------------------
+//
+// Styles for generic app views
+
+.app-view-loading {
+
+	text-align: center;
+	padding: 100px;
+
+	font-size: rem(40);
+	font-weight: $light-font;
+	color: $bitgold-light;
+
+} // app-view-loading
+
+// Main app view container
+.app-view {
+	margin-top: 30px;
+} 
+
+// Main title for section blocks
+.section-heading {
+	vertical-align: middle;
+
+	.center-heading {
+		text-align: center;
+	}
+
+	i {
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	h2 {
+		display: inline-block;
+		margin-bottom: 30px;
+		vertical-align: middle;
+
+		color: $bitgold-dark;
+		font-weight: $light-font;
+
+	} // h2
+
+	// Right side actions
+	.actions {
+
+		float: right;
+
+		.link-button {
+			display: block;
+			margin-top: 6px;
+		}
+
+	} // actions
+
+} // section-title
+
+
+

@@ -1,0 +1,54 @@
+<modal ng-model="ct.form">
+
+  <div class="modal-box">
+
+    <header>
+      <a href="javascript:;" ng-click="cancelContact()" class="close-modal"><i class="fa fa-times"></i></a>
+      <h2 ng-if="!ct.edit">{{::lang.wallet.contacts.addTitle}}</h2>
+      <h2 ng-if="ct.edit">{{::lang.wallet.contacts.editTitle}}</h2>
+    </header>
+
+    <form name="formContact" ng-submit="saveContact()">
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formContact.$valid && formContact.$submitted">
+          <span>{{::lang.wallet.error.title}}</span>
+          <ul>
+            <li ng-show="!formContact.address.$error.required && formContact.address.$error.valid">{{::lang.wallet.error.addressValid}}</li>
+            <li ng-show="formContact.address.$error.required">{{::lang.wallet.error.addressRequired}}</li>
+            <li ng-show="formContact.phone.$error.valid">{{::lang.wallet.error.phoneValid}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid: formContact.address.$valid}">
+          <label>{{::lang.wallet.contacts.address}}</label>
+          <address-input name="address" ng-model="contact.address" required />
+        </div>
+
+        <div class="input-container">
+          <label>{{::lang.wallet.contacts.name}}</label>
+          <input type="text" name="name" ng-model="contact.name" placeholder="{{::lang.wallet.contacts.namePlaceholder}}" />
+        </div>
+
+        <div class="input-container" ng-class="{valid: contact && contact.email && formContact.email.$valid }">
+          <label>{{::lang.wallet.contacts.email}}</label>
+          <input type="email" name="email" placeholder="{{::lang.wallet.contacts.emailPlaceholder}}" ng-model="contact.email" />
+        </div>
+
+        <div class="input-container" ng-class="{valid: contact && contact.phone && formContact.phone.$valid }">
+          <label>{{::lang.wallet.contacts.phone}}</label>
+          <phone-input name="phone" ng-model="contact.phone" />
+        </div>
+
+        <div class="cta-container">
+          <button type="submit" class="medium-button">{{::lang.wallet.contacts.save}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </div><!-- modal-box -->
+
+</div><!-- modal-overlay -->

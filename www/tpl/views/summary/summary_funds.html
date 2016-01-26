@@ -1,0 +1,60 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <i class="transactions-icon"></i>
+    <h2>{{::lang.summary.funds.title}}</h2>
+  </div>
+
+  <section class="box">
+
+    <form name="formAddFunds" novalidate>
+
+      <fieldset>
+
+        <div class="cta-container">
+
+          <button ng-click="funds.type='wallet'" type="button" class="medium-button">
+            {{::lang.summary.funds.wallet}}
+          </button>
+
+          <button ng-click="funds.type='vault'" type="button" class="medium-button">
+            {{::lang.summary.funds.vault}}
+          </button>
+
+        </div>
+
+        <div class="alert error" ng-show="!formDeposit.$valid && deposit.clicked">
+          <span>{{::lang.summary.error.title}}</span>
+          <ul>
+            <li ng-show="!formAddFunds.method.$valid">{{::lang.summary.error.methodValid}}</li>
+            <li ng-show="!formAddFunds.currency.$valid">{{::lang.summary.error.currencyValid}}</li>
+            <li ng-show="!formAddFunds.location.$valid">{{::lang.summary.error.locationValid}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.method.$valid}" ng-show="funds.type">
+          <label>{{::lang.summary.funds.method}}</label>
+          <method-input name="method" ng-model="funds.method" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.currency.$valid}" ng-show="funds.type">
+          <label>{{::lang.summary.funds.currency}}</label>
+          <currency-input name="amount" ng-model="funds.currency" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formDeposit.location.$valid}" ng-show="funds.type === 'vault'">
+          <label>{{::lang.summary.funds.location}}</label>
+          <location-input name="location" ng-model="funds.location" required />
+        </div>
+
+        <div class="cta-container" ng-show="funds.type">
+          <button ng-click="" type="button" class="medium-button">{{::lang.summary.funds.submit}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section>
+
+</div><!-- _wrapper -->

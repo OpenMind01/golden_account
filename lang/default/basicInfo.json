@@ -1,0 +1,36 @@
+{
+  "title": "Basic Profile Information",
+  "submit": "Continue",
+  "fullName": "Full Name",
+  "fullNameNamePlaceholder": "First Name...",
+  "firstName": "First Name",
+  "firstNamePlaceholder": "First Name...",
+  "lastName": "Last Name",
+  "lastNamePlaceholder": "Last Name...",
+  "email": "Your Email Address",
+  "phone": "Your Mobile Number",
+  "birthDate": "Date of Birth",
+  "personal": "Personal Info",
+  "address": "Address",
+  "street": "Street Address",
+  "streetPlaceholder": "Street Address...",
+  "postal": "ZIP / Postal Code",
+  "postalPlaceholder": "ZIP / Postal Code...",
+  "state": "State / Province",
+  "country": "Country",
+  "document": "Document",
+  "city": "City",
+  "cityPlaceholder": "City...",
+
+  "error": {
+    "title": "Error",
+    "firstName": "Enter your First Name.",
+    "lastName": "Enter your Last Name.",
+    "birthDate": "Enter your Date of Birth.",
+    "postalCode": "Enter your Postal Code.",
+    "street": "Enter your Street Address.",
+    "state": "Enter your State.",
+    "city": "Enter your City."
+  }
+
+}

@@ -1,0 +1,544 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS
+//
+// Modal Window Styles
+//
+// ----------------------------------------------
+//
+
+// Modal Overlay
+#modal-overlay {
+	position: fixed;
+	top: 0; left: 0;
+	@include size(100%);
+	z-index: $z - 2;
+
+	background: rgba($white, .95);
+
+	visibility: hidden;
+	opacity: 0;
+
+	@include transition(
+		opacity .4s,
+		visibility .4s
+	);
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+} // modal-overlay
+
+
+
+//
+// Modal Container
+//
+.modal-container {
+	z-index: $z - 1;
+	position: absolute;
+	top: 100px; left: 50%;
+	@include transform(translateX(-50%));
+
+
+	visibility: hidden;
+	opacity: 0;
+
+	@include transition(
+		opacity .2s,
+		visibility .2s,
+		top .3s
+	);
+
+	&.active { 
+		visibility: visible;
+		opacity: 1;
+		top: 60px;
+	
+	} // active
+
+} // modal-container
+
+
+
+//
+// Modal Box
+//
+.modal-box {
+	@extend .box;
+
+	z-index: $z;
+
+	box-shadow: 0px 0px 30px 5px rgba($black, .1);
+
+	// Close Button
+	> header {
+
+		.close-modal {
+			float: right;
+			margin-top: 8px;
+			font-size: 20px;
+			color: $bitgold-medium;
+		}
+
+	} // header
+
+} // modal-box
+
+
+
+//
+// Webcam modal
+//
+.webcam-modal {
+
+	z-index: $z;
+
+	text-align: center;
+
+	// Top section, title and close.
+	.webcam-top {
+		width: $webcam-width;
+		margin: 23px auto 0;
+
+		h3 {
+			float: left;
+		}
+
+		// Close Icon
+		i {
+			color: $bitgold-medium;
+			float: right;
+			cursor: pointer;
+			font-size: 24px;
+
+			&:hover { color: $bitgold-dark; }
+
+		}
+
+	} // webcam-top
+
+	// Inner webcam
+	.webcam-container, .webcam-error {
+
+		position: relative;
+		top: -20px;
+	  width: $webcam-width;
+	  height: $webcam-height;
+	  overflow: hidden;
+	  text-align: center;
+
+		background: $webcam-bg-color;
+		border: 1px solid $black;
+		border-top-right-radius: $border-radius;
+		border-top-left-radius: $border-radius;
+
+		// Error msg
+		> span {
+			display: inline-block;
+			line-height: $webcam-height - 30;
+
+			color: $bitgold-medium;
+			font-size: rem(30);
+			font-weight: $light-font;
+		}
+
+	} // webcam-container
+
+	// Capture Button
+	.capture-button-container {
+		position: relative;
+		top: -20px;
+		width: $webcam-width;
+		height: 64px;
+		margin: 0 auto;
+
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+		border: 1px solid $black;
+		border-top: 1px solid #2a3134;
+		@include background-image(linear-gradient(
+			#202528,
+			#1b1f22
+		));
+
+		.capture-button {
+			display: inline-block;
+			margin-top: 7px;
+
+			@include size(48px);
+			border-radius: 50%;
+
+			@include background-image(linear-gradient(
+				#f9c201,
+				#ffa505
+			));
+
+			// Icon
+			> i {
+				display: inline-block;
+				margin-top: 16px;
+			}
+
+		} // capture-button
+
+	} // capture-button-container
+
+} // webcam-modal
+
+
+
+//
+// Send ID via Email Modal
+//
+.send-via-email-modal {
+
+	.illustration {
+
+		margin: 0 auto 30px;
+		text-align: center;
+
+		img {
+			width: 351px;
+			height: 55px;
+		}
+
+	} // illustration
+
+	.secondary-text, .email {
+		margin-bottom: 30px;
+		text-align: center;
+
+	}
+
+	.secondary-text {
+
+		color: $bitgold-medium;
+
+	} // secondary-text
+
+	.email {
+		font-size: rem(30);
+		font-weight: $light-font;
+		color: $bitgold-dark;
+	
+	} // email
+
+} // send-via-email-modal
+
+
+
+//
+// Show Address Modal
+//
+.show-address-modal {
+
+	text-align: center;
+
+	.modal-box {
+		width: $small-modal-width;
+	}
+
+	.label {
+		color: $bitgold-medium;
+	}
+
+	// Center QR Code
+	.qrcode, canvas, img {
+		margin: 20px auto;
+		text-align: center;
+	}
+
+	// Wallet Address
+	.address-text {
+		padding: 15px;
+
+		border-radius: $border-radius;
+		background: $light-grey-bg-color;
+	}
+
+} // show-address-modal
+
+
+
+//
+// Convert to Gold Modal
+//
+.convert-to-gold-modal {
+
+	//
+	// Step 1
+	//
+	.vault-location-map {
+		position: relative; 
+		width: 100%; height: 300px;
+
+		@include retina-image("../img/world-map", 614px 299px);
+
+		background-repeat: no-repeat;
+
+	} // vault-location-map
+
+	.map-pin {
+
+		position: absolute;
+
+		display: inline-block;
+		padding: 5px;
+		font-size: rem(13);
+		cursor: pointer;
+
+		background: $white;
+		border: 1px solid $dark-border-color;
+		border-radius: $minor-border-radius;
+
+		opacity: 0;
+
+		&.active {
+			border-color: $bitgold-blue;
+			box-shadow: 0px 0px 5px 1px rgba($bitgold-blue, .2);
+		}
+
+		&:hover { border-color: $bitgold-blue; }
+
+		> span {
+			position: relative;
+			top: 2px;
+		}
+
+		> i {
+			display: inline-block;
+			margin-right: 1px;
+			vertical-align: middle;
+			@include size(24px);
+		}
+
+		//
+		// Specific Locations
+		//
+		&.toronto {
+			top: 26px; 
+			left: 65px;
+
+			@include map-pin-triangle("bottom", "down", "right");
+
+			&.active, &:hover {
+				@include map-pin-triangle("bottom", "down", "right", true);
+			}
+		
+		} // Toronto
+
+		&.new-york {
+			top: 80px;
+			left: 123px;
+
+			@include map-pin-triangle("top", "up", "left");
+
+			&.active, &:hover {
+				@include map-pin-triangle("top", "up", "left", true);
+			}
+
+		} // New York
+
+		&.london {
+			top: 9px;
+			left: 227px;
+
+			@include map-pin-triangle("bottom", "down");
+
+			&.active, &:hover {
+				@include map-pin-triangle("bottom", "down", null, true);
+			}
+
+		} // London
+
+		&.zurich {
+			top: 71px;
+			left: 262px;
+
+			@include map-pin-triangle("top", "up", "left");
+
+			&.active, &:hover {
+				@include map-pin-triangle("top", "up", "left", true);
+			}
+
+		} // Zurich
+
+		&.hong-kong {
+			top: 77px;
+			left: 466px;
+
+			@include map-pin-triangle("bottom", "down");
+
+			&.active, &:hover {
+				@include map-pin-triangle("bottom", "down", null, true);
+			}
+		
+		} // Hong Kong
+
+		&.singapore {
+			top: 171px;
+			left: 453px;
+
+			@include map-pin-triangle("top", "up");
+
+			&.active, &:hover {
+				@include map-pin-triangle("top", "up", null, true);
+			}
+
+		} // Singapore
+
+	} // map-pin
+
+
+
+	//
+	// Step 2
+	//
+	.available-balance {
+		width: 100%;
+		height: 253px;
+		position: relative;
+		top: -40px; right: -32px;
+
+		@include retina-image("../img/brick-bg", 438px 253px);
+		background-repeat: no-repeat;
+		background-position: center right;
+
+		> i {
+			$w: 231px; $h: 218px;
+			display: inline-block;
+			float: right;
+			width: $w; height: $h;
+
+			position: relative;
+			top: 30px; right: 40px;
+
+			@include retina-image("../img/vault-illustration", $w $h);
+
+		} // i
+	
+		.balance-container {
+			position: relative;
+			top: 80px; left: -10px;
+
+			> span {
+				display: block;
+				margin-bottom: 30px;
+
+				font-size: rem(24);
+				color: $bitgold-medium;
+			}
+
+			> h2 {	
+				font-weight: $light-font;
+				color: $bitgold-dark;
+				font-size: rem(36);
+				display: inline-block;
+			
+			} // > h2 
+
+			.switch-button {
+				display: inline-block;
+				position: relative;
+				top: -4px; left: 10px;
+				padding: 9px 7px 5px 7px;
+
+				background: $white;
+				border: 1px solid $border-color;
+				border-radius: $minor-border-radius;
+
+				@include transition(border-color .2s);
+
+				> i { display: inline-block; }
+
+				&:hover {
+					border-color: $dark-border-color;
+				}
+
+			} // switch-button
+		
+		} // balance-container 
+
+	} // available-balance
+
+
+	//
+	// Completion
+	//
+	.transaction-details {
+		@include outer-container();
+		margin: 20px auto 30px;
+
+		.col {
+			@include span-columns(4);
+			text-align: center;
+			position: relative;
+
+			> span {
+				font-size: rem(30);
+				font-weight: $light-font;
+				color: $bitgold-dark;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 3px; right: -24px;
+
+				@include icon-sprite($large-right-arrow-icon);
+			}
+
+			&:last-child:after {
+				display: none;
+			}
+
+		} // col
+	
+	} // transaction-details
+
+	.location-details {
+		text-align: center;
+		margin-top: 15px;
+
+		i {
+			@include size(24px);
+		}
+
+		i, img, span {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 5px;
+		}
+	}
+
+} // convert-to-gold-modal
+
+// Animations for Map Pins
+.modal-container.active { .map-pin {
+
+  @include animation-name(mapPinEntrance);
+  @include animation-duration(.4s);
+  @include animation-fill-mode(forwards);
+  @include animation-iteration-count(once);
+  @include animation-timing-function(ease-in);
+
+  &.toronto    { @include animation-delay(.3s); }
+  &.new-york   { @include animation-delay(.6s); }
+  &.london     { @include animation-delay(.9s); }
+  &.zurich     { @include animation-delay(1.2s); }
+  &.hong-kong  { @include animation-delay(1.5s); }
+  &.singapore  { @include animation-delay(1.8s); }
+
+}}
+
+
+
+
+
+
+
+
+

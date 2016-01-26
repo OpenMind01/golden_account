@@ -1,0 +1,18 @@
+<div class="dob-container">
+
+  <div class="input-container day">
+    <label ng-if="label">{{label}}</label>
+    <input type="text" ng-model="date.day" name="dob-day" maxlength="2" placeholder="{{::lang.dateInput.day}}" auto-tab />
+  </div>
+
+  <div class="input-container month">
+    <label ng-if="label">&nbsp;</label>
+    <input type="text" ng-model="date.month" name="dob-month" maxlength="2" placeholder="{{::lang.dateInput.month}}" auto-tab />
+  </div>
+
+  <div class="input-container year">
+    <label ng-if="label">&nbsp;</label>
+    <input type="text" ng-model="date.year" name="dob-year" maxlength="4" placeholder="{{::lang.dateInput.year}}" auto-tab />
+  </div>
+
+</div><!-- dob-container -->

@@ -1,0 +1,20 @@
+
+
+<dl>
+  <dt>{{::lang.wallet.contacts.name}}</dt>
+  <dd>{{contact.name}}</dd>
+  <dt>{{::lang.wallet.contacts.address}}</dt>
+  <dd>{{contact.address}}</dd>
+  <dt>{{::lang.wallet.contacts.email}}</dt>
+  <dd>{{contact.email}}</dd>
+  <dt>{{::lang.wallet.contacts.phone}}</dt>
+  <dd>{{contact.phone}}</dd>
+</dl>
+
+<a href="{{ '#/wallet/send/' + contact.address }}">{{::lang.wallet.contacts.send}}</a>
+
+<a href="{{ '#/wallet/receive/' + contact.address }}">{{::lang.wallet.contacts.receive}}</a>
+
+<button type="button" ng-click="editContact(contact)">{{::lang.wallet.contacts.edit}}</button>
+
+<button type="button" ng-click="deleteContact(contact)">{{::lang.wallet.contacts.delete}}</button>

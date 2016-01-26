@@ -1,0 +1,38 @@
+<section class="account-flow">
+
+  <div class="_wrapper">
+
+    <!--
+    //
+    // Check Email Box
+    //
+    -->
+    <section class="box check-email">
+
+      <div class="outter-icon-container">
+
+        <div class="inner-icon-container"><i></i></div>
+
+      </div><!-- outter-icon-container -->
+
+      <div class="content-container">
+
+        <h3>{{::lang.signUp.checkEmailHeading}}</h3>
+
+        <div class="text-container">
+          <p>{{::lang.signUp.checkLine1}}</p>
+          <p class="data">{{$root.profile.email}}</p>
+          <p>{{::lang.signUp.checkLine2}}</p>
+        </div>
+
+        <footer>
+          <p>{{::lang.signUp.resend.text}} <a href="javascript:;" class="link-button" ng-click="resendEmail()">{{::lang.signUp.resend.link}}</a></p>
+        </footer>
+
+      </div><!-- content-container -->
+
+    </section><!-- box -->
+
+  </div><!-- _wrapper -->
+
+</section>

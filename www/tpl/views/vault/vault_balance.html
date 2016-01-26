@@ -1,0 +1,53 @@
+<table>
+  <thead>
+    <tr>
+      <th>{{::lang.vault.balance.name}}</th>
+      <th>{{::lang.vault.balance.location}}</th>
+      <th>{{::lang.vault.balance.custodian}}</th>
+      <th>{{::lang.vault.balance.change}}</th>
+      <th class="balance">{{::lang.vault.balance.balance}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in balance.locations">
+      <td>
+          <label-input ng-model="item.label" />
+      </td>
+      <td>
+        <span><i class="flag" ng-class="item.country"></i>{{item.location}}</span>
+      </td>
+      <td>
+        <span>{{item.custodian}}</span>
+      </td>
+      <td class="change">
+        <span ng-class="{
+          up: item.change.daily > 0,
+          down: item.change.daily < 0
+        }">
+          {{item.change.daily | formatCurrency:3}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>{{item.value | formatCurrency:5}}</span>
+      </td>
+    </tr>
+
+    <tr class="totals">
+      <td colspan="3">
+          <span>{{::lang.vault.balance.total}}</span>
+      </td>
+      <td class="change">
+        <span ng-class="{
+          up: balance.change.daily > 0,
+          down: balance.change.daily < 0
+        }">
+          {{balance.change.daily * $root.exchange[$root.currency]['XAU.gr'] | formatCurrency:5}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>{{balance.value * $root.exchange[$root.currency]['XAU.gr'] | formatCurrency:5}}</span>
+      </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

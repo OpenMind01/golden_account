@@ -1,0 +1,54 @@
+/* - ----------------------------------------------------- - */
+
+.summary-balance {
+  td {
+    &.first {
+      padding-left: 20px;
+    }
+    i {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+    &.chart {
+      width: 180px;
+      padding-left: 0px;
+      .pie-chart {
+        position: absolute;
+        canvas {
+          position: relative;
+          top: 10px;
+          left: 10px;
+          width: 180px;
+        }
+      }
+    }
+
+  }
+}
+
+.available-amount {
+  float: right;
+}
+
+/* - ----------------------------------------------------- - */
+
+.section-heading {
+  .actions {
+    .link-button {
+      display: inline-block;
+    }
+    .flyout-widget {
+      margin-left: 20px;
+    }
+    .input-container {
+      display: inline-block;
+      margin: 0px 20px 0px 0px;
+      input {
+        height: 30px;
+      }
+    }
+  }
+}
+
+/* - ----------------------------------------------------- - */

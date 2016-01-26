@@ -1,0 +1,194 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Mixins
+//
+// ----------------------------------------------
+//
+// This file contains mixins and functions for
+// code reusability
+
+@mixin link-chevron() {
+	
+	// Chevron
+	&:after {
+		content: "\f078";
+		font-family: FontAwesome;
+		position: relative;
+		top: -2px; left: 3px;
+		font-size: 10px;
+	
+	} // chevron
+
+} // link-chevron
+
+
+
+//
+// FontAwesome Icon
+// 
+@mixin inline-fa-icon($icon, $position, $font-size: 10px) {
+
+	@if $position == "before" {
+
+		&:before {
+			content: "#{$icon}";
+			font-family: FontAwesome;
+			position: relative;
+			top: -2px; right: 3px;
+			font-size: $font-size;
+		
+		}
+
+	} @else if $position == "after" {
+
+		&:after {
+			content: "#{$icon}";
+			font-family: FontAwesome;
+			position: relative;
+			top: -2px; left: 3px;
+			font-size: $font-size;
+		
+		}
+
+	}
+
+} // link-chevron
+
+
+
+//
+// Image Sprite
+//
+@mixin icon-sprite($obj) {
+
+	// Get variables out of obj
+	$size: map-get($obj, size);
+	$xpos: map-get($obj, xpos);
+	$ypos: map-get($obj, ypos);
+
+	$height: map-get($obj, height);
+
+	background-image: url($main-sprite-file);
+
+	background-position: $xpos $ypos;
+
+	@include hidpi(2) {
+		background-image: url($main-retina-sprite-file);
+		background-size: $main-sprite-retina-bg-size;
+		background-position: ($xpos / 2) ($ypos / 2);
+
+	}
+
+	@if $height {
+		width: $size; 
+		height: $height;
+	} @else {
+		@include size($size);
+	}
+
+} // icon-sprite
+
+
+
+//
+// Box styles
+//
+@mixin basic-box {
+  background: $white; 
+  border: 1px solid $border-color; 
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $box-padding;
+
+} // basic-box
+
+
+//
+// Map Pin Triangle
+//
+@mixin map-pin-triangle($pos: bottom, $angle: down, $offset: null, $active: false) {
+
+	$triangle-size: 14px;
+	$dark-border:  darken($dark-border-color, 15%);
+	$light-border: $white;
+
+	@if $active {
+		$dark-border: $bitgold-blue;
+	}
+
+	//
+	// Triangle Position
+	@if $pos == bottom {
+
+			// Base Triangle
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%; 
+				@include transform(translateX(-50%));
+
+			}
+
+	} @else if $pos == "top" {
+
+			// Base Triangle
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				left: 50%; 
+				@include transform(translateX(-50%));
+
+			}
+
+	}
+
+
+	//
+	// Triangle Angle 
+	@if $angle == "down" {
+
+		// Border Triangle
+		&:before {
+			@include triangle($triangle-size, $dark-border, down);
+		}
+
+		// Overlay Triangle
+		&:after {
+			margin-top: -1px;
+
+			@include triangle($triangle-size, $light-border, down);
+		}
+
+	} @else if $angle == "up" {
+
+		// Border Triangle
+		&:before {
+			top: -($triangle-size / 2 + 1);
+			@include triangle($triangle-size, $dark-border, up);
+		}
+
+		// Overlay Triangle
+		&:after {
+			top: -($triangle-size / 2);
+			@include triangle($triangle-size, $light-border, up);
+		}
+
+	}
+
+	// Offset
+	@if $offset == "right" {
+		&:before, &:after {
+			left: 80%;
+		}
+
+	} @else if $offset == "left" {
+		&:before, &:after {
+			left: 20%;
+		}
+	}
+	
+
+} // map-pin-triangle

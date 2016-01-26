@@ -1,0 +1,65 @@
+<header class="main-header">
+
+  <div class="_wrapper">
+
+    <a href="/">
+
+      <img ng-if="language !== 'Chinese'" src="img/logos/bitgold-logo-english.svg" class="logo" ng-class="language">
+      <img ng-if="language === 'Chinese'" retina src="img/logos/bitgold-logo-chinese.svg" class="logo" ng-class="language">
+
+    </a>
+
+    <section class="live-values-widget">
+
+      <span class="label">{{::lang.header.currency}}</span>
+      <div class="flyout-widget">
+        <currency-selector search="true" ng-model="currency"></currency-selector>
+      </div>
+
+      <span class="label">{{::lang.header.btcPrice}}</span>
+      <span class="value" id="btc-val">{{lang.currencySymbol[currency]}}{{exchange[currency].BTC | formatCurrency}}</span>
+
+      <span class="label">{{::lang.header.goldPrice}}</span>
+      <span class="value" id="gold-val">{{lang.currencySymbol[currency]}}{{exchange[currency]['XAU.gr'] | formatCurrency}}</span>
+
+    </section><!-- live-values-widget -->
+
+    <nav class="main-nav" ng-if="!profile">
+
+      <a href="#">{{::lang.header.features}}</a>
+      <a href="#">{{::lang.header.security}}</a>
+      <a href="#">{{::lang.header.pricing}}</a>
+      <div class="flyout-widget">
+        <a href="javascript:;" class="flyout-hook">{{::lang.header.more}}</a>
+      </div>
+
+      <a href="#/sign-in" class="button">{{::lang.header.signIn}}</a>
+
+    </nav>
+
+    <nav class="main-nav user-menu" ng-if="profile">
+
+      <div class="flyout-widget">
+
+        <a href="javascript:;" class="flyout-hook" ng-click="userMenu=true" outer-click="userMenu=false">
+          <span ng-if="profile.firstName">{{profile.firstName}}&nbsp;{{profile.lastName}}</span>
+          <span ng-if="!profile.firstName">{{profile.email}}</span>
+        </a>
+
+        <div class="flyout-container icon-menu-flyout user-flyout" ng-class="{ active: userMenu }">
+          <div class="inner">
+            <ul class="item-list">
+              <li><a href="#/summary/settings"><i class="user-menu-settings-icon"></i>{{::lang.menu.settings}}</a></li>
+              <li><a href="#/logout"><i class="user-menu-logout-icon"></i>{{::lang.menu.logout}}</a></li>
+            </ul>
+          </div>
+        </div><!-- flyout-container -->
+
+      </div><!-- flyout-widget -->
+
+
+    </nav>
+
+  </div><!-- _wrapper -->
+
+</header>

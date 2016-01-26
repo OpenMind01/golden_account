@@ -1,0 +1,53 @@
+{
+  "title": "Sign up for a BitGold Account",
+  "open": "Create Account",
+  "email": "Email Address",
+  "emailPlaceholder": "Email Address...",
+  "emailMeta": "You will occasionally receive account related emails. We promise not to share your email with anyone.",
+  "countryCode": "Country code",
+  "password": "Password",
+  "passwordPlaceholder": "Password...",
+  "confirmPassword": "Confirm Your Password",
+  "confirmPasswordPlaceholder": "Password...",
+  "terms": "I agree with Bitgold's Terms & Conditions",
+  "continue": "Continue",
+  "free": "Completly Free",
+  "secure": "Ultra Secure",
+
+  "signIn": {
+    "text": "Already have a BitGold account?",
+    "link": "Sign In"
+  },
+
+  "error": {
+    "title": "Error",
+    "conflict": "Email is already registered.",
+    "email": "Enter a valid email address.",
+    "password": "Enter a very strong password.",
+    "terms": "Agree to Terms and Conditions.",
+    "repeatPassword": "Enter the same password at both fields."
+  },
+
+  "checkEmailHeading": "Welcome, Check your email.",
+  "checkLine1": "Check your inbox. We sent a verification email to",
+  "checkLine2": "Click the link in the email to get started.",
+  "resend": {
+    "text": "Don't see the email? Check your spam, or just",
+    "link": "Re-Send Email"
+  },
+
+  "steps": {
+    "stepOne": "Verify Email",
+    "stepTwo": "Verify Mobile",
+    "stepThree": "Basic Info",
+    "stepFour": "Verify ID"
+  },
+
+  "thankyou": {
+    "title": "Thank You, Setup Complete",
+    "paragraphTitle": "Thank you for signing up",
+    "paragraphText": "Your BitGold account is set up and ready for use. If you need help vist our support center, or you can email us at: support@bitgold.com",
+    "continue": "Continue"
+  }
+
+}

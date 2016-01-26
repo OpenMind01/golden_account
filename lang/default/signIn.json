@@ -1,0 +1,28 @@
+{
+  "title": "Sign in to your BitGold Account",
+  "submit": "Sign In",
+  "email": "Email",
+  "emailPlaceholder": "Email Address...",
+  "password": "Password",
+  "passwordPlaceholder": "Password...",
+  "forgot": "Forgot Password?",
+  "remember": "Remember Me?",
+
+  "signUp": {
+    "text": "Don't have an account?",
+    "link": "Create Account"
+  },
+
+  "error": {
+    "title": "Error",
+    "email": "Enter your email.",
+    "password": "Enter your password.",
+    "wrong": "Email and password doesn't match."
+  },
+
+  "emailVerified": {
+    "title": "Email verified succesfuly",
+    "message": "Sign in to proceed to mobile verification."
+  }
+
+}

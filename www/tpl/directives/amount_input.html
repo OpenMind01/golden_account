@@ -1,0 +1,25 @@
+<div class="local-select-container" ng-init="lang = $root.lang; currency = $root.currency;">
+
+  <div class="col">
+
+    <div class="amount-input-currency">
+      <currency-input ng-model="currency" />
+    </div>
+
+  </div><!-- col -->
+
+  <div class="col">
+
+    <div class="amount-input-value">
+      <input
+        type="text"
+        placeholder="{{::lang.amountInput.amount}}"
+        ng-model="value"
+        ng-trim="false"
+        required
+      />
+    </div>
+
+  </div><!-- col -->
+
+</div><!-- local-select-container -->

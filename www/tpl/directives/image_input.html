@@ -1,0 +1,98 @@
+<h4>{{::lang.imageInput.optOneHeading}}</h4>
+
+<div class="image-input">
+
+  <div class="drag-and-drop-container" id="drop-attach" ng-show="!preview.display">
+
+    <div class="content">
+      <i class="large-upload-icon"></i>
+      <p>{{::lang.imageInput.uploadLineOne}}</p>
+      <p>{{::lang.imageInput.uploadLineTwo}} <a href="javascript:;" id="upload-attach">{{::lang.imageInput.browseLink}}</a></p>
+    </div>
+
+  </div><!-- drag-and-drop-container -->
+
+  <div class="uploaded-image">
+
+    <img />
+
+    <div class="button-container" ng-show="preview.display && preview.buttons">
+
+      <button type="button" class="grey-button" ng-click="cancelImage()">{{::lang.imageInput.cancel}}</button>
+      <button type="button" class="blue-button" ng-click="confirmImage()">{{::lang.imageInput.confirm}}</button>
+
+    </div>
+
+  </div><!-- uploaded-image -->
+
+  <div class="original-image"><img /></div>
+
+  <div class="image-preview-progress" ng-show="preview.display && preview.progress">
+    <p>{{::lang.imageInput.tip.progress}}</p>
+  </div>
+
+  <div class="other-upload-options" ng-show="!preview.display">
+
+    <div class="option">
+      <h4>{{::lang.imageInput.optTwoHeading}}</h4>
+      <button type="button" class="blue-button icon-button" id="upload-webcam-attach" ng-click="openWebcam()">
+        <i class="camera-icon"></i>{{::lang.imageInput.webcam}}
+      </button>
+    </div>
+
+    <div class="option">
+      <h4>{{::lang.imageInput.optThreeHeading}}</h4>
+      <button type="button" class="blue-button icon-button" ng-click="sendEmail();">
+        <i class="email-icon"></i>
+        {{::lang.imageInput.email}}
+      </button>
+    </div>
+
+  </div><!-- other-upload-options -->
+
+  <div class="cta-container" ng-show="!preview.display">
+    <a href="javascript:;" class="light-link-button">{{::lang.imageInput.skip}}</a>
+  </div>
+
+  <modal ng-model="webcam.display">
+
+    <div class="webcam-top">
+      <i class="fa fa-times" ng-click="closeWebcam()"></i>
+      <h3>{{::lang.imageInput.webcamTitle}}</h3>
+    </div>
+
+    <div id="webcam-attach" class="webcam-container" ng-show="!webcam.error"></div>
+
+    <div class="webcam-error" ng-show="webcam.error">
+      <span>{{webcam.error}}</span>
+    </div>
+
+    <div class="capture-button-container">
+      <a href="javascript:;" class="capture-button" ng-click="takePicture()"><i class="camera-icon"></i></a>
+    </div>
+
+  </modal><!-- webcam-modal -->
+
+  <modal ng-model="preview.email" class="send-via-email-modal" block>
+
+    <div class="modal-box">
+
+      <header><h2>{{::lang.imageInput.email}}</h2></header>
+
+      <div class="illustration">
+        <img src="img/send-by-email-illustration.png" retina alt="{{::lang.imageInput.imageEmail}}">
+      </div>
+
+      <p class="secondary-text">{{::lang.imageInput.tip.email}}</p>
+      <p compile="pin" class="email">{{::lang.imageInput.sendDocEmail}}</p>
+
+      <footer class="dual-actions">
+        <a href="javascript:;" ng-click="preview.email = false;" class="link-button">{{::lang.imageInput.confirmEmail}}</a>
+        <a href="javascript:;" ng-click="preview.email = false;" class="cancel-link-button">{{::lang.imageInput.cancel}}</a>
+      </footer>
+
+    </div><!-- modal-box -->
+
+  </modal><!-- modal | send-id-via-email -->
+
+</div>

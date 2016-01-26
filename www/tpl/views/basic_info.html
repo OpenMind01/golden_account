@@ -1,0 +1,135 @@
+<section class="account-flow">
+
+  <div class="_wrapper">
+
+    <section class="box">
+
+      <header>
+        <h2>{{::lang.basicInfo.title}}</h2>
+      </header>
+
+      <div class="step-container">
+
+        <div class="step email">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepOne}}</span>
+        </div>
+
+        <div class="step mobile complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepTwo}}</span>
+        </div>
+
+        <div class="step basic-info current">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepThree}}</span>
+        </div>
+
+        <div class="step verify-id not-complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepFour}}</span>
+        </div>
+
+      </div><!-- step-container -->
+
+      <form name="formBasicInfo" ng-submit="updateProfile()" novalidate>
+
+        <div class="alert error" ng-show="formBasicInfo.$invalid && formBasicInfo.$submitted">
+          <span>{{::lang.verify.error.title}}</span>
+          <ul>
+            <li ng-show="formBasicInfo.firstName.$invalid">{{::lang.basicInfo.error.firstName}}</li>
+            <li ng-show="formBasicInfo.lastName.$invalid">{{::lang.basicInfo.error.lastName}}</li>
+            <li ng-show="formBasicInfo.birthDate.$invalid">{{::lang.basicInfo.error.birthDate}}</li>
+            <li ng-show="formBasicInfo.address.$invalid">{{::lang.basicInfo.error.street}}</li>
+            <li ng-show="formBasicInfo.city.$invalid">{{::lang.basicInfo.error.city}}</li>
+            <li ng-show="formBasicInfo.state.$invalid">{{::lang.basicInfo.error.state}}</li>
+            <li ng-show="formBasicInfo.postal.$invalid">{{::lang.basicInfo.error.postalCode}}</li>
+          </ul>
+        </div>
+
+        <h4>{{::lang.basicInfo.personal}}</h4>
+
+        <div class="split-input-container">
+
+          <div class="input-container" ng-class="{valid:formBasicInfo.firstName.$valid}">
+            <label>{{::lang.basicInfo.firstName}}</label>
+            <input type="text" name="firstName" ng-model="profile.firstName" placeholder="{{::lang.basicInfo.firstNamePlaceholder}}" required />
+          </div>
+
+          <div class="input-container" ng-class="{valid:formBasicInfo.lastName.$valid}">
+            <label>{{::lang.basicInfo.lastName}}</label>
+            <input type="text" name="lastName" ng-model="profile.lastName" placeholder="{{::lang.basicInfo.lastNamePlaceholder}}" required />
+          </div>
+
+        </div><!-- split-input-container -->
+
+        <div class="input-container valid">
+          <label>{{::lang.basicInfo.email}}</label>
+          <input type="text" name="email" value="{{$root.profile.email}}" readonly />
+        </div>
+
+        <div class="input-container valid">
+          <label>{{::lang.basicInfo.phone}}</label>
+          <phone-input ng-model="$root.profile.phone" country="basic.countryCode" readonly />
+        </div>
+
+        <div>
+          <date-input name="birthDate" label="{{::lang.basicInfo.birthDate}}" ng-model="basic.dateOfBirth" required />
+        </div>
+
+        <h4>{{::lang.basicInfo.address}}</h4>
+
+        <div class="input-container" ng-class="{valid:formBasicInfo.address.$valid}">
+          <label>{{::lang.basicInfo.street}}</label>
+          <input type="text" name="address" ng-model="basic.street1" placeholder="{{::lang.basicInfo.streetPlaceholder}}" required />
+        </div>
+
+        <div class="off-center-split-input-container">
+
+          <div class="input-container" ng-class="{valid:formBasicInfo.city.$valid}">
+            <label>{{::lang.basicInfo.city}}</label>
+            <input type="text" name="city" ng-model="basic.city" placeholder="{{::lang.basicInfo.cityPlaceholder}}" required />
+          </div>
+
+          <div class="input-container" ng-class="{valid:formBasicInfo.state.$valid}">
+            <label>{{::lang.basicInfo.state}}</label>
+            <state-input name="state" ng-model="basic.stateOrProvince" country="{{basic.countryCode}}" required />
+          </div>
+
+        </div><!-- off-center-split-input-container -->
+
+        <div class="off-center-split-input-container">
+
+          <div class="input-container valid">
+            <label>{{::lang.basicInfo.country}}</label>
+            <country-input ng-model="basic.countryCode" readonly />
+          </div>
+
+          <div class="input-container" ng-class="{valid:formBasicInfo.postal.$valid}">
+            <label>{{::lang.basicInfo.postal}}</label>
+            <input type="text" name="postal" ng-model="basic.zipOrPostalCode" placeholder="{{::lang.basicInfo.postalPlaceholder}}" required />
+          </div>
+
+        </div><!-- off-center-split-input-container -->
+
+        <div class="cta-container">
+          <button type="submit" class="medium-button">
+            {{::lang.basicInfo.submit}}
+          </button>
+        </div>
+
+      </form>
+
+    </section><!-- box -->
+
+  </div><!-- _wrapper -->
+
+</section>

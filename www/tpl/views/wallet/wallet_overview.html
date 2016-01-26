@@ -1,0 +1,24 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <i class="wallet-icon"></i>
+    <h2>{{::lang.wallet.title}}</h2>
+  </div><!-- section-heading -->
+
+  <div class="wallet-balance" include-template="tpl/views/wallet/wallet_balance.html"></div>
+
+  <div class="section-heading">
+
+    <div class="actions">
+      <a href="#/wallet/transactions" class="link-button">{{::lang.wallet.transactions.all}}</a>
+    </div>
+
+    <i class="transactions-icon"></i>
+    <h2 class="section-title">{{::lang.wallet.transactions.last}}</h2>
+  </div>
+
+  <div class="wallet-transactions">
+    <div include-template="tpl/views/wallet/wallet_transaction_list.html"></div>
+  </div>
+
+</div><!-- _wrapper -->

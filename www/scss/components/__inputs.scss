@@ -1,0 +1,244 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Inputs
+//
+// ----------------------------------------------
+//
+// All user input related elements are styled here 
+
+
+
+//
+// Base Input Styles
+// 
+input:not(.default) {
+	width: 100%;
+	height: 52px;
+	padding: 20px;
+	border: 1px solid $border-color;
+	background: $white;
+	font-size: rem(14);
+	font-weight: $medium-font;
+	box-shadow: inset 0px 1px 3px 1px $input-inner-shadow;
+
+	@include transition(border-color $animation-duration);
+
+	@include placeholder {
+		color: $placeholder-color;
+	}
+
+	// Icon / Flag on input. 
+	&.before-icon {
+		padding-left: 50px;
+
+		background-repeat: no-repeat;
+		background-position: 15px 50%;
+	}
+
+	// Accessibility
+	&:hover {
+		border: 1px solid $bitgold-medium;
+	}
+
+	&:focus {
+		border: 1px solid $bitgold-blue;
+	}
+
+} // input
+
+
+//
+// Special inputs 
+//
+.input-dropdown {
+	position: relative;
+	
+	& ~ .input-dropdown-chevron:after {
+
+		font-family: FontAwesome;
+		font-size: 12px;
+		color: $bitgold-medium;
+		content: "\f078";
+		position: absolute;
+		top: 21px; right: 10px;
+
+	}
+
+} // input-dropdown
+
+
+
+//
+// Container
+// 
+.input-container {
+
+	margin-bottom: 32px;
+	position: relative;
+
+	@include outer-container();
+
+	// Top Label
+	label {
+		display: block;
+
+		color: $bitgold-medium;
+		font-weight: $medium-font;
+
+		margin-bottom: 12px;
+	
+	} // label
+
+	// Base Icon Styles
+	// ## TODO find soltion for input with out label
+	// tick is pushed down too far.
+	&:before {
+		font-family: FontAwesome;
+		position: absolute;
+		top: 48px;
+		right: 10px;
+	}
+
+	// Add "Tick" to input
+	&.valid { &:before {
+		content: "\f00c";
+		color: $green;
+	}}
+
+	// Error State
+	&.error { 
+
+		> input { border: 1px solid $red; }
+
+		&:before {
+			content: "\f00d";
+			color: $red;
+		}
+	
+	} // input-error
+
+	// Bottom Meta input info
+	.meta {
+		display: block;
+		margin-top: 10px;
+		font-size: rem(12);
+		color: $bitgold-medium;
+	}
+
+	// Make flyout container full width
+	.flyout-widget {
+		display: block;
+	}
+
+} // input-container
+
+
+
+//
+// Spilt inputs
+//
+.split-input-container {
+
+	@include outer-container();
+
+	> .input-container {
+		@include span-columns(6);
+	}
+
+
+} // split-input-container
+
+
+//
+// Off Center input
+//
+.off-center-split-input-container {
+
+	@include outer-container();
+
+	> .input-container {
+
+		@include span-columns(8);
+
+		&:last-of-type {
+			@include span-columns(4);
+		}
+
+	} // input-container
+
+} // off-center-split-input-container
+
+
+//
+// DOB Container
+//
+.dob-container {
+
+	@include outer-container();
+
+	.day, .month {
+		@include span-columns(3);
+	}
+
+	.year {
+		@include span-columns(6);
+	}
+
+	input[type="text"] {
+		text-align: center;
+	}
+
+
+} // dob-container
+
+
+//
+// Selecting locals
+//
+.local-select-container {
+
+	@include outer-container();
+
+	.col {
+		&:first-child { @include span-columns(5); }
+		&:last-child  { @include span-columns(7); }
+	}
+
+} // local-select-container
+
+
+
+//
+// Alternate select dropdown
+//
+.select-dropdown {
+	padding: 12px 10px;
+	min-width: 100px;
+
+	background: $white; 
+	border: 1px solid $border-color;
+	border-radius: $border-radius;
+	font-size: rem(14);
+	color: $bitgold-medium;
+	cursor: pointer;
+
+	@include link-chevron();
+
+	&:after {
+		position: absolute;
+		left: auto;
+		right: 10px;
+		top: 15px;
+	}
+}
+
+
+
+
+
+
+
+
+

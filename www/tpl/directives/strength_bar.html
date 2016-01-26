@@ -1,0 +1,22 @@
+<div class="strength-bar" ng-show="field.strength.level > 0">
+  <div class="strength-bar-outer">
+    <div ng-class="{
+      'strength-bar-inner': true,
+      'very-weak': field.strength.veryWeak,
+      'weak': field.strength.weak,
+      'strong': field.strength.strong,
+      'very-strong': field.strength.veryStrong,
+    }">
+    </div>
+  </div>
+  <div class="meta">
+    <span ng-show="field.strength.veryWeak">{{::lang.strengthBar.veryWeak}}</span>
+    <span ng-show="field.strength.weak">{{::lang.strengthBar.weak}}</span>
+    <span ng-show="field.strength.strong">{{::lang.strengthBar.strong}}</span>
+    <span ng-show="field.strength.veryStrong">{{::lang.strengthBar.veryStrong}}</span>
+    <span ng-show="!field.strength.hasLength">{{::lang.strengthBar.length}}</span>
+    <span ng-show="!field.strength.hasMixed">{{::lang.strengthBar.mixed}}</span>
+    <span ng-show="!field.strength.hasNumber">{{::lang.strengthBar.number}}</span>
+    <span ng-show="!field.strength.hasSymbol">{{::lang.strengthBar.symbol}}</span>
+  </div>
+</div>

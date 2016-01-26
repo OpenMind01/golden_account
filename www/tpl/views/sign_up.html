@@ -1,0 +1,76 @@
+<section class="account-flow">
+
+  <div class="_wrapper">
+
+    <section class="box">
+
+      <header>
+        <h2>{{::lang.signUp.title}}</h2>
+      </header>
+
+      <div class="signup-features-container">
+
+        <div class="feature">{{::lang.signUp.free}}</div>
+
+        <div class="feature">{{::lang.signUp.secure}}</div>
+
+      </div><!-- signup-features-container -->
+
+      <form name="form" ng-submit="signUp()" ng-show="!success" novalidate>
+
+        <div class="alert error" ng-show="!form.$valid && form.$submitted">
+          <span>{{::lang.signUp.error.title}}</span>
+          <ul>
+            <li ng-show="form.$error.conflict">{{::lang.signUp.error.conflict}}</li>
+            <li ng-show="form.email.$invalid">{{::lang.signUp.error.email}}</li>
+            <li ng-show="form.password.$invalid">{{::lang.signUp.error.password}}</li>
+            <li ng-show="form.repeatPassword.$error.match">{{::lang.signUp.error.repeatPassword}}</li>
+            <li ng-show="form.terms.$invalid">{{::lang.signUp.error.terms}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{ valid: form.email.$valid }">
+          <label>{{::lang.signUp.email}}</label>
+          <input type="email" name="email" ng-model="email" ng-change="resetError()" placeholder="{{::lang.signUp.emailPlaceholder}}" required />
+          <span class="meta">{{::lang.signUp.emailMeta}}</span>
+        </div>
+
+        <div class="input-container" ng-class="{ valid: form.password.$valid }">
+          <label>{{::lang.signUp.password}}</label>
+          <input type="password" name="password" ng-model="password" placeholder="{{::lang.signUp.passwordPlaceholder}}" strong-password required />
+          <strength-bar field="form.password" />
+        </div>
+
+        <div class="input-container" ng-class="{ valid: form.repeatPassword.$valid }">
+          <label>{{::lang.signUp.confirmPassword}}</label>
+          <input type="password" name="repeatPassword" ng-model="repeatPassword" placeholder="{{::lang.signUp.confirmPasswordPlaceholder}}" match-password="password" />
+        </div>
+
+        <div class="cta-container">
+
+          <div class="col">
+            <div class="checkbox-container">
+              <input type="checkbox" id="terms" class="checkbox-toggle" name="terms" ng-model="terms" required >
+              <label for="terms"></label>
+              <span>{{::lang.signUp.terms}}</span>
+            </div>
+          </div><!-- col -->
+
+
+          <div class="col">
+            <button type="submit" class="medium-button">{{::lang.signUp.open}}</button>
+          </div>
+
+        </div><!-- input-container -->
+
+      </form>
+
+      <footer>
+        <p>{{::lang.signUp.signIn.text}} <a href="#/sign-in" class="link-button">{{::lang.signUp.signIn.link}}</a></p>
+      </footer>
+
+    </section><!-- box -->
+
+  </div><!-- _wrapper -->
+
+</section>

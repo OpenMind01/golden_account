@@ -1,0 +1,20 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+
+    <div class="actions">
+      <a href="javascript:;" class="link-button" ng-click="showPrefs()">{{::lang.summary.settings.preferences}}</a>
+    </div>
+
+    <i class="settings-icon"></i>
+    <h2>{{::lang.summary.settings.title}}</h2>
+  </div>
+
+  <div class="summary-settings">
+
+    <div include-template="tpl/views/summary/summary_settings_table.html"></div>
+    <div scope="parent" include-template="tpl/views/summary/summary_settings_prefs.html"></div>
+
+  </div>
+
+</div><!-- _wrapper -->

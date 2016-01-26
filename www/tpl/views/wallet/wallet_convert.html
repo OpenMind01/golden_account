@@ -1,0 +1,162 @@
+<modal ng-model="cg.show" class="convert-to-gold-modal">
+
+  <form name="formConvert">
+
+    <!-- STEP 1 -->
+    <div class="modal-box" ng-show="cg.step == 1">
+
+      <header>
+        <a href="javascript:;" ng-click="cg.show = false" class="close-modal"><i class="fa fa-times"></i></a>
+        <h2>{{::lang.wallet.convert.title}}</h2>
+      </header>
+
+      <h3 class="dark">{{::lang.wallet.convert.locationHeading}}</h3>
+
+      <div class="vault-location-map">
+
+        <div class="map-pin toronto" ng-class="{active: convert.location == lang.wallet.convert.toronto}" ng-click="convert.location = lang.wallet.convert.toronto">
+          <i class="flag ca"></i>
+          <span>{{::lang.wallet.convert.toronto}}</span>
+        </div>
+
+        <div class="map-pin new-york" ng-class="{active: convert.location == lang.wallet.convert.newYork}" ng-click="convert.location = lang.wallet.convert.newYork">
+          <i class="flag us"></i>
+          <span>{{::lang.wallet.convert.newYork}}</span>
+        </div>
+
+        <div class="map-pin london" ng-class="{active: convert.location == lang.wallet.convert.london}" ng-click="convert.location = lang.wallet.convert.london">
+          <i class="flag gb"></i>
+          <span>{{::lang.wallet.convert.london}}</span>
+        </div>
+
+        <div class="map-pin zurich" ng-class="{active: convert.location == lang.wallet.convert.zurich}" ng-click="convert.location = lang.wallet.convert.zurich">
+          <i class="flag ch"></i>
+          <span>{{::lang.wallet.convert.zurich}}</span>
+        </div>
+
+        <div class="map-pin hong-kong" ng-class="{active: convert.location == lang.wallet.convert.hongKong}" ng-click="convert.location = lang.wallet.convert.hongKong">
+          <i class="flag hk"></i>
+          <span>{{::lang.wallet.convert.hongKong}}</span>
+        </div>
+
+        <div class="map-pin singapore" ng-class="{active: convert.location == lang.wallet.convert.singapore}" ng-click="convert.location = lang.wallet.convert.singapore">
+          <i class="flag sg"></i>
+          <span>{{::lang.wallet.convert.singapore}}</span>
+        </div>
+
+      </div><!-- vault-location-map -->
+
+      <div class="input-container" ng-class="{valid:formConvert.location.$valid}">
+        <label>{{::lang.wallet.convert.location}}</label>
+        <location-input name="location" ng-model="convert.location" country="convert.country" flag="convert.flag" required />
+      </div>
+
+      <div class="cta-container">
+        <a href="javascript:;" ng-click="cg.step = formConvert.location.$valid ? 2 : 1" class="button medium-button">{{::lang.wallet.convert.next}}</a>
+      </div>
+
+    </div><!-- modal-box -->
+
+    <!-- STEP 2 -->
+    <div class="modal-box" ng-show="cg.step === 2">
+
+      <header>
+        <a href="javascript:;" ng-click="cg.show = false" class="close-modal"><i class="fa fa-times"></i></a>
+        <h2>{{::lang.wallet.convert.title}}</h2>
+      </header>
+
+      <div class="available-balance">
+
+        <i></i>
+
+        <div class="balance-container">
+          <span>{{::lang.wallet.convert.availableBalance}}</span>
+          <h2 ng-show="currencySwitch">
+            {{lang.currencySymbol[$root.currency]}}
+            {{(cg.balance.value + cg.balance.unconfirmed) * $root.exchange[$root.currency].BTC | formatCurrency:2}}
+          </h2>
+          <h2 ng-show="!currencySwitch">
+            {{::lang.currencySymbol.BTC}}
+            {{(cg.balance.value + cg.balance.unconfirmed) | formatCurrency:5}}
+          </h2>
+          <a href="javascript:;" ng-click="currencySwitch = !currencySwitch" class="switch-button" data-tooltip="{{::lang.wallet.transactions.convert}}">
+            <i class="switch-icon"></i>
+          </a>
+        </div><!-- balance-container -->
+
+      </div><!-- available-balance -->
+
+      <div class="input-container" ng-class="{valid:formConvert.amount.$valid}">
+        <label>{{::lang.wallet.convert.amount}}</label>
+        <amount-input name="amount" ng-change="$root.convertGold(convert)" ng-model="convert.amount" input="convert.input" required />
+      </div>
+
+      <div class="cta-container">
+        <a href="javascript:;" ng-click="$root.convertGold(convert); cg.step = formConvert.amount.$valid ? 3 : 2;" class="button medium-button">{{::lang.wallet.convert.convert}}</a>
+      </div>
+
+    </div><!-- modal-box -->
+
+      <!-- STEP 3 -->
+    <div class="modal-box completion" ng-show="cg.step === 3">
+
+      <header>
+        <a href="javascript:;" ng-click="cg.show = false" class="close-modal"><i class="fa fa-times"></i></a>
+        <h2>{{::lang.wallet.convert.title}}</h2>
+      </header>
+
+      <div class="completion-illustration">
+        <i></i>
+      </div>
+
+      <p class="text-block">
+        {{::lang.wallet.convert.summary}}
+      </p>
+
+      <div class="transaction-details">
+
+        <div class="col">
+          <span>
+            {{::lang.currencySymbol[convert.input.currency]}}
+            {{convert.input.value}}
+            {{convert.input.currency}}
+          </span>
+        </div>
+
+        <div class="col">
+          <span>
+            {{convert.amount}}
+            {{::lang.currencySymbol.BTC}}
+          </span>
+        </div>
+
+        <div class="col">
+          <span>
+            {{convert.grams | formatCurrency:2}}g
+            {{::lang.wallet.convert.gold}}
+          </span>
+        </div>
+
+      </div><!-- transaction-details -->
+
+      <p class="text-block">
+        {{::lang.wallet.convert.location}}
+      </p>
+
+      <div class="location-details">
+
+        <i class="flag" ng-class="convert.flag"></i>
+        <img class="brinks-logo" src="img/brinks-logo.png" alt="Brinks">
+        <span>Brinks in {{convert.location}}, {{convert.country}}</span>
+
+      </div><!-- location-details -->
+
+      <footer>
+        <a href="javascript:;" ng-click="cg.show = false;" class="link-button">{{::lang.wallet.convert.close}}</a>
+      </footer>
+
+    </div><!-- modal-box -->
+
+  </form>
+
+</modal><!-- modal -->

@@ -1,0 +1,217 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Icons
+//
+// ----------------------------------------------
+//
+// App wide icons
+
+//
+// Specific Icons
+//
+// 32px
+$wallet-icon: (
+  size: 32px,
+  xpos: $sprite-pos-1,
+  ypos: $sprite-pos-1
+);
+
+$transactions-icon: (
+  size: 32px,
+  xpos: $sprite-pos-2,
+  ypos: $sprite-pos-1
+);
+
+$sendpayment-icon: (
+  size: 32px,
+  xpos: $sprite-pos-3,
+  ypos: $sprite-pos-1
+);
+
+$receivepayment-icon: (
+  size: 32px,
+  xpos: $sprite-pos-4,
+  ypos: $sprite-pos-1
+);
+
+$contacts-icon: (
+  size: 32px,
+  xpos: $sprite-pos-5,
+  ypos: $sprite-pos-1
+);
+
+$menu-icon: (
+  size: 32px, 
+  xpos: $sprite-pos-6,
+  ypos: $sprite-pos-1
+);
+
+$large-upload-icon: (
+  size: 32px, 
+  xpos: $sprite-pos-7,
+  ypos: $sprite-pos-1
+);
+
+$large-right-arrow-icon: (
+  size: 32px,
+  xpos: $sprite-pos-8,
+  ypos: $sprite-pos-1
+);
+
+
+// 25px
+$menu-dashboard-icon: (
+  size: 25px,
+  xpos: $sprite-pos-1,
+  ypos: $sprite-pos-2
+);
+
+$menu-wallet-icon: (
+  size: 25px,
+  xpos: $sprite-pos-2,
+  ypos: $sprite-pos-2
+);
+
+$menu-vault-icon: (
+  size: 25px,
+  xpos: $sprite-pos-3,
+  ypos: $sprite-pos-2
+);
+
+$menu-investments-icon: (
+  size: 25px,
+  xpos: $sprite-pos-4,
+  ypos: $sprite-pos-2
+);
+
+$large-chevron-icon: (
+  size: 25px,
+  xpos: $sprite-pos-6,
+  ypos: $sprite-pos-2
+);
+
+$twitter-icon: (
+  size: 30px,
+  xpos: $sprite-pos-7,
+  ypos: $sprite-pos-2,
+  height: 25px
+);
+
+$facebook-icon: (
+  size: 25px,
+  xpos: $sprite-pos-8,
+  ypos: $sprite-pos-2
+);
+
+$linkedin-icon: (
+  size: 25px,
+  xpos: $sprite-pos-9,
+  ypos: $sprite-pos-2
+);
+
+
+// 16px
+$show-icon: (
+  size: 18px,
+  xpos: $sprite-pos-1,
+  ypos: $sprite-pos-3,
+  height: 15px
+);
+
+$copy-icon: (
+  size: 16px,
+  xpos: $sprite-pos-2,
+  ypos: $sprite-pos-3
+);
+
+$add-contact-icon: (
+  size: 16px,
+  xpos: $sprite-pos-3,
+  ypos: $sprite-pos-3
+);
+
+$switch-icon: (
+  size: 16px, 
+  xpos: $sprite-pos-4,
+  ypos: $sprite-pos-3
+);
+
+$edit-icon: (
+  size: 16px,
+  xpos: $sprite-pos-5,
+  ypos: $sprite-pos-3
+);
+
+$remove-icon: (
+  size: 16px,
+  xpos: $sprite-pos-6,
+  ypos: $sprite-pos-3
+);
+
+$user-menu-settings-icon: (
+  size: 16px, 
+  xpos: $sprite-pos-7,
+  ypos: $sprite-pos-3
+);
+
+$user-menu-logout-icon: (
+  size: 16px,
+  xpos: $sprite-pos-8,
+  ypos: $sprite-pos-3
+);
+
+$camera-icon: (
+  size: 16px,
+  xpos: $sprite-pos-9,
+  ypos: $sprite-pos-3
+);
+
+$email-icon: (
+  size: 16px,
+  xpos: $sprite-pos-10,
+  ypos: $sprite-pos-3
+);
+
+// Base style for icon.
+// if used add class .icon first
+.icon { display: inline-block; }
+
+
+// App Menu Icons
+.app-menu-container .dashboard i    { @include icon-sprite($menu-dashboard-icon); }
+.app-menu-container .wallet i       { @include icon-sprite($menu-wallet-icon); }
+.app-menu-container .vault i        { @include icon-sprite($menu-vault-icon); }
+.app-menu-container .investments i  { @include icon-sprite($menu-investments-icon); }
+
+
+// User Menu
+.user-menu-settings-icon { @include icon-sprite($user-menu-settings-icon); }
+.user-menu-logout-icon   { @include icon-sprite($user-menu-logout-icon); }
+
+
+// Heading Icons
+.wallet-icon         { @include icon-sprite($wallet-icon); }
+.transactions-icon   { @include icon-sprite($transactions-icon); }
+.sendpayment-icon    { @include icon-sprite($sendpayment-icon); }
+.receivepayment-icon { @include icon-sprite($receivepayment-icon); }
+.contacts-icon       { @include icon-sprite($contacts-icon); }
+
+
+// Other app icons
+.add-contact-icon       { @include icon-sprite($add-contact-icon); }
+.switch-icon            { @include icon-sprite($switch-icon); }
+.large-upload-icon      { @include icon-sprite($large-upload-icon); }
+.large-right-arrow-icon { @include icon-sprite($large-right-arrow-icon); }
+
+
+// Button icons
+.camera-icon { @include icon-sprite($camera-icon); }
+.email-icon  { @include icon-sprite($email-icon); }
+
+
+// Social Icons
+.twitter-icon  { @include icon-sprite($twitter-icon); }
+.facebook-icon { @include icon-sprite($facebook-icon); }
+.linkedin-icon { @include icon-sprite($linkedin-icon); }

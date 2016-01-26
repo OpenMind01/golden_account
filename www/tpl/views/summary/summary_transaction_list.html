@@ -1,0 +1,38 @@
+<table id="summary-tx-list">
+  <thead>
+    <tr>
+      <th>{{::lang.summary.transactions.date}}</th>
+      <th>{{::lang.summary.transactions.description}}</th>
+      <th>{{::lang.summary.transactions.status}}</th>
+      <th class="balance">
+        {{::lang.summary.transactions.amount}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in transactions.all | orderBy : tx.sort | limitTo : tx.size">
+      <td>
+        <span>{{item.date ? (item.date | formatDate) : '&nbsp;'}}</span>
+      </td>
+      <td>
+        {{item.description}}
+      </td>
+      <td ng-class="{ confirmed: item.status === 'confirmed' }">
+        <span ng-if="item.status === 'confirmed'">
+          {{::lang.summary.status.confirmed}}
+        </span>
+        <span ng-if="item.status === 'pending'" tooltip="{{::lang.summary.tooltip.pending}}">
+          {{::lang.summary.status.pending}}
+        </span>
+      </td>
+      <td class="balance">
+        <span>
+          {{::lang.currencySymbol[$root.currency]}}
+        </span>
+        <span ng-class="{ left: item.amount > 0, right: item.amount < 0 }">
+          {{ item.amount * $root.exchange[$root.currency][item.currency] | formatCurrency : 2 }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

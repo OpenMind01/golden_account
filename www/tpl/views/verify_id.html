@@ -1,0 +1,68 @@
+<section class="account-flow">
+
+  <div class="_wrapper">
+
+    <section class="box">
+
+      <header>
+        <h2>{{::lang.verify.id.title}}</h2>
+      </header>
+
+      <div class="step-container">
+
+        <span class="divider"></span>
+        <span class="divider"></span>
+
+        <div class="step email">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepOne}}</span>
+        </div>
+
+        <div class="step mobile complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepTwo}}</span>
+        </div>
+
+        <div class="step basic-info complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepThree}}</span>
+        </div>
+
+        <div class="step verify-id current">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepFour}}</span>
+        </div>
+
+      </div><!-- step-container -->
+
+      <form name="formVerifyId" ng-submit="verifyId()" novalidate>
+
+        <div class="alert error" ng-show="formVerifyId.$invalid && formVerifyId.$submitted">
+          <span>{{::lang.verify.error.title}}</span>
+          <ul>
+            <li ng-show="formVerifyId.document.$invalid">{{::lang.verify.error.document}}</li>
+          </ul>
+        </div>
+
+        <p class="text-block">
+          <strong>{{::lang.verify.id.why.heading}}</strong>
+          {{::lang.verify.id.why.text}}
+        </p>
+
+        <image-input name="document" ng-model="document" required />
+
+      </form>
+
+    </section><!-- box -->
+
+  </div><!-- _wrapper -->
+
+</section>

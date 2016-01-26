@@ -1,0 +1,37 @@
+
+<dl>
+  <dt>{{::lang.wallet.transactions.from}}</dt>
+  <dd>
+      <span ng-if="tx.item.fromContact">
+        <a href="{{'#/wallet/contacts/' + tx.item.fromContact.address}}">
+          {{tx.item.fromContact.name}}
+        </a>
+      </span>
+      <span ng-if="!tx.item.fromContact">
+        {{tx.item.from[0]}}
+        <a href="{{'#/wallet/contacts/' + tx.item.from[0]}}">
+          {{::lang.wallet.transactions.add}}
+        </a>
+      </span>
+  </dd>
+  <dt>{{::lang.wallet.transactions.to}}</dt>
+  <dd>
+    <span ng-if="tx.item.toContact">
+      <a href="{{'#/wallet/contacts/' + tx.item.toContact.address}}">
+        {{tx.item.toContact.name}}
+      </a>
+    </span>
+    <span ng-if="!tx.item.toContact">
+      {{tx.item.to[0]}}
+      <a href="{{'#/wallet/contacts/' + tx.item.to[0]}}">
+        {{::lang.wallet.transactions.add}}
+      </a>
+    </span>
+  </dd>
+  <dt>{{::lang.wallet.transactions.amount}}</dt>
+  <dd>{{tx.item.amount}}</dd>
+  <dt>{{::lang.wallet.transactions.confirmations}}</dt>
+  <dd>{{tx.item.confirmations}}</dd>
+  <dt>{{::lang.wallet.transactions.date}}</dt>
+  <dd>{{tx.item.date}}</dd>
+</dl>

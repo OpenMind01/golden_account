@@ -1,0 +1,64 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+    <div class="center-heading">
+      <i class="sendpayment-icon"></i>
+      <h2>{{::lang.wallet.send.title}}</h2>
+    </div>
+  </div>
+
+  <section class="box">
+
+    <form name="formSend" ng-submit="sendPayment()" novalidate>
+
+      <fieldset>
+
+        <div class="alert error" ng-show="!formSend.$valid && send.clicked">
+          <span>{{::lang.wallet.error.title}}</span>
+          <ul>
+            <li ng-show="formSend.to.$error.self">{{::lang.wallet.error.toSelf}}</li>
+            <li ng-show="formSend.to.$error.valid">{{::lang.wallet.error.toValid}}</li>
+            <li ng-show="formSend.to.$error.required">{{::lang.wallet.error.toRequired}}</li>
+            <li ng-show="formSend.amount.$error.required">{{::lang.wallet.error.amountRequired}}</li>
+            <li ng-show="formSend.amount.$error.min">{{::lang.wallet.error.amountMinimun}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container" ng-class="{valid:formSend.to.$valid}">
+          <label>{{::lang.wallet.send.to}}:</label>
+          <address-input name="to" ng-model="send.to" self="wallet.address" contacts="wallet.contacts" required />
+        </div>
+
+        <div class="input-container" ng-class="{valid:formSend.amount.$valid}">
+          <div class="available-amount">
+            {{::lang.wallet.send.available}}
+            <span ng-show="currencySwitch">
+              {{lang.currencySymbol[$root.currency]}}
+              {{(balance.value + balance.unconfirmed) * $root.exchange[$root.currency].BTC | formatCurrency:2}}
+            </span>
+            <span ng-show="!currencySwitch">
+              {{::lang.currencySymbol.BTC}}
+              {{(balance.value + balance.unconfirmed) | formatCurrency:5}}
+            </span>
+          </div>
+          <label>{{::lang.wallet.send.amount}}:</label>
+          <amount-input name="amount" ng-model="send.amount" required />
+        </div>
+
+        <div class="cta-container">
+          <button ng-click="send.clicked = true; send.confirm = formSend.$valid;" type="button" class="medium-button">{{::lang.wallet.send.submit}}</button>
+        </div>
+
+        <div class="dialog" ng-show="send.confirm">
+          <p compile="send.confirm" ng-bind-html="lang.wallet.send.confirmation"></p>
+          <button ng-click="send.confirm = false; send.clicked = false;" type="submit">{{::lang.wallet.send.confirm}}</button>
+          <button ng-click="send.confirm = false" type="button">{{::lang.wallet.send.cancel}}</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section><!-- box -->
+
+</div><!-- _wrapper -->

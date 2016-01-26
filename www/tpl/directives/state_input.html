@@ -1,0 +1,50 @@
+<div
+  class="flyout-widget state-input"
+  ng-init="lang = $root.lang; list = {visible:null,filter:null,index:-1,stick:null};"
+>
+
+  <input
+    type="text"
+    maxlength="2"
+    ng-readonly="readonly"
+    placeholder="{{::lang.stateInput.statePlaceholder}}"
+    ng-model="state.value"
+    ng-focus="list.visible = true; list.filter = null; list.index = -1;"
+    ng-blur="list.visible = list.stick;"
+    ng-keyup="list.filter = state.value; list.visible = true;"
+    hit-enter="state.value = list.data[list.index].code; list.visible = false;"
+    hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+    hit-down="list.index = list.index + 1; list.index = list.index >= list.data.length ? list.data.length - 1 : list.index;"
+    focus-select
+    class="input-dropdown"
+  />
+
+  <span
+    class="input-dropdown-chevron"
+    ng-click="list.visible = true"
+    ng-show="!readonly"
+  ></span>
+
+  <div
+    class="flyout-container input-flyout-widget"
+    ng-show="list.visible && !readonly"
+    ng-class="{ active: list.visible }"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <ul class="item-list">
+        <li
+          ng-repeat="item in list.data = (lang.stateInput.stateList | filter:list.filter)"
+          ng-click="state.value = item.code; list.visible = false;"
+          ng-class="{ selected: $index === list.index }"
+          scroll-parent-if="$index === list.index"
+        >
+          <span class="name">{{item.state}}</span>
+          <span class="meta">{{item.code}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- flyout-widget -->

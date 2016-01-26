@@ -1,0 +1,90 @@
+{
+  "title": "Vault",
+  "loading": "Loading...",
+
+  "type": {
+    "physical": "Physical",
+    "bitcoin": "Bitcoin"
+  },
+
+  "status": {
+    "pending": "Pending",
+    "confirmed": "Confirmed"
+  },
+
+  "overview": {
+    "title": "Overview"
+  },
+
+  "balance": {
+    "name": "Name",
+    "balance": "Balance",
+    "change": "Today's Change",
+    "total": "Total Vault Value",
+    "location": "Location",
+    "custodian": "Custodian"
+  },
+
+  "transactions": {
+    "convert": "Check to display amount in selected currency.",
+    "title": "Transactions",
+    "date": "Date",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "more": "Load more",
+    "last": "Recent Activity",
+    "details": "Details",
+    "add": "Add Contact",
+    "csv": "Export as CSV",
+    "pdf": "Export as PDF",
+    "all": "View All Transactions"
+  },
+
+  "withdraw": {
+    "title": "Withdraw",
+    "amount": "Amount",
+    "submit": "Withdraw",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "method": "Method",
+    "details": "Method Details",
+    "location": "Vault Location"
+  },
+
+  "redeem": {
+    "title": "Redeem Gold",
+    "type": "Type",
+    "amount": "Amount",
+    "submit": "Redeem",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "location": "Vault Location"
+  },
+
+  "goldcard": {
+    "title": "Gold Card"
+  },
+
+  "deposit": {
+    "title": "Deposit",
+    "currency": "Currency",
+    "method": "Method",
+    "submit": "Deposit",
+    "location": "Vault Location",
+    "disclaimer": "All Deposits will automatically convert from source currency in gold once payment has been received at the BitGold Gold Price."
+  },
+
+  "error": {
+    "title": "Error",
+    "amountMinimum": "Amount must be higher than 0.00001 bitcoins.",
+    "amountRequired": "Amount is required.",
+    "locationRequired": "Vault Location is required.",
+    "typeRequired": "Type is required."
+  },
+
+  "tooltip": {
+    "pending": "This transaction is being confirmed by the Vault Custodian. Confirmations typically take 24-48 hours."
+  }
+
+}

@@ -1,0 +1,34 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Specific Resets
+//
+// ----------------------------------------------
+//
+// This file is used for specific resets on top 
+// of Eric's reset. 
+
+
+a {
+	text-decoration: none;
+
+	@include transition(color $animation-duration);
+
+	&:not(.button):hover { color: $bitgold-yellow !important; }
+}
+
+input, button {
+	border: 0;
+	border-radius: $border-radius;
+}
+
+input {
+
+	@include placeholder {
+		color: $white;
+	}
+
+	 &:focus { outline: none; }
+
+} // input

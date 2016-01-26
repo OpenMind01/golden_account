@@ -1,0 +1,47 @@
+
+<div
+  class="flyout-widget method-input"
+  ng-init="lang = $root.lang; method = {value:null,flag:null}; list = {visible:null,filter:null,index:-1,stick:null};"
+>
+
+  <input
+    type="text"
+    placeholder="{{::lang.methodInput.placeholder}}"
+    ng-model="method.value"
+    ng-focus="list.visible = true; list.filter = null; list.index = -1;"
+    ng-blur="list.visible = list.stick;"
+    ng-keyup="list.filter = method.value; list.visible = true;"
+    hit-enter="method.value = list.data[list.index].method; list.visible = false;"
+    hit-up="list.index = list.index - 1; list.index = list.index < 0 ? 0 : list.index;"
+    hit-down="list.index = list.index + 1; list.index = list.index >= list.data.length ? list.data.length - 1 : list.index;"
+    focus-select
+    class="input-dropdown"
+  />
+
+  <span
+    class="input-dropdown-chevron"
+    ng-click="list.visible = true"
+  ></span>
+
+  <div
+    class="flyout-container method-widget"
+    ng-show="list.visible"
+    ng-class="{ active: list.visible }"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <ul class="item-list">
+        <li
+          ng-repeat="item in list.data = (lang.methodInput.methodList | filter:list.filter)"
+          ng-click="method.value = item.method; list.visible = false;"
+          ng-class="{ selected: $index === list.index }"
+          scroll-parent-if="$index === list.index"
+        >
+          <span class="name">{{item.method}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

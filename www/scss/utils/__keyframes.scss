@@ -1,0 +1,32 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Keyframe Animations
+//
+// ----------------------------------------------
+//
+@-moz-keyframes mapPinEntrance {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+@-webkit-keyframes mapPinEntrance {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+@keyframes mapPinEntrance {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

@@ -1,0 +1,407 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Flyout Widget
+//
+// ----------------------------------------------
+//
+// This file defines flyout (dropdown) 
+// styles and types
+
+//
+// Specific flyout positions
+//
+
+//
+// Main positioning mixin
+//
+@mixin flyout-builder($w, $h, $alignment: "center", $position: "bottom", $arrow-pos: "top-center") {
+
+	// Variables
+	$arrow-top: -7px;
+
+	//
+	// Flyout Alignment
+	// 
+	// Options: center (default), right
+	//
+
+	// ## TODO extend for left alignment
+	//
+	@if $alignment == "center" {
+
+		right: 0; 
+		margin-right: -($w / 2 - 3);
+
+	} @else if $alignment == "right" {
+
+		right: 0; 
+
+	}
+
+
+	//
+	// Flyout Position
+	// 
+	// Options: bottom (default), top
+	//
+
+	// ## TODO extend for right and left positions
+	//
+	@if $position == "bottom" {
+		
+		top: 25px;
+	
+	} @else if $position == "top" {
+
+		bottom: 25px;
+
+	}
+
+
+	//
+	// Flyout Arrow Position
+	// 
+	// Options: middle-top
+	//
+
+	// ## TODO extend... 
+	//
+	@if $arrow-pos == "top-center" {
+
+		// Triangle
+		&:after {
+			top: $arrow-top; left: 50%;
+			margin-left: -6px;
+			@include triangle(15px, $white, up);
+		}
+
+	} @else if $arrow-pos == "top-right" {
+		
+		// Triangle
+		&:after {
+			top: $arrow-top; right: 10px;
+			@include triangle(15px, $white, up);
+		}
+
+	} @else if $arrow-pos == "top-left" {
+
+		&:after {
+			top: $arrow-top; left: 10px;
+			@include triangle(15px, $white, up)
+		}
+	
+	} @else if $arrow-pos == "none" {}
+
+	//
+	// Apply styles
+	//
+	width: $w;
+	height: $h;
+
+	// if there is an arrow show basestyles
+	@if $arrow-pos != "none" {
+		&:after {
+			content: "";
+			position: absolute;
+		}
+	}
+
+} // flyout-position
+
+
+//
+// Main Widget Styles
+//
+.flyout-widget {
+	display: inline-block;
+	position: relative;
+
+	.flyout-hook {
+		color: $white;
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+
+		@include link-chevron();
+	
+	} // flyout-hook
+
+	.flyout-container {
+
+		$w: $default-flyout-width; 
+
+		position: absolute;
+		padding: 15px 0;
+		z-index: $z - 5;
+
+		font-size: rem(16);
+	
+		background: $white;
+
+		box-shadow: $box-shadow-lg;
+		border-radius: $border-radius;
+		color: $bitgold-medium;
+
+		visibility: hidden;
+		opacity: 0;
+
+		@include transform(scale(.3));
+		@include transform-origin(center top);
+
+		@include transition(
+			opacity .1s ease-out,
+			visibility .25s ease-out,
+			transform .2s $cubic-bezier
+		);
+
+		&.active {
+			visibility: visible;
+			opacity: 1;
+			@include transform(scale(1));
+
+		} // active
+
+	} // flyout-container
+
+
+	// Common Flyout Elements
+	// ----------------------
+	//	
+	.inner {
+		padding: 0 20px;
+		overflow: auto;
+		height: 100%;
+	}
+
+	.list-heading {
+		margin: 20px 0 10px;
+		padding-bottom: 5px;
+		width: 100%;
+
+		border-bottom: 1px solid $light-border-color;
+		color: $bitgold-dark;
+
+		// This class is added to a list heading
+		// to create a toggle
+		&.toggle {
+			cursor: pointer;
+
+			&:after {
+				content: "\f078";
+				font-family: FontAwesome;
+				float: right;
+				font-size: 12px;
+				color: $bitgold-medium;
+
+				@include transition(transform .2s ease-out);
+				@include transform(rotate(-90deg));
+
+			} // after
+
+			&.active {
+
+				& ~ .item-list {
+					display: block;
+				}
+				
+				&:after { @include transform(rotate(0deg)); }
+
+			} // active
+
+			// Hide list
+			& ~ .item-list {
+				display: none;
+			}
+
+		} // toggle
+	
+	} // list heading
+
+	.item-list {
+
+		li {
+			position: relative;
+			margin-bottom: 20px;
+			cursor: pointer;
+			font-size: em(14);
+
+			&:hover {
+
+				.name { color: $bitgold-dark; }
+
+			} // hover
+
+			// Background on li for accessibility 
+			&.selected:before {
+
+				content: "";
+				position: absolute;
+				top: -4px; left: -10px;
+				width: 100%; height: 24px;
+				padding-right: 20px;
+				z-index: -1;
+
+				background: $light-grey-bg-color;
+				border-radius: $border-radius;
+				
+			} // selected:before
+
+			// Flag icon
+			> i.flag {
+				position: relative;
+				top: -5px;
+				display: block;
+				float: left;
+				@include size(24px);
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+		
+		} // li
+
+		.meta, .name {
+			z-index: $z;
+		}
+
+		.meta {
+			float: right;
+			margin-top: 1px;
+			color: $bitgold-dark;
+			text-transform: uppercase;
+		}
+
+		.name {
+			@include transition(color .2s);
+		}
+
+	} // item-list
+
+} // flyout-widget
+
+
+
+//
+// Specific Flyout Styles
+//	
+.currency-widget {
+
+	@include flyout-builder(340px, 340px);
+
+	.search-container {
+
+		border-bottom: 1px solid $light-border-color;
+		padding-bottom: 5px;
+		margin-bottom: 15px;
+
+		// Search Icon
+		i:after {
+			display: inline-block;
+			content: "\f002";
+			font-family: FontAwesome;
+		}
+
+		input {
+			padding: 5px;
+			margin-left: 5px;
+			width: 90%;
+			font-weight: $medium-font;
+
+			@include placeholder {
+				color: $bitgold-medium;
+			}
+		
+		} // input
+
+	} // search-container
+
+} // currency-widget
+
+
+//
+// ## TODO Refactor specific names into generic names. 
+
+// Language Widget
+.language-widget, .small-widget {
+
+	@include flyout-builder(250px, 300px, "right", "top", "none");
+
+} // language-widget
+
+// Phone Widget
+.phone-widget, .input-flyout-widget {
+
+	@include flyout-builder(300px, 300px, "right", "bottom", "none");
+
+	// Push fly out down more
+	top: 50px;
+
+} // phone-widget
+
+// Wallet Label Widget
+.label-widget {
+
+	@include flyout-builder(400px, auto, left, bottom, top-left);
+	top: 40px;
+
+	// Give the input widget better spacing
+	.input-container {
+		margin-bottom: 15px;
+		label { margin-bottom: 0px; }
+	}
+
+} // label-widget
+
+// Icon flyout Widget
+.icon-menu-flyout {
+
+	@include flyout-builder(150px, auto, right, bottom, top-right);
+
+	// Custom Styles
+	.inner {
+		padding: 10px 20px;
+		text-align: left;
+
+		li {
+			margin-bottom: 20px;
+
+			&:last-child { margin-bottom: 0; }
+		}
+
+		a { color: $bitgold-medium; }
+
+		i { 
+			display: inline-block; 
+			margin-right: 10px;
+			vertical-align: middle;
+			font-size: 16px;
+		}
+
+	} // inner
+
+} // icon-menu-flyout
+
+// User menu on header
+.user-flyout { 
+	right: -15px; 
+}
+
+// Flyout menu that is attached to select dropdown
+.select-dropdown-flyout {
+
+	top: 34px;
+	right: -2px;
+
+} // select-dropdown-flyout
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<div
+  class="flyout-widget timezone-select-widget"
+  ng-init="lang = $root.lang; list = { visible: false, stick: false, filter: null, index: -1, counter: -1 };"
+  outer-click="list.visible = false"
+>
+
+  <input
+    type="text"
+    ng-model="timezone.selected"
+    ng-focus="list.visible = true; list.filter = null; list.index = -1; list.counter = -1;"
+    ng-blur="list.visible = list.stick;"
+    ng-keyup="list.filter = timezone.selected; list.counter = -1;"
+    placeholder="{{::lang.timezoneSelector.placeholder}}"
+  />
+
+  <div
+    class="flyout-container timezone-widget"
+    ng-class="{ active: list.visible }"
+    ng-show="list.visible"
+    ng-click="$event.stopPropagation()"
+    ng-mouseenter="list.stick = true"
+    ng-mouseleave="list.stick = false"
+  >
+    <div class="inner">
+      <ul class="item-list">
+        <li
+          ng-repeat="item in lang.timezoneSelector.timezones"
+          ng-click="timezone.selected = item.zone; list.visible = false;"
+          ng-class="{ selected: item.selected }"
+        >
+          <span class="name">{{item.name}}</span>
+          <span class="meta">{{item.zone}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

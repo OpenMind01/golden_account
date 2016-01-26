@@ -1,0 +1,41 @@
+<div class="_wrapper">
+
+  <div class="section-heading">
+
+    <div class="actions">
+
+      <div class="flyout-widget">
+
+        <div class="select-dropdown" ng-click="exportMenu=true" outer-click="exportMenu=false">
+          <span>{{::lang.wallet.export}}</span>
+        </div>
+
+        <div class="flyout-container icon-menu-flyout select-dropdown-flyout" ng-class="{ active: exportMenu }">
+          <div class="inner">
+            <ul class="item-list">
+              <li>
+                <pdf-button element="vault-tx-list" filename="vault_transactions.pdf">
+                  <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>{{::lang.wallet.pdf}}</a>
+                </pdf-button>
+              </li>
+              <li>
+                <csv-button element="vault-tx-list" filename="vault_transactions.csv">
+                  <a href="javascript:;"><i class="fa fa-file-excel-o"></i>{{::lang.wallet.csv}}</a>
+                </csv-button>
+              </li>
+            </ul>
+          </div>
+        </div><!-- flyout-container -->
+
+      </div><!-- flyout-widget -->
+
+    </div><!-- actions -->
+
+    <i class="transactions-icon"></i>
+    <h2>{{::lang.vault.transactions.title}}</h2>
+  </div>
+
+  <div class="vault-transactions" include-template="tpl/views/vault/vault_transaction_list.html">
+  </div>
+
+</div><!-- _wrapper -->

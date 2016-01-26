@@ -1,0 +1,190 @@
+// ----------------------------------------------
+//
+// BitGold - SCSS 
+//
+// Buttons
+//
+// ----------------------------------------------
+//
+// Styles, helpers and mixins for button styles. 
+
+//
+// Link Button
+//
+@mixin link-button($color: $bitgold-blue) {
+
+	color: $color;
+	padding-bottom: 4px;
+	border-bottom: 2px solid $color;
+
+	@include transition-property(border-color, color);
+	@include transition-duration($animation-duration);
+	@include transition-timing-function($timing-function);
+
+	&:hover {
+		border-color: $bitgold-yellow;
+	}
+
+} // link-button
+
+//
+// Traditional Button Mixin
+//
+@mixin button($size: "small", $color: yellow) {
+
+	// 
+	// Sizes
+	//
+	@if $size == "small" {
+
+		padding: 11px 20px 13px 20px;
+
+	} @else if $size == "medium" {
+
+		padding: 15px 30px 15px 30px;
+
+	}
+
+	//
+	// Colors
+	//
+	@if $color == yellow {
+
+		@include background-image(linear-gradient(
+			$yellow-gradient-top, 
+			$yellow-gradient-bottom
+		));
+
+		// Hover Style
+		&:hover {
+			@include background-image(linear-gradient(
+				lighten($yellow-gradient-top, 15%),
+				$yellow-gradient-bottom
+			));
+
+			color: $white !important;
+
+		}
+
+	} @else if $color == blue {
+
+		@include background-image(linear-gradient(
+			$blue-gradient-top,
+			$blue-gradient-bottom
+		));
+
+		// Hover
+		&:hover {
+			@include background-image(linear-gradient(
+				lighten($blue-gradient-top, 15%),
+				$blue-gradient-bottom
+			));
+		}
+
+	} @else if $color == grey {
+
+		@include background-image(linear-gradient(
+			$medium-gradient-top, 
+			$medium-gradient-bottom
+		));
+
+		color: $bitgold-dark !important;
+
+		&:hover {
+			@include background-image(linear-gradient(
+				lighten($medium-gradient-top, 10%),
+				$medium-gradient-bottom 
+			));
+		}
+
+	}
+
+	// Standard styles
+	display: inline-block;
+	cursor: pointer;
+	line-height: 1;
+	border-radius: $border-radius;
+	font-weight: $medium-font;
+	font-size: rem(14);
+	color: $white;
+	text-shadow: 0px 1px 2px rgba($black, .1);
+
+} // button
+
+
+//
+// Button Hooks
+//
+.button {
+	@include button();
+}
+
+.blue-button {
+	@include button(small, blue);
+}
+.grey-button {
+	@include button(small, grey);
+}
+
+.medium-button {
+	@include button(medium);
+}
+
+.link-button {
+	@include link-button();
+}
+
+.cancel-link-button {
+	@include link-button($bitgold-medium);
+}
+
+.light-link-button {
+	@include link-button($bitgold-light);
+}
+
+//
+// Specific Buttons
+//
+.convert-to-gold {
+
+	// Icon
+	&:before {
+		content: "\f021";
+		font-family: FontAwesome;
+		position: relative;
+		top: 0; left: -5px;
+		font-size: rem(11);
+	}
+
+} // covert-to-gold
+
+
+// Button with icon
+.icon-button {
+
+	// Hack to fix weird alignment
+	// This will need refactoring 
+	// if these buttons are to be extended. 
+	padding-top: 14px;
+
+	> i {
+		vertical-align: middle;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+} // icon-button
+
+
+
+
+
+
+
+
+
+
+
+
+
+

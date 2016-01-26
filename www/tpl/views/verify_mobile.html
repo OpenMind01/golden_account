@@ -1,0 +1,105 @@
+<section class="account-flow">
+
+  <div class="_wrapper">
+
+    <section class="box">
+
+      <header>
+        <h2>{{::lang.verify.mobile.title}}</h2>
+      </header>
+
+      <div class="step-container">
+
+        <span class="divider"></span>
+        <span class="divider"></span>
+
+        <div class="step email">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepOne}}</span>
+        </div>
+
+        <div class="step mobile current">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepTwo}}</span>
+        </div>
+
+        <div class="step basic-info not-complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepThree}}</span>
+        </div>
+
+        <div class="step verify-id not-complete">
+          <div class="icon-container">
+            <i></i>
+          </div>
+          <span>{{::lang.signUp.steps.stepFour}}</span>
+        </div>
+
+      </div><!-- step-container -->
+
+      <form name="formSet" ng-submit="setMobile()" novalidate ng-show="!displayVerifyCode">
+
+        <div class="alert error" ng-show="formSet.$invalid && formSet.$submitted">
+          <span>{{::lang.verify.error.title}}</span>
+          <ul>
+            <li ng-show="formSet.phone.$invalid">{{::lang.verify.error.phone}}</li>
+          </ul>
+        </div>
+
+        <p class="text-block">
+          <strong>{{::lang.verify.mobile.why.heading}}</strong>
+          {{::lang.verify.mobile.why.text}}
+        </p>
+
+        <div class="input-container" ng-class="{valid:formSet.phone.$valid}">
+          <label>{{::lang.verify.mobile.phone}}</label>
+          <phone-input name="phone" ng-model="phone" required />
+        </div>
+
+        <div class="cta-container">
+          <button type="submit" class="medium-button">
+            {{::lang.verify.mobile.send}}
+          </button>
+        </div>
+
+      </form>
+
+      <form name="formVerify" ng-submit="verifyMobile()" novalidate ng-show="displayVerifyCode">
+
+        <h3>{{::lang.verify.mobile.verifyHeading}}</h3>
+
+        <div class="alert error" ng-show="formVerify.$invalid && formVerify.$submitted">
+          <span>{{::lang.verify.error.title}}</span>
+          <ul>
+            <li ng-show="formVerify.$error.expired">{{::lang.verify.error.expired}}</li>
+            <li ng-show="formVerify.token.$invalid">{{::lang.verify.error.token}}</li>
+          </ul>
+        </div>
+
+        <div class="input-container center-small-input">
+          <input type="text" name="token" ng-model="token" placeholder="{{::lang.verify.mobile.token}}" required />
+        </div>
+
+        <div class="cta-container">
+          <button type="submit" class="medium-button">
+            {{::lang.verify.mobile.submit}}
+          </button>
+        </div>
+
+      </form>
+
+      <footer ng-show="displayVerifyCode">
+        <p>{{::lang.verify.mobile.resend.text}} <a href="javascript:;" class="link-button" ng-click="resendCode()">{{::lang.verify.mobile.resend.link}}</a></p>
+      </footer>
+
+    </section><!-- box -->
+
+  </div><!-- _wrapper -->
+
+</section>
